@@ -1,0 +1,28 @@
+/*Kristina Maher
+February 20 2025 */
+body{
+    color:black;
+    font-size:16px;
+    padding: 30px;
+}
+.intro{
+    font-size:24px;
+    color:blue;
+    padding: 20px 60px;
+}
+.highlight{
+    background-color: lightgoldenrodyellow;
+    padding: 5px;
+    color:black
+}
+.alert{
+    background:red;
+    color:white;
+    font-weight:bold;
+    padding:5px;
+}
+ 
+.alert.blue{
+    background:blue;
+
+}
