@@ -1,0 +1,27 @@
+ /*Kristina Maher 
+ February 20 2025 */
+header{
+    background-color:bisque;
+}
+p, ul, li{
+    font-size: 20px;
+}
+footer{
+    background-color:bisque;
+}
+/* unvisited link */
+a:link{
+    color:cornflowerblue;
+}
+/*Visited link */
+a:visited{
+    color:blueviolet;
+}
+/*mouse over link*/
+a:hover{
+    color:goldenrod;
+}
+/*selected link */
+a:active{
+    color:fuchsia;
+}
