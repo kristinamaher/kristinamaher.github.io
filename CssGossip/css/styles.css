@@ -1,15 +1,15 @@
-Body{
+body{
   font-family: Arial, sans-serif;
   font-size: 1em;
   background-image: url("../image/abstractPic.jpg");
   background-size: cover;
 }
 
-H1{
+h1{
   font-size: 2em;
   font-style: italic;
 }
-H3{
+h3{
   font-size: 1.5em;
 }
 span.fonts{
