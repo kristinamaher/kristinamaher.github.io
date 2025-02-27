@@ -11,12 +11,11 @@ H1{
 }
 H3{
   font-size: 1.5em;
-  border-bottom: 1px, solid, black;
 }
 span.fonts{
 color:orange;
 font-family: 'Comic Sans MS', sans-serif;
-font-size:1.5 em;
+font-size: 1.5em;
 font-style: italic;
 font-weight: bold;
 }
@@ -27,12 +26,12 @@ font-weight: bold;
 span.more{
     color: blue;
     text-decoration: underline;
-    border:  1px, dashed, gray;
+    border:  1px dashed gray;
     background-color: #D69BBE;
 }
 span.backgrounds{
     color: green;
-  	font: 'Trebuchet MS', san-serif;
+  	font-family: 'Trebuchet MS', san-serif;
  	font-size: 1.25em;
 }
 article ul{
