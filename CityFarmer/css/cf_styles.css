@@ -15,36 +15,30 @@ h2{
 	font-weight: normal;
 	font-style: italic;
 }
-#outerwrapper {
+#outerwrapper{
 	width: 70%;
 	margin-left: auto;
 	margin-right: auto;
 } 
-
-.floatleft { 
+.floatleft{ 
 float: left;
 margin-right: 3%;
 }
-
-.floatright {
+.floatright{
 float: right;
 margin-left: 3%;
 }
-
-main { 
+main{ 
 clear: both;
 background-color: #C5A98B;
 padding: 10px;
 }
-
 nav ul{
 	list-style-type: none;
 }
-
 main ul{
 	list-style-image: url(../images/tomato20px.png);
 }
-
 footer{
 	padding-top: 10px;
 	padding-bottom: 10px;
