@@ -29,9 +29,11 @@ float: right;
 margin-left: 3%;
 }
 main{ 
-clear: both;
 background-color: #C5A98B;
 padding: 10px;
+}
+main, footer{
+	clear: both;
 }
 nav ul{
 	list-style-type: none;
