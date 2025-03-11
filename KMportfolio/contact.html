@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- Kristina Maher
-January 28 2025 --> 
+March 11 2025 --> 
     <html lang="en">
         <head>
             <title>contact</title>
@@ -10,21 +10,18 @@ January 28 2025 -->
             <meta name="keywords" content="HTML, CSS, Javascript">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" type="text/css" href="css/styles.css">
+            <link href="css/style.css" type="text/css" rel="stylesheet">
         </head>
         <body>
             <header>
                 <h1>Contact Me</h1>
                 <nav>
-                    <nav>
-                        <nav>
-                            <ul>
-                                <li> <a href="index.html">Home</a></li>
-                                <li> <a href="about.html">About</a></li>
-                                 <li><a href="experience.html">Experience</a></li>
-                                 <li><a href="contact.html">Contact</a></li>
-                             </ul>
-                        </nav>
-                    </nav>
+                    <ul>
+                        <li> <a href="index.html">Home</a></li>
+                        <li> <a href="about.html">About</a></li>
+                        <li><a href="experience.html">Experience</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
                 </nav>
             </header>
             <main>
@@ -33,6 +30,55 @@ January 28 2025 -->
                     Phone: <a href="tel:+18228888888">1 (822) 888-8888</a>
                 </p>
             </main>
+            <form action="mailto:kristinamaher@my.cwi.edu?subject=Personal%20Portfolio%20Mail" enctype="text/plain" method="POST">
+
+                <fieldset>
+                <legend>How do I contact you?</legend>
+                    <div>         
+                        <label for="compName">Company name:</label><br>
+                        <input type="text" id="compName" name="compName" placeholder="Company Name"><br>
+                    </div>
+                    <div>
+                        <label for="personContact">Person to contact:</label><br>
+                        <input type="text" id="personContact" name="personContact" placeholder="Person's Name">
+                    </div>
+                    <div>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="email" required><br>
+                    </div>
+                    <div>
+                        <label for="phone">Phone:</label>
+                        <input type="tel" id="phone" name="phone" pattern ="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="000-000-0000"><br>
+                    </div>
+                </fieldset>
+        
+                <fieldset>
+                    <legend>What opportunities are available at your company?</legend>
+                   <div>
+                    <label for="opportunities">Type of Position:</label>
+                    <select id="opportunities" name="opportunities">
+                        <option value="internship">Internship</option>
+                        <option value="part-time">Part-time</option>
+                        <option value="full-time">Full-time</option>
+                        <option value="contract">Contract</option>
+                        <option value="temporary">Temporary</option>
+                        <option value="on-call">On call</option>
+                    </select>
+                    </div>
+                    
+                    <label for="Prepare">How did you find me?</label> <br> <br>
+                    <input type="radio" id="LinkedIn" name="LinkedIn" value="LinkedIn">
+                    <label for="LinkedIn">LinkedIn</label>
+                    <input type="radio" id="JobFair" name="JobFair" value="Job Fair">
+                    <label for="JobFair">Job Fair</label>
+                    <input type="radio" id="CWIPartner" name="CWIPartner" value="CWIPartner">
+                    <label for="CWIPartner">CWI Corporate Partner</label>
+                        <textarea id="Prepare" name="Prepare" rows="10" cols="100">How should I prepare for the interview?</textarea>
+                      
+                </fieldset>
+                <input type="submit" id="submit" value="Submit" class="btn">
+             </form>
+            
             <footer>
                 <hr>
                 
