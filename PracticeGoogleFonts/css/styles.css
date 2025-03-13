@@ -1,0 +1,8 @@
+/* Practice CustomFonts Style Sheet */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Oxygen:wght@700&display=swap');
+.websafe{
+    font-family: "Lora", serif;
+}
+.google {
+    font-family: "Oxygen", sans-serif;
+}
