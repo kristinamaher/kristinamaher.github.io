@@ -1,0 +1,13 @@
+/* Practice CustomFonts Style Sheet */
+
+@font-face {
+    font-family: 'Gondola';
+    src: url('../fonts/Gondola_SD-webfont.woff') format('woff'),
+        url('../fonts/Gondola_SD-Swash-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+	font-family: 'Gondola', "Times New Roman", serif;
+}
