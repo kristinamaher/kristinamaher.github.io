@@ -1,0 +1,31 @@
+body {
+    background: rgba(5, 194, 227, 0.443);
+    font-size: 1.25rem;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:#3D52A0;
+}
+li{
+    float: left;
+    border-right:1px solid #ede8F5;
+}
+li:last-child{
+    border-right: none;
+}
+li a {
+    display: block;
+    color: #4a6fbe;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover:not(.active){
+    background-color: black;
+}
+.active{
+    background-color: aquamarine;
+}
