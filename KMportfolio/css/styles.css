@@ -1,3 +1,7 @@
+body {
+    background: rgba(5, 194, 227, 0.443);
+    font-size: 1.25rem;
+}
 ul {
     list-style-type: none;
     margin: 0;
@@ -14,7 +18,7 @@ li:last-child{
 }
 li a {
     display: block;
-    color: #Adbbda;
+    color: #4a6fbe;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
