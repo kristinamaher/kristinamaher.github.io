@@ -1,0 +1,61 @@
+/* Kristina Maher
+April 1 2025 */
+html{
+	background-image: url("/image/jewelry.jpg");
+	background-size: cover;
+	background-position: top;
+	background-repeat: no-repeat;
+}
+nav{
+	font-size:1.5em;
+	clear: left;
+}
+.pacifico-regular {
+	font-family: "Pacifico", cursive;
+	font-weight: 400;
+	font-style: normal;
+  } 
+h1{
+	font-family: 'Pacifico';
+	font-size: 4em;
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url('/fonts/web fonts/roboto_regular_macroman/Roboto-Regular-webfont.woff') format('woff');
+}
+h2{
+	font-family: 'Roboto';
+	font-style: italic;
+	font-size: 2em;
+}
+ul{
+	list-style-type: none;
+}
+main{
+	padding: 10px;
+	margin: 20px;
+	border-radius: 2em;
+	font-size: 1.25em;
+	font-family: 'Times New Roman', Times, serif;
+	background: linear-gradient(to bottom,  #FFFFFF 0%, #F0F9E6 25%);
+} 
+#outerwrapper {	
+	border-radius: 15%;
+	background: rgba(243,205,170, 0.4);
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.addRightMargin{
+	margin-right:10%;
+
+}
+img{
+	float: left;
+	border-radius: 50%;
+}
+footer{
+	padding-bottom: 10px;
+	font-size: 1em;
+	text-align: center;
+}
