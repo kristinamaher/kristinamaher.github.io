@@ -1,7 +1,11 @@
 /* Kristina Maher
 April 1 2025 */
+@font-face {
+    font-family: 'Roboto';
+    src: url('/fonts/roboto-fontfacekit/web_fonts/roboto_regular_macroman/Roboto-Regular-webfont.woff') format('woff');
+}
 html{
-	background-image: url("/image/jewelry.jpg");
+	background-image: url("./image/jewelry.jpg");
 	background-size: cover;
 	background-position: top;
 	background-repeat: no-repeat;
@@ -19,10 +23,7 @@ h1{
 	font-family: 'Pacifico';
 	font-size: 4em;
 }
-@font-face {
-    font-family: 'Roboto';
-    src: url('/fonts/web fonts/roboto_regular_macroman/Roboto-Regular-webfont.woff') format('woff');
-}
+
 h2{
 	font-family: 'Roboto';
 	font-style: italic;
