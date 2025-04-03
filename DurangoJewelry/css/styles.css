@@ -2,10 +2,10 @@
 April 1 2025 */
 @font-face {
     font-family: 'Roboto';
-    src: url('fonts/roboto-fontfacekit/web_fonts/roboto_regular_macroman/Roboto-Regular-webfont.woff') format('woff');
+    src: url('../fonts/roboto-fontfacekit/web_fonts/roboto_regular_macroman/Roboto-Regular-webfont.woff') format('woff');
 }
 html{
-	background-image: url("image/jewelry.jpg");
+	background-image: url("../image/jewelry.jpg");
 	background-size: cover;
 	background-position: top;
 	background-repeat: no-repeat;
