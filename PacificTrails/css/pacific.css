@@ -11,16 +11,17 @@ nav{
 h2{
 	display: none;
 }
+
 /* tablet display */
 @media screen and (min-width:641px){
 	img{
 		display: block;
 	}
 	nav{
-		display: inline-block;
+		display: block;
 	}
 	nav ul li{
-		display: inline-block;
+		display: inline;
 	}
 	h2{
 		display: block;
@@ -46,7 +47,8 @@ header
 }
 .resort {
 	font-weight: bold;
-	color: #3399CC; 
+	color: #567C7F83; 
+	
   }
 nav
 { 
