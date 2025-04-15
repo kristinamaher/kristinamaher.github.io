@@ -17,7 +17,7 @@ h2{
 		display: block;
 	}
 	nav{
-		display: inline;
+		display: inline-block;
 	}
 	nav ul li{
 		display: inline-block;
