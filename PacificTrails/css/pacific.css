@@ -1,7 +1,7 @@
 /*Kristina Maher
 April 15 2025 */
 
-/* Mobile display */
+/* ********** Mobile display ********** */
 img{
 	display: none;
 }
@@ -9,16 +9,13 @@ nav{
 	display: block;
 }
 h2{
-	display: none;
+	display:none;
 }
-
-/* tablet display */
+/* ************** tablet display ************** */
 @media screen and (min-width:641px){
 	img{
 		display: block;
-	}
-	nav{
-		display: block;
+		max-width: 100%;
 	}
 	nav ul li{
 		display: inline;
@@ -27,8 +24,7 @@ h2{
 		display: block;
 	}
 }
-
-/* Css code */
+/* ********** Css code ********** */
 body 
 { 
 	background-color: #FFFFFF;
@@ -48,7 +44,6 @@ header
 .resort {
 	font-weight: bold;
 	color: #567C7F83; 
-	
   }
 nav
 { 
@@ -78,16 +73,7 @@ h3
 main ul 
 { 
 	list-style-image: url("../image/marker.gif"); 
-} 
-footer 
-{ 
-	font-size: 75%;
-    font-weight: bold;
-	text-align: center;
-	font-family: Georgia, 'Times New Roman', serif;
-	background: linear-gradient(to top, rgba(144,199,227,1),
-	rgba(255,255,255,1))
-}	   
+} 	   
 dt 
 { 
 	color: #000033; 
@@ -95,4 +81,12 @@ dt
 address
 { 
 	font-size: 90%; 
+}
+footer 
+{ 
+	font-size: 75%;
+    font-weight: bold;
+	text-align: center;
+	font-family: Georgia, 'Times New Roman', serif;
+	background: linear-gradient(to top, rgba(144,199,227,1),rgba(255,255,255,1))
 }
