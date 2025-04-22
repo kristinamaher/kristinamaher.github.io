@@ -1,0 +1,10 @@
+/*Kristina Maher
+April 22 2025 */
+img {
+    padding: 20px;
+    width: 250px;
+    transition:width .5s ease-in-out 0.5s
+}
+img:hover {
+    width: 350px;
+}
