@@ -1,5 +1,6 @@
 table {
     border: 2px solid black;
+    border: "1";
     background-color:#4CC7FF ;
     width: 80%;
     margin-left: 10%;

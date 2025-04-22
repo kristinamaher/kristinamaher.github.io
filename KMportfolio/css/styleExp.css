@@ -33,6 +33,3 @@ div.projectBox:nth-of-type(2) h3,div.projectBox:nth-of-type(2) a.button {
     border-radius: 15px;
     padding: 10px;
 }
-footer{
-    align-content: flex-end;
-}
