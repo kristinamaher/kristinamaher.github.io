@@ -6,6 +6,7 @@
 .projectBox {
     background: #FFFFFF;
     border: 1px solid #000000;
+    float: left;
     margin: 10px;
     text-align: center;
     width: 30%;
@@ -32,4 +33,7 @@ div.projectBox:nth-of-type(2) h3,div.projectBox:nth-of-type(2) a.button {
     text-decoration: none;
     border-radius: 15px;
     padding: 10px;
+}
+footer{
+    float: clear;
 }
