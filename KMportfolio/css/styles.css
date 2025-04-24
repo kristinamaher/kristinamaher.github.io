@@ -1,13 +1,17 @@
 body {
-    background: rgba(5, 194, 227, 0.443);
+    /*background: rgba(5, 194, 227, 0.443); beginning color*/
     font-size: 1.25rem;
+    background: linear-gradient(to bottom, rgb(255, 255, 255) ,rgb(173, 218, 230), #3D52A0); 
+    /*background: linear-gradient(to right, #000066,#99FF99 25%); test due to breakage*/
 }
+/*   *** Nav bar ** */
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color:#3D52A0;
+
 }
 li{
     float: left;
@@ -18,14 +22,19 @@ li:last-child{
 }
 li a {
     display: block;
-    color: #4a6fbe;
+    color: rgba(255, 255, 255);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+   font-size: 40px;
 }
 li a:hover:not(.active){
-    background-color: black;
+    background-color: rgba(0, 0, 0);
 }
+
 .active{
-    background-color: aquamarine;
+    background-color: rgb(173, 218, 230);
+} 
+footer a{
+color: rgba(255, 255, 255);
 }
