@@ -1,17 +1,24 @@
+@font-face{
+    font-family: 'Chant';
+    src: url('../fonts/Calligraffiti-webfont.woff') format(woff),
+        url('../fonts/Chantelli_Antiqua-webfont.woff') format(woff);
+}
 body {
     /*background: rgba(5, 194, 227, 0.443); beginning color*/
     font-size: 1.25rem;
     background: linear-gradient(to bottom, rgb(255, 255, 255) ,rgb(173, 218, 230), #3D52A0); 
+    font-family:'Chant', Times, serif;
     /*background: linear-gradient(to right, #000066,#99FF99 25%); test due to breakage*/
 }
-/*   *** Nav bar ** */
+             /*   *** Nav bar ** */
+
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color:#3D52A0;
-
+    font-family:"Newsreader", serif;
 }
 li{
     float: left;
@@ -26,7 +33,7 @@ li a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-   font-size: 40px;
+   font-size: 35px;
 }
 li a:hover:not(.active){
     background-color: rgba(0, 0, 0);
@@ -35,6 +42,9 @@ li a:hover:not(.active){
 .active{
     background-color: rgb(173, 218, 230);
 } 
+               /* ** End nav bar ** */
+
+
 footer a{
 color: rgba(255, 255, 255);
 }
