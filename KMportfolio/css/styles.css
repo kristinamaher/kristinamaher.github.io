@@ -1,5 +1,7 @@
+/*Kristina Maher
+May 6 2025  */
 @font-face{
-    font-family: 'Chant';
+    font-family: 'Chantelli';
     src: url('../fonts/Calligraffiti-webfont.woff') format(woff),
         url('../fonts/Chantelli_Antiqua-webfont.woff') format(woff);
 }
@@ -7,7 +9,7 @@ body {
     /*background: rgba(5, 194, 227, 0.443); beginning color*/
     font-size: 1.25rem;
     background: linear-gradient(to bottom, rgb(255, 255, 255) ,rgb(173, 218, 230), #3D52A0); 
-    font-family:'Chant', Times, serif;
+    font-family:"Newsreader", Times, serif;
     /*background: linear-gradient(to right, #000066,#99FF99 25%); test due to breakage*/
 }
              /*   *** Nav bar ** */
@@ -18,7 +20,7 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color:#3D52A0;
-    font-family:"Newsreader", Times, serif;
+    font-family:'Chantelli', Times, serif;
 }
 li{
     float: left;
