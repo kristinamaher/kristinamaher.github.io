@@ -1,6 +1,6 @@
 /*Media queiry atempt */
 @media (min-width:641px){
-    main{
+    .main{
         width: 30%;
     }
 }
