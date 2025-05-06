@@ -1,5 +1,6 @@
 /*Kristina Maher
 May 6 2025 */
+/*ShowCase */
 .projectExamples {
     display: flex;
     justify-content: space-between;
@@ -36,6 +37,7 @@ div.projectBox:nth-of-type(2) h3,div.projectBox:nth-of-type(2) a.button {
     border-radius: 15px;
     padding: 10px;
 }
+/* end ShowCase */
 footer{
     float: clear;
 }
