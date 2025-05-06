@@ -44,7 +44,9 @@ li a:hover:not(.active){
 } 
                /* ** End nav bar ** */
 
-
+.school_name{
+    font-weight: bold;
+}
 footer a{
 color: rgba(255, 255, 255);
 }
