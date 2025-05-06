@@ -9,7 +9,7 @@ body {
     /*background: rgba(5, 194, 227, 0.443); beginning color*/
     font-size: 1.25rem;
     background: linear-gradient(to bottom, rgb(255, 255, 255) ,rgb(173, 218, 230), #3D52A0); 
-    font-family:"Newsreader", Times, serif;
+    font-family:'Chantelli', Times, serif;
     /*background: linear-gradient(to right, #000066,#99FF99 25%); test due to breakage*/
 }
              /*   *** Nav bar ** */
@@ -20,7 +20,7 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color:#3D52A0;
-    font-family:'Chantelli', Times, serif;
+    font-family:"Newsreader", Times, serif;
 }
 li{
     float: left;
