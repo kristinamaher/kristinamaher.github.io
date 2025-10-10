@@ -1,21 +1,28 @@
 /* Kristina Maher
 May 6 2025 */
-/*Media queiry atempt*/
-@media (min-width: 641px){
-    .main{
-        width: 30%;
-    }
+
+main {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
-/* end media tablet view Atempt */
-main{
-    width: 80%;
-    margin-left: auto;
-	margin-right: auto; 
+
+/* Tablets and up */
+@media (min-width: 641px) {
+  main {
+    width: 70%;  /* a bit wider on tablets */
+  }
+}
+
+/* Desktops and up */
+@media (min-width: 1024px) {
+  main {
+    width: 60%; /* narrower on larger screens for better readability */
+  }
 }
 form{
     width: 80%;
-	margin-left: auto;
-	margin-right: auto; 
+	margin: 0 auto;
 }
 input{
     font-size: 1.5rem;
