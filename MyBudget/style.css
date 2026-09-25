@@ -7,6 +7,7 @@ h1{
 body{
 	background: linear-gradient(to bottom, slategray, cornflowerblue, blueviolet);
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
