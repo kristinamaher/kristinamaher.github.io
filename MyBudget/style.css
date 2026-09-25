@@ -9,6 +9,7 @@ body{
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-wrap: wrap;
 	padding: 30px;
 	font-family:"Times new roman", serif;
 }
