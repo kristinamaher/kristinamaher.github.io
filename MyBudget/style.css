@@ -1,0 +1,40 @@
+
+h1{
+	font-family: Arial,sans-serif;
+	font-weight: bold;
+}
+
+body{
+	background: linear-gradient(to bottom, slategray, cornflowerblue, blueviolet);
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: center;
+	font-family:"Times new roman", serif;
+}
+
+p{
+	font-size: 20px;
+	letter-spacing: 1.5px;
+}
+
+	
+/*unvisited link*/
+a:link{
+    color:cornflowerblue;
+}
+
+/*Visited link */
+a:visited{
+    color:blueviolet;
+}
+
+/*mouse over link*/
+a:hover{
+    color:goldenrod;
+}
+
+/*selected link */
+a:active{
+    color:fuchsia;
+}
