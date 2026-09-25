@@ -8,7 +8,6 @@ body{
 	background: linear-gradient(to bottom, slategray, cornflowerblue, blueviolet);
 	display: flex;
 	justify-content: center;
-	flex-wrap: wrap;
 	align-items: center;
 	padding: 30px;
 	font-family:"Times new roman", serif;
