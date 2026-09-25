@@ -6,7 +6,6 @@ h1{
 
 body{
 	background: linear-gradient(to bottom, slategray, cornflowerblue, blueviolet);
-	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
 	align-items: center;
