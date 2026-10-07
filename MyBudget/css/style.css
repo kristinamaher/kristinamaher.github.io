@@ -40,7 +40,18 @@ a:hover{
 a:active{
     color: #b19cd9;
 }
-
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:#3D52A0;
+    font-family:"Newsreader", Times, serif;
+}
+li{
+    float: left;
+    border-right:1px solid #ede8F5;
+}
 /*Media Quries */
 
 /*phone*/
