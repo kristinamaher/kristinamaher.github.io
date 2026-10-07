@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Add, edit, review all current and past goals">
+	<meta name="keywords" content="goal setting and goal treands">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Goals</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li> <a href="index.html"><img src="image/home.png"></a></li>
+				<li><a href="index.html">Home</a></li>
+				<li>Account</li>
+				<li>Goals</li>
+				<li>About</li>
+				<li>Settings</li>*/
+				<!--<li> <a href="settings.html"><img src="image/settings.png"></a></li>-->
+			</ul>
+		</nav>
+	</header>
+  <h1>Goals</h1>
+  
+<main>
+
+    <section>
+        <h2>Add a Goal</h2>
+
+        <form>
+
+            <label for="goal-name">Goal Name:</label>
+            <input type="text" id="goal-name" name="goal-name">
+
+            <label for="goal-type">Goal Type:</label>
+            <select id="goal-type" name="goal-type">
+                <option value="savings">Savings</option>
+                <option value="spending">Spending</option>
+                <option value="debt">Debt</option>
+                <option value="investment">Investment</option>
+            </select>
+
+            <label for="goal-amount">Goal Amount:</label>
+            <input type="number" id="goal-amount" name="goal-amount">
+
+            <label for="goal-date">Target Date:</label>
+            <input type="date" id="goal-date" name="goal-date">
+
+            <button type="submit">Add Goal</button>
+
+        </form>
+    </section>
+
+    <section>
+    <h2>Current Goals</h2>
+
+    <div id="current-goals">
+    </div>
+</section>
+
+  <section>
+    <h2>Past Goals</h2>
+
+    <div id="past-goals">
+    </div>
+</section>
+
+  <section>
+    <h2>Search Goals by Type</h2>
+  
+<label for="goal-type">Goal Type:</label>
+
+<select id="goal-type" name="goal-type">
+    <option value="">Select a goal type</option>
+    <option value="saving">Saving</option>
+    <option value="purchase">Purchase</option>
+    <option value="debt">Debt</option>
+    <option value="investment">Investment</option>
+    <option value="other">Other</option>
+</select>
+
+<label for="custom-type">Custom Goal Type:</label>
+<input type="text" id="custom-type" name="custom-type" placeholder="Enter your own type">
+    
+</main>
+</body>
