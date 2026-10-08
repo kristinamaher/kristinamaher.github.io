@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="create, manage, update income">
+    <meta name="keywords" content="personal income">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Budget- income<title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+          <nav>
+            <ul>
+                <li><a href="index.html"><img src="image/home.png" alt="home shortcut"></a></li>
+                <li><a href="account.html"><img src="image/Account.png" alt="account shortcut"></a></li>
+                <li><a href="goals.html">Goals</a></li>
+                <li><a href="about.html">About</a></li>
+                <!--<li><a href="settings.html"><img src="image/settings.png" alt="Settings"></a></li>-->
+            </ul>
+        </nav>
+    </header>
+
+<script>
+        window.addEventListener("beforeunload", function (event) {
+            event.preventDefault();
+            event.returnValue = "";
+        });
+    </script>
+
+</body>
+</html>
