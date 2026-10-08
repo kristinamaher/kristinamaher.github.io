@@ -1,301 +1,143 @@
 <!DOCTYPE html>
-<html lang ="en">
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="description" content="create, manage, your personal account">
-	<meta name="keywords" content="your personal informarrion, and account preferences">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Account user information </title>
-	<link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8">
+    <meta name="description" content="create, manage, your personal account">
+    <meta name="keywords" content="your personal information, and account preferences">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account user information</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<script>
-    window.addEventListener("beforeunload", function (event) {
-        event.preventDefault();
-        event.returnValue = "";
-    });
-</script>
-So the bottom of your HTML becomes:
 
-    </section>
-
-</main><!DOCTYPE html>
-<html lang ="en">
-<head>
-	<meta charset="utf-8">
-	<meta name="description" content="create, manage, your personal account">
-	<meta name="keywords" content="your personal informarrion, and account preferences">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Account user information </title>
-	<link rel="stylesheet" href="css/style.css">
-</head>
-<script>
-    window.addEventListener("beforeunload", function (event) {
-        event.preventDefault();
-        event.returnValue = "";
-    });
-</script>
-So the bottom of your HTML becomes:
-
-    </section>
-
-</main>
-
-<script>
-    window.addEventListener("beforeunload", function (event) {
-        event.preventDefault();
-        event.returnValue = "";
-    });
-</script>
-
-</body>
-</html>
 <body>
-	<header>
-	<nav>
-        <ul>
-            <li><a href="index.html"><img src="image/home.png" alt="home shortcut"></a></li>
-            <li><a href="account.html"><img src="image/Account.png" alt="account shortcut"> </a></li>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="account.html">Account</a></li>
-            <li><a href="goals.html">Goals</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="settings.html">Settings</a></li>
-            <li><a href="settings.html"><img src="image/settings.png" alt="Settings"></a></li>
-        </ul>
-    </nav>
-	</header>
-  <main>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html"><img src="image/home.png" alt="home shortcut"></a></li>
+                <li><a href="account.html"><img src="image/Account.png" alt="account shortcut"></a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="account.html">Account</a></li>
+                <li><a href="goals.html">Goals</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="settings.html"><img src="image/settings.png" alt="Settings"></a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <h1>Account</h1>
+    <main>
 
-    <section>
-        <h2>Login Information</h2>
+        <h1>Account</h1>
 
-      <form>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username">
+        <section>
+            <h2>Login Information</h2>
 
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email">
+            <form>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username">
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email">
 
-        <label for="confirm-password">Confirm Password:</label>
-        <input type="password" id="confirm-password" name="confirm-password">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
 
-        <button type="submit">Save Login Information</button>
-        </form>
-    </section>
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password">
 
-	  <section>
-    <h2>Personal Information</h2>
+                <button type="submit">Save Login Information</button>
+            </form>
+        </section>
 
-    <form>
-        <label for="first-name">First Name:</label>
-        <input type="text" id="first-name" name="first-name">
+        <section>
+            <h2>Personal Information</h2>
 
-        <label for="last-name">Last Name:</label>
-        <input type="text" id="last-name" name="last-name">
+            <form>
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name">
 
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone">
-		
-		<label for="country">Country/Region:</label>
-	<select id="country" name="country">
-    <option value="us">United States</option>
-    <option value="ca">Canada</option>
-    <option value="uk">United Kingdom</option>
-    <option value="au">Australia</option>
-    <option value="other">Other</option>
-</select>
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name">
 
-        <button type="submit">Save Personal Information</button>
-    </form>
-</section>	  
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone">
 
-	  <section>
-    <h2>Currency Preference</h2>
+                <label for="country">Country/Region:</label>
+                <select id="country" name="country">
+                    <option value="us">United States</option>
+                    <option value="ca">Canada</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="au">Australia</option>
+                    <option value="other">Other</option>
+                </select>
 
-     <form>
-        <label for="currency">Preferred Currency:</label>
+                <button type="submit">Save Personal Information</button>
+            </form>
+        </section>
 
-        <select id="currency" name="currency">
-            <option value="usd">US Dollar ($)</option>
-            <option value="eur">Euro (€)</option>
-            <option value="gbp">British Pound (£)</option>
-            <option value="jpy">Japanese Yen (¥)</option>
-            <option value="cad">Canadian Dollar (C$)</option>
-            <option value="aud">Australian Dollar (A$)</option>
-            <option value="chf">Swiss Franc (CHF)</option>
-            <option value="cny">Chinese Yuan (¥)</option>
-            <option value="inr">Indian Rupee (₹)</option>
-            <option value="mxn">Mexican Peso ($)</option>
-        </select>
+        <section>
+            <h2>Currency Preference</h2>
 
-        <label for="travel-mode">
-            <input type="checkbox" id="travel-mode" name="travel-mode">
-            Traveling abroad
-        </label>
+            <form>
+                <label for="currency">Preferred Currency:</label>
 
-        <button type="submit">Save Currency Preference</button>
-    </form>
-</section>
-	  <section>
-    <h2>Profile Picture</h2>
+                <select id="currency" name="currency">
+                    <option value="usd">US Dollar ($)</option>
+                    <option value="eur">Euro (€)</option>
+                    <option value="gbp">British Pound (£)</option>
+                    <option value="jpy">Japanese Yen (¥)</option>
+                    <option value="cad">Canadian Dollar (C$)</option>
+                    <option value="aud">Australian Dollar (A$)</option>
+                    <option value="chf">Swiss Franc (CHF)</option>
+                    <option value="cny">Chinese Yuan (¥)</option>
+                    <option value="inr">Indian Rupee (₹)</option>
+                    <option value="mxn">Mexican Peso ($)</option>
+                </select>
 
-    <form>
-        <label for="profile-picture">Choose a profile picture:</label>
-        <input type="file" id="profile-picture" name="profile-picture" accept="image/*">
+                <label for="travel-mode">
+                    <input type="checkbox" id="travel-mode" name="travel-mode">
+                    Traveling abroad
+                </label>
 
-        <button type="submit">Save Profile Picture</button>
-    </form>
-</section>
+                <button type="submit">Save Currency Preference</button>
+            </form>
+        </section>
 
-<section>
-    <h2>Account Management</h2>
+        <section>
+            <h2>Profile Picture</h2>
 
-    <form>
-        <button type="submit">Log Out</button>
-    </form>
+            <form>
+                <label for="profile-picture">Choose a profile picture:</label>
+                <input type="file" id="profile-picture" name="profile-picture" accept="image/*">
 
-    <form>
-        <button type="submit">Deactivate Account</button>
-    </form>
+                <button type="submit">Save Profile Picture</button>
+            </form>
+        </section>
 
-    <form>
-        <button type="submit">Delete Account</button>
-    </form>
-</section>
-</main>
-	<script>
-    window.addEventListener("beforeunload", function (event) {
-        event.preventDefault();
-        event.returnValue = "";
-    });
-</script>
-</body>
-</html>
+        <section>
+            <h2>Account Management</h2>
 
+            <form>
+                <button type="submit">Log Out</button>
+            </form>
 
-<script>
-    window.addEventListener("beforeunload", function (event) {
-        event.preventDefault();
-        event.returnValue = "";
-    });
-</script>
+            <form>
+                <button type="submit">Deactivate Account</button>
+            </form>
 
-</body>
-</html>
-<body>
-	<header>
-	<nav>
-        <ul>
-            <li><a href="index.html"><img src="image/home.png" alt="home shortcut"></a></li>
-            <li><a href="account.html"><img src="image/Account.png" alt="account shortcut"> </a></li>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="account.html">Account</a></li>
-            <li><a href="goals.html">Goals</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="settings.html">Settings</a></li>
-            <li><a href="settings.html"><img src="image/settings.png" alt="Settings"></a></li>
-        </ul>
-    </nav>
-	</header>
-  <main>
+            <form>
+                <button type="submit">Delete Account</button>
+            </form>
+        </section>
 
-    <h1>Account</h1>
+    </main>
 
-    <section>
-        <h2>Login Information</h2>
+    <script>
+        window.addEventListener("beforeunload", function (event) {
+            event.preventDefault();
+            event.returnValue = "";
+        });
+    </script>
 
-      <form>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username">
-
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email">
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password">
-
-        <label for="confirm-password">Confirm Password:</label>
-        <input type="password" id="confirm-password" name="confirm-password">
-
-        <button type="submit">Save Login Information</button>
-        </form>
-    </section>
-
-	  <section>
-    <h2>Personal Information</h2>
-
-    <form>
-        <label for="first-name">First Name:</label>
-        <input type="text" id="first-name" name="first-name">
-
-        <label for="last-name">Last Name:</label>
-        <input type="text" id="last-name" name="last-name">
-
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone">
-
-        <button type="submit">Save Personal Information</button>
-    </form>
-</section>	  
-
-	  <section>
-    <h2>Currency Preference</h2>
-
-     <form>
-        <label for="currency">Preferred Currency:</label>
-
-        <select id="currency" name="currency">
-            <option value="usd">US Dollar ($)</option>
-            <option value="eur">Euro (€)</option>
-            <option value="gbp">British Pound (£)</option>
-            <option value="jpy">Japanese Yen (¥)</option>
-            <option value="cad">Canadian Dollar (C$)</option>
-            <option value="aud">Australian Dollar (A$)</option>
-            <option value="chf">Swiss Franc (CHF)</option>
-            <option value="cny">Chinese Yuan (¥)</option>
-            <option value="inr">Indian Rupee (₹)</option>
-            <option value="mxn">Mexican Peso ($)</option>
-        </select>
-
-        <label for="travel-mode">
-            <input type="checkbox" id="travel-mode" name="travel-mode">
-            Traveling abroad
-        </label>
-
-        <button type="submit">Save Currency Preference</button>
-    </form>
-</section>
-	  <section>
-    <h2>Profile Picture</h2>
-
-    <form>
-        <label for="profile-picture">Choose a profile picture:</label>
-        <input type="file" id="profile-picture" name="profile-picture" accept="image/*">
-
-        <button type="submit">Save Profile Picture</button>
-    </form>
-</section>
-
-<section>
-    <h2>Account Management</h2>
-
-    <form>
-        <button type="submit">Log Out</button>
-    </form>
-
-    <form>
-        <button type="submit">Deactivate Account</button>
-    </form>
-
-    <form>
-        <button type="submit">Delete Account</button>
-    </form>
-</section>
-</main>
 </body>
 </html>
