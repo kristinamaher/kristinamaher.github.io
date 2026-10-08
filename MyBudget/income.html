@@ -5,7 +5,7 @@
     <meta name="description" content="create, manage, update income">
     <meta name="keywords" content="personal income">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Budget- income</title>
+    <title>My Budget- Income</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -21,6 +21,70 @@
             </ul>
         </nav>
     </header>
+    <main>
+        <h1>Income</h1>
+
+<section>
+    <h2>Add Income</h2>
+
+    <form>
+        <label for="income-source">Income Source:</label>
+        <input type="text" id="income-source" name="income-source">
+
+        <label for="income-amount">Amount:</label>
+        <input type="number" id="income-amount" name="income-amount" step="0.01">
+
+        <label for="income-frequency">Frequency:</label>
+        <select id="income-frequency" name="income-frequency">
+            <option value="one-time">One-Time</option>
+            <option value="weekly">Weekly</option>
+            <option value="biweekly">Biweekly</option>
+            <option value="monthly">Monthly</option>
+            <option value="yearly">Yearly</option>
+        </select>
+
+        <label for="income-date">Date:</label>
+        <input type="date" id="income-date" name="income-date">
+
+        <button type="submit">Add Income</button>
+    </form>
+</section>
+        <section>
+    <h2>Money Gifts</h2>
+
+    <form>
+        <label for="gift-source">Gift From:</label>
+        <input type="text" id="gift-source" name="gift-source">
+
+        <label for="gift-amount">Amount:</label>
+        <input type="number" id="gift-amount" name="gift-amount" step="0.01">
+
+        <label for="gift-date">Date:</label>
+        <input type="date" id="gift-date" name="gift-date">
+
+        <button type="submit">Add Money Gift</button>
+    </form>
+</section>
+        <section>
+    <h2>Gift Cards &amp; Prepaid Cards</h2>
+
+    <form>
+        <label for="card-name">Card Name:</label>
+        <input type="text" id="card-name" name="card-name">
+
+        <label for="card-balance">Balance:</label>
+        <input type="number" id="card-balance" name="card-balance" step="0.01">
+
+        <label for="card-expiration">Expiration Date:</label>
+        <input type="date" id="card-expiration" name="card-expiration">
+
+        <label for="card-notes">Notes:</label>
+        <textarea id="card-notes" name="card-notes"></textarea>
+
+        <button type="submit">Add Card</button>
+    </form>
+</section>
+    </main>
 
 <script>
         window.addEventListener("beforeunload", function (event) {
