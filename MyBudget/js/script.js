@@ -523,7 +523,14 @@ links.forEach(function(link) {
             if (!leaveSite) {
 
                 event.preventDefault();
-    // ==============================
+
+            }
+        }
+    });
+});
+
+
+// ==============================
 // GOALS - ADD GOAL
 // ==============================
 
@@ -694,8 +701,3 @@ if (searchGoalsButton) {
 
     });
 }
-
-            }
-        }
-    });
-});
