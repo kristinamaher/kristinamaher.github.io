@@ -2,12 +2,14 @@
 // MY BUDGET - MAIN SCRIPT
 // ============================================================
 
+
 // ============================================================
 // EXTERNAL LINKS
 // ============================================================
 
 const links =
     document.querySelectorAll("a");
+
 
 links.forEach(function(link) {
 
@@ -21,6 +23,7 @@ links.forEach(function(link) {
                     window.location.href
                 );
 
+
             if (
                 destination.origin !==
                 window.location.origin
@@ -30,6 +33,7 @@ links.forEach(function(link) {
                     confirm(
                         "You are about to leave My Budget. You may not be logged out! Do you want to continue?"
                     );
+
 
                 if (!leaveSite) {
 
@@ -43,6 +47,8 @@ links.forEach(function(link) {
     );
 
 });
+
+
 // ============================================================
 // LEAVING MY BUDGET
 // ============================================================
@@ -54,8 +60,11 @@ window.addEventListener(
         event.preventDefault();
 
         event.returnValue = "";
+
     }
 );
+
+
 // ============================================================
-// END OF MY BUDGET SCRIPT
-// ==================================================
+// END OF MY BUDGET MAIN SCRIPT
+// ============================================================
