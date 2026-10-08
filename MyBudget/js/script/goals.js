@@ -275,6 +275,469 @@ function displayGoals() {
 
     });
 
+// ============================================================
+// GOALS - CREATE GOAL CARD
+// ============================================================
+
+function createGoalCard(
+    goal,
+    index
+) {
+
+    const goalCard =
+        document.createElement(
+            "article"
+        );
+
+
+    goalCard.className =
+        "goal-card";
+
+
+    const amount =
+        Number(goal.amount) || 0;
+
+
+    const progress =
+        Number(goal.progress) || 0;
+
+
+    const progressPercent =
+        amount > 0
+            ? Math.min(
+                100,
+                Math.max(
+                    0,
+                    (progress / amount) * 100
+                )
+            )
+            : 0;
+
+
+    goalCard.innerHTML = `
+
+        <h3 class="goal-name">
+            ${goal.name}
+        </h3>
+
+        <p>
+            Goal Type:
+            <span class="goal-type">
+                ${goal.type}
+            </span>
+        </p>
+
+        <p>
+            Category:
+            <span class="goal-category">
+                ${goal.category}
+            </span>
+        </p>
+
+        <p>
+            Priority:
+            <span class="goal-priority">
+                ${goal.priority}
+            </span>
+        </p>
+
+        <p>
+            Frequency:
+            <span class="goal-frequency">
+                ${goal.frequency || "Not specified"}
+            </span>
+        </p>
+
+        <div class="goal-progress">
+
+            <p>Progress:</p>
+
+            <progress
+                value="${progressPercent}"
+                max="100">
+            </progress>
+
+            <p>
+
+                <span class="current-amount">
+                    $${progress.toFixed(2)}
+                </span>
+
+                /
+
+                <span class="goal-amount">
+                    $${amount.toFixed(2)}
+                </span>
+
+            </p>
+
+        </div>
+
+        <p>
+
+            Target Date:
+
+            <span class="goal-date">
+                ${goal.date || "No target date"}
+            </span>
+
+        </p>
+
+        <p>
+            Notes:
+        </p>
+
+        <p class="goal-notes">
+            ${goal.notes || "No notes"}
+        </p>
+
+        <p>
+            Status:
+            <span class="goal-status">
+                ${goal.status}
+            </span>
+        </p>
+
+        <div class="goal-actions">
+
+            <button
+                type="button"
+                class="edit-goal-button"
+                data-index="${index}">
+                Edit Goal
+            </button>
+
+            <button
+                type="button"
+                class="update-progress-button"
+                data-index="${index}">
+                Update Progress
+            </button>
+
+            <button
+                type="button"
+                class="complete-goal-button"
+                data-index="${index}">
+                Complete Goal
+            </button>
+
+            <button
+                type="button"
+                class="delete-goal-button"
+                data-index="${index}">
+                Delete Goal
+            </button>
+
+        </div>
+
+    `;
+
+
+    return goalCard;
+
+}
+
+
+// ============================================================
+// GOALS - ADD GOAL
+// ============================================================
+
+const goalForm =
+    document.getElementById(
+        "goal-form"
+    );
+
+
+if (goalForm) {
+
+    goalForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const goalName =
+                document
+                    .getElementById(
+                        "goal-name"
+                    )
+                    .value
+                    .trim();
+
+
+            const goalType =
+                document
+                    .getElementById(
+                        "goal-type"
+                    )
+                    .value;
+
+
+            const customType =
+                document
+                    .getElementById(
+                        "custom-type"
+                    )
+                    .value
+                    .trim();
+
+
+            const goalCategory =
+                document
+                    .getElementById(
+                        "goal-category"
+                    )
+                    .value;
+
+
+            const customCategory =
+                document
+                    .getElementById(
+                        "custom-category"
+                    )
+                    .value
+                    .trim();
+
+
+            const goalPriority =
+                document
+                    .getElementById(
+                        "goal-priority"
+                    )
+                    .value;
+
+
+            const frequency =
+                document
+                    .getElementById(
+                        "frequency"
+                    )
+                    .value;
+
+
+            const customFrequency =
+                document
+                    .getElementById(
+                        "custom-frequency"
+                    )
+                    .value
+                    .trim();
+
+
+            const goalAmount =
+                parseFloat(
+                    document
+                        .getElementById(
+                            "goal-amount"
+                        )
+                        .value
+                );
+
+
+            const goalProgress =
+                parseFloat(
+                    document
+                        .getElementById(
+                            "goal-progress"
+                        )
+                        .value
+                );
+
+
+            const goalDate =
+                document
+                    .getElementById(
+                        "goal-date"
+                    )
+                    .value;
+
+
+            const goalNotes =
+                document
+                    .getElementById(
+                        "goal-notes"
+                    )
+                    .value
+                    .trim();
+
+
+            // ------------------------------------------------
+            // VALIDATION
+            // ------------------------------------------------
+
+            if (
+                goalName === ""
+            ) {
+
+                alert(
+                    "Please enter a goal name."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                isNaN(goalAmount) ||
+                goalAmount < 0
+            ) {
+
+                alert(
+                    "Please enter a valid goal amount."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                isNaN(goalProgress) ||
+                goalProgress < 0
+            ) {
+
+                alert(
+                    "Please enter a valid current progress amount."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                goalProgress >
+                goalAmount
+            ) {
+
+                alert(
+                    "Current progress cannot be greater than the goal amount."
+                );
+
+                return;
+
+            }
+
+
+            // ------------------------------------------------
+            // DETERMINE STATUS
+            // ------------------------------------------------
+
+            let goalStatus =
+                "in-progress";
+
+
+            if (
+                goalProgress ===
+                goalAmount
+            ) {
+
+                goalStatus =
+                    "completed";
+
+            }
+
+            else if (
+                goalDate !== ""
+            ) {
+
+                const today =
+                    new Date()
+                        .toISOString()
+                        .split("T")[0];
+
+
+                if (
+                    goalDate <
+                    today
+                ) {
+
+                    goalStatus =
+                        "expired";
+
+                }
+
+            }
+
+
+            // ------------------------------------------------
+            // CREATE GOAL
+            // ------------------------------------------------
+
+            const newGoal = {
+
+                name:
+                    goalName,
+
+                type:
+                    customType !== ""
+                        ? customType
+                        : goalType,
+
+                category:
+                    customCategory !== ""
+                        ? customCategory
+                        : goalCategory,
+
+                priority:
+                    goalPriority,
+
+                frequency:
+                    customFrequency !== ""
+                        ? customFrequency
+                        : frequency,
+
+                amount:
+                    goalAmount,
+
+                progress:
+                    goalProgress,
+
+                date:
+                    goalDate,
+
+                notes:
+                    goalNotes,
+
+                status:
+                    goalStatus
+
+            };
+
+
+            // Add the goal to the array.
+
+            goals.push(
+                newGoal
+            );
+
+
+            // Save immediately.
+
+            saveGoals();
+
+
+            // Display immediately.
+
+            displayGoals();
+
+
+            alert(
+                "Goal added successfully."
+            );
+
+
+            // Clear the form.
+
+            this.reset();
+
+        }
+    );
+
+}
+
 
     addGoalButtonEvents();
 
