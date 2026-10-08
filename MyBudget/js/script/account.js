@@ -20,16 +20,16 @@ if (createAccountForm) {
 
 
             const usernameElement =
-                document.getElementById("username");
+                document.getElementById("create-username");
 
             const emailElement =
-                document.getElementById("email");
+                document.getElementById("create-email");
 
             const passwordElement =
-                document.getElementById("password");
+                document.getElementById("create-password");
 
             const confirmPasswordElement =
-                document.getElementById("confirm-password");
+                document.getElementById("create-confirm-password");
 
 
             const username =
@@ -92,7 +92,6 @@ if (createAccountForm) {
 
 }
 
-
 // ============================================================
 // ACCOUNT - LOGIN INFORMATION
 // ============================================================
@@ -102,7 +101,6 @@ const loginInformationForm =
         "login-information-form"
     );
 
-
 if (loginInformationForm) {
 
     loginInformationForm.addEventListener(
@@ -110,7 +108,6 @@ if (loginInformationForm) {
         function(event) {
 
             event.preventDefault();
-
 
             const usernameElement =
                 document.getElementById("username");
@@ -123,7 +120,6 @@ if (loginInformationForm) {
 
             const confirmPasswordElement =
                 document.getElementById("confirm-password");
-
 
             const username =
                 usernameElement
@@ -145,7 +141,6 @@ if (loginInformationForm) {
                     ? confirmPasswordElement.value
                     : "";
 
-
             if (
                 username === "" ||
                 email === "" ||
@@ -156,35 +151,25 @@ if (loginInformationForm) {
                 alert(
                     "Please complete all login information."
                 );
-
                 return;
-
             }
-
 
             if (password !== confirmPassword) {
 
                 alert(
                     "Passwords do not match."
                 );
-
                 return;
-
             }
-
 
             alert(
                 "Login information saved."
             );
 
-
             this.reset();
-
         }
     );
-
 }
-
 
 // ============================================================
 // ACCOUNT - PERSONAL INFORMATION
@@ -195,7 +180,6 @@ const personalInformationForm =
         "personal-information-form"
     );
 
-
 if (personalInformationForm) {
 
     personalInformationForm.addEventListener(
@@ -204,19 +188,14 @@ if (personalInformationForm) {
 
             event.preventDefault();
 
-
             alert(
                 "Personal information saved."
             );
 
-
             this.reset();
-
         }
     );
-
 }
-
 
 // ============================================================
 // ACCOUNT - CURRENCY PREFERENCE
@@ -224,7 +203,6 @@ if (personalInformationForm) {
 
 const currencyForm =
     document.getElementById("currency-form");
-
 
 if (currencyForm) {
 
@@ -234,16 +212,12 @@ if (currencyForm) {
 
             event.preventDefault();
 
-
             alert(
                 "Currency preference saved."
             );
-
         }
     );
-
 }
-
 
 // ============================================================
 // ACCOUNT - PROFILE PICTURE
@@ -254,7 +228,6 @@ const profilePictureForm =
         "profile-picture-form"
     );
 
-
 if (profilePictureForm) {
 
     profilePictureForm.addEventListener(
@@ -263,12 +236,10 @@ if (profilePictureForm) {
 
             event.preventDefault();
 
-
             const picture =
                 document.getElementById(
                     "profile-picture"
                 );
-
 
             if (
                 !picture ||
@@ -279,21 +250,15 @@ if (profilePictureForm) {
                 alert(
                     "Please choose a profile picture."
                 );
-
                 return;
-
             }
-
 
             alert(
                 "Profile picture saved."
             );
-
         }
     );
-
 }
-
 
 // ============================================================
 // ACCOUNT - LOG OUT
@@ -303,7 +268,6 @@ const logoutButton =
     document.getElementById(
         "logout-button"
     );
-
 
 if (logoutButton) {
 
@@ -316,20 +280,15 @@ if (logoutButton) {
                     "Do you want to log out?"
                 );
 
-
             if (confirmLogout) {
 
                 alert(
                     "You have been logged out."
                 );
-
             }
-
         }
     );
-
 }
-
 
 // ============================================================
 // ACCOUNT - DEACTIVATE
@@ -339,7 +298,6 @@ const deactivateButton =
     document.getElementById(
         "deactivate-button"
     );
-
 
 if (deactivateButton) {
 
@@ -352,20 +310,15 @@ if (deactivateButton) {
                     "Do you want to deactivate your account?"
                 );
 
-
             if (confirmDeactivate) {
 
                 alert(
                     "Your account has been deactivated."
                 );
-
             }
-
         }
     );
-
 }
-
 
 // ============================================================
 // ACCOUNT - DELETE
@@ -375,7 +328,6 @@ const deleteButton =
     document.getElementById(
         "delete-account-button"
     );
-
 
 if (deleteButton) {
 
@@ -388,16 +340,12 @@ if (deleteButton) {
                     "Are you sure you want to permanently delete your account?"
                 );
 
-
             if (confirmDelete) {
 
                 alert(
                     "Your account has been deleted."
                 );
-
             }
-
         }
     );
-
 }
