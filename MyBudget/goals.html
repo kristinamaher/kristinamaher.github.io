@@ -18,7 +18,7 @@
 				<li>Account</li>
 				<li>Goals</li>
 				<li>About</li>
-				<li>Settings</li>*/
+				<li>Settings</li>
 				<!--<li> <a href="settings.html"><img src="image/settings.png"></a></li>-->
 			</ul>
 		</nav>
@@ -35,19 +35,66 @@
             <label for="goal-name">Goal Name:</label>
             <input type="text" id="goal-name" name="goal-name">
 
-            <label for="goal-type">Goal Type:</label>
-            <select id="goal-type" name="goal-type">
-                <option value="savings">Savings</option>
-                <option value="spending">Spending</option>
-                <option value="debt">Debt</option>
-                <option value="investment">Investment</option>
-            </select>
+           <label for="goal-type">Goal Type:</label>
+		<select id="goal-type" name="goal-type">
+   			<option value="savings">Savings</option>
+    		<option value="spending">Spending</option>
+    		<option value="debt">Debt</option>
+   			<option value="investment">Investment</option>
+	</select>
+
+		<label for="goal-priority">Priority:</label>
+		<select id="goal-priority" name="goal-priority">
+			<option value="high">High</option>
+			<option value="medium">Medium</option>
+			<option value="low">Low</option>
+			<option value="other">Other</option>
+	</select>
+			
+		<label for="custom-type">Custom Goal Type:</label>
+		<input type="text" id="custom-type" name="custom-type" placeholder="Enter your own type">
+
+			<label for="frequency">How Often:</label>
+				<select id="frequency" name="frequency">
+        			<option value="">Select frequency</option>
+					<option value="one time">none/one time</option>
+					<option value="daily">Daily</option>
+        			<option value="weekly">Weekly</option>
+        			<option value="biweekly">Every Two Weeks</option>
+        			<option value="monthly">Monthly</option>
+        			<option value="yearly">Yearly</option>
+					
+    </select>
+
+			<label for="custom-frequency">Custom frequency occurance</label>
+			<input type="text" id="custom-frequency" name="custom-frequency" placeholder="Enter your own frequency">
 
             <label for="goal-amount">Goal Amount:</label>
             <input type="number" id="goal-amount" name="goal-amount">
 
+			<label for="goal-progress">Current Progress:</label>
+			<input type="number" id="goal-progress" name="goal-progress">
+
+			<label for="goal-type">Goal Type:</label>
+			
+			<label for="goal-category">Category:</label>
+				<select id="goal-category" name="goal-category">
+    			<option value="emergency">Emergency Fund</option>
+    			<option value="housing">Housing</option>
+    			<option value="vehicle">Vehicle</option>
+    			<option value="education">Education</option>
+    			<option value="vacation">Vacation</option>
+    			<option value="retirement">Retirement</option>
+    			<option value="other">Other</option>
+	</select>
+			<label for=" custom-category">Custom Category:</label>
+			<input type="text" id="custom-category" name="custom-category" placeholder="Enter your own Category">
+			
             <label for="goal-date">Target Date:</label>
             <input type="date" id="goal-date" name="goal-date">
+
+			<label for="goal-notes">Notes:</label>
+			<textarea id="goal-notes" name="goal-notes"></textarea>
 
             <button type="submit">Add Goal</button>
 
@@ -58,32 +105,99 @@
     <h2>Current Goals</h2>
 
     <div id="current-goals">
-    </div>
+
+    <article class="goal-card">
+
+        <h3 class="goal-name">Goal Name</h3>
+
+        <p>Goal Type: <span class="goal-type"></span></p>
+        <p>Category: <span class="goal-category"></span></p>
+        <p>Priority: <span class="goal-priority"></span></p>
+        <p>Frequency: <span class="goal-frequency"></span></p>
+
+        <div class="goal-progress">
+            <p>Progress:</p>
+
+            <progress value="0" max="100"></progress>
+
+            <p>
+                <span class="current-amount"></span>
+                /
+                <span class="goal-amount"></span>
+            </p>
+        </div>
+
+        <p>Target Date: <span class="goal-date"></span></p>
+
+        <p>Notes:</p>
+        <p class="goal-notes"></p>
+
+        <div class="goal-actions">
+            <button type="button">Edit Goal</button>
+            <button type="button">Update Progress</button>
+            <button type="button">Complete Goal</button>
+            <button type="button">Delete Goal</button>
+        </div>
+
+    </article>
+
+</div>
 </section>
+	
+<section>
+<h2>past goals</h2>
+ <div id="past-goals">
 
-  <section>
-    <h2>Past Goals</h2>
-
-    <div id="past-goals">
+    <div id="completed-goals">
+        <h3>Completed Goals</h3>
     </div>
+
+    <div id="expired-goals">
+        <h3>Expired Goals</h3>
+    </div>
+
+</div>
 </section>
+	
+<section>
+<h2>Search Goals</h2>
+ 
+	<fieldset>
+		<legend>Search By</legend>
+ 
+		<input type="radio" id="search-name" name="searchBy" value="name">
+		<label for="search-name">Goal Name</label>
+ 
+		<input type="radio" id="search-type" name="searchBy" value="type">
+		<label for="search-type">Goal Type</label>
+ 
+		<input type="radio" id="search-frequency" name="searchBy" value="frequency">
+		<label for="search-frequency">Frequency</label>
 
-  <section>
-    <h2>Search Goals by Type</h2>
-  
-<label for="goal-type">Goal Type:</label>
+		<input type="radio" id="search-status" name="searchBy" value="status">
+		<label for="search-status">Status</label>
 
-<select id="goal-type" name="goal-type">
-    <option value="">Select a goal type</option>
-    <option value="saving">Saving</option>
-    <option value="purchase">Purchase</option>
-    <option value="debt">Debt</option>
-    <option value="investment">Investment</option>
-    <option value="other">Other</option>
-</select>
+		<input type="radio" id="search-amount" name="searchBy" value="amount">
+		<label for="search-amount">Goal Amount</label>
 
-<label for="custom-type">Custom Goal Type:</label>
-<input type="text" id="custom-type" name="custom-type" placeholder="Enter your own type">
-    
+		<input type="radio" id="search-date" name="searchBy" value="date">
+		<label for="search-date">Target Date</label>
+
+	</fieldset>
+ 
+	<br>
+ 
+	<label for="search-value">Search:</label>
+	<input type="text" id="search-value" name="search-value">
+ 
+	<button type="button">Search</button>
+	
+	<label for="goal-status">Goal Status:</label>
+		<select id="goal-status" name="goal-status">
+			<option value="in-progress">In Progress</option>
+			<option value="completed">Completed</option>
+			<option value="expired">Expired</option>
+	</select>
 </main>
 </body>
+</html>
