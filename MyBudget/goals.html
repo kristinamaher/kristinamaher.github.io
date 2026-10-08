@@ -5,262 +5,358 @@
     <meta name="description" content="Add, edit, review all current and past goals">
     <meta name="keywords" content="goal setting and goal trends">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My budget- Goals</title>
-   <link rel="stylesheet" href="css/style.css">
-     <script src="js/script.js"></script>
+    <title>My Budget - Goals</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
 </head>
 
 <body>
 
     <header>
-      <nav>
+        <nav>
             <ul>
-                <li><a href="index.html"><img src="image/home.png" alt="home shortcut"></a></li>
-                <li><a href="account.html"><img src="image/Account.png" alt="account shortcut"></a></li>
-                <li><a href="income.html">income</a></li>
+                <li>
+                    <a href="index.html">
+                        <img src="image/home.png" alt="home shortcut">
+                    </a>
+                </li>
+
+                <li>
+                    <a href="account.html">
+                        <img src="image/Account.png" alt="account shortcut">
+                    </a>
+                </li>
+
+                <li><a href="income.html">Income</a></li>
+
                 <li><a href="index.html">About</a></li>
-                <li><a href="settings.html"><img src="image/settings.png" alt="Settings"></a></li>
+
+                <li>
+                    <a href="settings.html">
+                        <img src="image/settings.png" alt="Settings">
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
 
-<h1>Goals</h1>
+    <main>
 
-<main>
+        <h1>Goals</h1>
 
-    <section>
-        <h2>Add a Goal</h2>
+        <section>
+            <h2>Add a Goal</h2>
 
-        <form>
+            <form id="goal-form">
 
-            <label for="goal-name">Goal Name:</label>
-            <input type="text" id="goal-name" name="goal-name">
+                <label for="goal-name">Goal Name:</label>
+                <input type="text" id="goal-name" name="goal-name">
 
-            <label for="goal-type">Goal Type:</label>
-            <select id="goal-type" name="goal-type">
-                <option value="savings">Savings</option>
-                <option value="spending">Spending</option>
-                <option value="debt">Debt</option>
-                <option value="investment">Investment</option>
-            </select>
+                <label for="goal-type">Goal Type:</label>
+                <select id="goal-type" name="goal-type">
+                    <option value="savings">Savings</option>
+                    <option value="spending">Spending</option>
+                    <option value="debt">Debt</option>
+                    <option value="investment">Investment</option>
+                </select>
 
-            <label for="custom-type">Custom Goal Type:</label>
-            <input type="text" id="custom-type" name="custom-type" placeholder="Enter your own type">
+                <label for="custom-type">Custom Goal Type:</label>
+                <input
+                    type="text"
+                    id="custom-type"
+                    name="custom-type"
+                    placeholder="Enter your own type"
+                >
 
-            <label for="goal-category">Category:</label>
-            <select id="goal-category" name="goal-category">
-                <option value="emergency">Emergency Fund</option>
-                <option value="housing">Housing</option>
-                <option value="vehicle">Vehicle</option>
-                <option value="education">Education</option>
-                <option value="vacation">Vacation</option>
-                <option value="retirement">Retirement</option>
-                <option value="other">Other</option>
-            </select>
+                <label for="goal-category">Category:</label>
+                <select id="goal-category" name="goal-category">
+                    <option value="emergency">Emergency Fund</option>
+                    <option value="housing">Housing</option>
+                    <option value="vehicle">Vehicle</option>
+                    <option value="education">Education</option>
+                    <option value="vacation">Vacation</option>
+                    <option value="retirement">Retirement</option>
+                    <option value="other">Other</option>
+                </select>
 
-            <label for="custom-category">Custom Category:</label>
-            <input type="text" id="custom-category" name="custom-category" placeholder="Enter your own category">
+                <label for="custom-category">Custom Category:</label>
+                <input
+                    type="text"
+                    id="custom-category"
+                    name="custom-category"
+                    placeholder="Enter your own category"
+                >
 
-            <label for="goal-priority">Priority:</label>
-            <select id="goal-priority" name="goal-priority">
-                <option value="high">High</option>
-                <option value="medium">Medium</option>
-                <option value="low">Low</option>
-                <option value="other">Other</option>
-            </select>
+                <label for="goal-priority">Priority:</label>
+                <select id="goal-priority" name="goal-priority">
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                    <option value="other">Other</option>
+                </select>
 
-            <label for="frequency">How Often:</label>
-            <select id="frequency" name="frequency">
-                <option value="">Select frequency</option>
-                <option value="daily">Daily</option>
-                <option value="weekly">Weekly</option>
-                <option value="biweekly">Every Two Weeks</option>
-                <option value="monthly">Monthly</option>
-                <option value="yearly">Yearly</option>
-                <option value="other">Other</option>
-            </select>
+                <label for="frequency">How Often:</label>
+                <select id="frequency" name="frequency">
+                    <option value="">Select frequency</option>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="biweekly">Every Two Weeks</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="yearly">Yearly</option>
+                    <option value="other">Other</option>
+                </select>
 
-            <label for="custom-frequency">Custom Frequency Occurrence:</label>
-            <input type="text" id="custom-frequency" name="custom-frequency" placeholder="Enter your own frequency">
+                <label for="custom-frequency">Custom Frequency Occurrence:</label>
+                <input
+                    type="text"
+                    id="custom-frequency"
+                    name="custom-frequency"
+                    placeholder="Enter your own frequency"
+                >
 
-            <label for="goal-amount">Goal Amount:</label>
-            <input type="number" id="goal-amount" name="goal-amount">
+                <label for="goal-amount">Goal Amount:</label>
+                <input
+                    type="number"
+                    id="goal-amount"
+                    name="goal-amount"
+                    step="0.01"
+                >
 
-            <label for="goal-progress">Current Progress:</label>
-            <input type="number" id="goal-progress" name="goal-progress">
+                <label for="goal-progress">Current Progress:</label>
+                <input
+                    type="number"
+                    id="goal-progress"
+                    name="goal-progress"
+                    step="0.01"
+                >
 
-            <label for="goal-date">Target Date:</label>
-            <input type="date" id="goal-date" name="goal-date">
+                <label for="goal-date">Target Date:</label>
+                <input
+                    type="date"
+                    id="goal-date"
+                    name="goal-date"
+                >
 
-            <label for="goal-notes">Notes:</label>
-            <textarea id="goal-notes" name="goal-notes"></textarea>
+                <label for="goal-notes">Notes:</label>
+                <textarea
+                    id="goal-notes"
+                    name="goal-notes"
+                ></textarea>
 
-            <button type="submit">Add Goal</button>
+                <button type="submit">Add Goal</button>
 
-        </form>
-    </section>
+            </form>
+        </section>
 
-    <section>
-        <h2>Current Goals</h2>
 
-        <div id="current-goals">
+        <section>
+            <h2>Current Goals</h2>
 
-            <article class="goal-card">
+            <div id="current-goals">
 
-                <h3 class="goal-name">Goal Name</h3>
+                <article class="goal-card">
 
-                <p>Goal Type: <span class="goal-type"></span></p>
-                <p>Category: <span class="goal-category"></span></p>
-                <p>Priority: <span class="goal-priority"></span></p>
-                <p>Frequency: <span class="goal-frequency"></span></p>
-
-                <div class="goal-progress">
-
-                    <p>Progress:</p>
-
-                    <progress value="0" max="100"></progress>
+                    <h3 class="goal-name">Goal Name</h3>
 
                     <p>
-                        <span class="current-amount"></span>
-                        /
-                        <span class="goal-amount"></span>
+                        Goal Type:
+                        <span class="goal-type"></span>
                     </p>
 
+                    <p>
+                        Category:
+                        <span class="goal-category"></span>
+                    </p>
+
+                    <p>
+                        Priority:
+                        <span class="goal-priority"></span>
+                    </p>
+
+                    <p>
+                        Frequency:
+                        <span class="goal-frequency"></span>
+                    </p>
+
+                    <div class="goal-progress">
+
+                        <p>Progress:</p>
+
+                        <progress value="0" max="100"></progress>
+
+                        <p>
+                            <span class="current-amount"></span>
+                            /
+                            <span class="goal-amount"></span>
+                        </p>
+
+                    </div>
+
+                    <p>
+                        Target Date:
+                        <span class="goal-date"></span>
+                    </p>
+
+                    <p>Notes:</p>
+                    <p class="goal-notes"></p>
+
+                    <div class="goal-actions">
+
+                        <button
+                            type="button"
+                            id="edit-goal-button"
+                        >
+                            Edit Goal
+                        </button>
+
+                        <button
+                            type="button"
+                            id="update-progress-button"
+                        >
+                            Update Progress
+                        </button>
+
+                        <button
+                            type="button"
+                            id="complete-goal-button"
+                        >
+                            Complete Goal
+                        </button>
+
+                        <button
+                            type="button"
+                            id="delete-goal-button"
+                        >
+                            Delete Goal
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </div>
+        </section>
+
+
+        <section>
+
+            <h2>Past Goals</h2>
+
+            <div id="past-goals">
+
+                <div id="completed-goals">
+                    <h3>Completed Goals</h3>
                 </div>
 
-                <p>Target Date: <span class="goal-date"></span></p>
-
-                <p>Notes:</p>
-                <p class="goal-notes"></p>
-
-                <div class="goal-actions">
-                    <button type="button">Edit Goal</button>
-                    <button type="button">Update Progress</button>
-                    <button type="button">Complete Goal</button>
-                    <button type="button">Delete Goal</button>
+                <div id="expired-goals">
+                    <h3>Expired Goals</h3>
                 </div>
 
-            </article>
-
-        </div>
-
-    </section>
-
-    <section>
-
-        <h2>Past Goals</h2>
-
-        <div id="past-goals">
-
-            <div id="completed-goals">
-                <h3>Completed Goals</h3>
             </div>
 
-            <div id="expired-goals">
-                <h3>Expired Goals</h3>
-            </div>
+        </section>
 
-        </div>
 
-    </section>
+        <section>
 
-    <section>
+            <h2>Search Goals</h2>
 
-        <h2>Search Goals</h2>
+            <fieldset>
 
-        <fieldset>
+                <legend>Search By</legend>
 
-            <legend>Search By</legend>
+                <input
+                    type="radio"
+                    id="search-name"
+                    name="searchBy"
+                    value="name"
+                >
+                <label for="search-name">Goal Name</label>
 
-            <input type="radio" id="search-name" name="searchBy" value="name">
-            <label for="search-name">Goal Name</label>
+                <input
+                    type="radio"
+                    id="search-type"
+                    name="searchBy"
+                    value="type"
+                >
+                <label for="search-type">Goal Type</label>
 
-            <input type="radio" id="search-type" name="searchBy" value="type">
-            <label for="search-type">Goal Type</label>
+                <input
+                    type="radio"
+                    id="search-category"
+                    name="searchBy"
+                    value="category"
+                >
+                <label for="search-category">Category</label>
 
-            <input type="radio" id="search-category" name="searchBy" value="category">
-            <label for="search-category">Category</label>
+                <input
+                    type="radio"
+                    id="search-priority"
+                    name="searchBy"
+                    value="priority"
+                >
+                <label for="search-priority">Priority</label>
 
-            <input type="radio" id="search-priority" name="searchBy" value="priority">
-            <label for="search-priority">Priority</label>
+                <input
+                    type="radio"
+                    id="search-frequency"
+                    name="searchBy"
+                    value="frequency"
+                >
+                <label for="search-frequency">Frequency</label>
 
-            <input type="radio" id="search-frequency" name="searchBy" value="frequency">
-            <label for="search-frequency">Frequency</label>
+                <input
+                    type="radio"
+                    id="search-status"
+                    name="searchBy"
+                    value="status"
+                >
+                <label for="search-status">Status</label>
 
-            <input type="radio" id="search-status" name="searchBy" value="status">
-            <label for="search-status">Status</label>
+                <input
+                    type="radio"
+                    id="search-amount"
+                    name="searchBy"
+                    value="amount"
+                >
+                <label for="search-amount">Goal Amount</label>
 
-            <input type="radio" id="search-amount" name="searchBy" value="amount">
-            <label for="search-amount">Goal Amount</label>
+                <input
+                    type="radio"
+                    id="search-date"
+                    name="searchBy"
+                    value="date"
+                >
+                <label for="search-date">Target Date</label>
 
-            <input type="radio" id="search-date" name="searchBy" value="date">
-            <label for="search-date">Target Date</label>
+            </fieldset>
 
-        </fieldset>
+            <label for="search-value">Search:</label>
 
-        <label for="search-value">Search:</label>
-        <input type="text" id="search-value" name="search-value">
+            <input
+                type="text"
+                id="search-value"
+                name="search-value"
+            >
 
-        <button type="button">Search</button>
+            <button
+                type="button"
+                id="search-goals-button"
+            >
+                Search
+            </button>
 
-        <label for="goal-status">Goal Status:</label>
-        <select id="goal-status" name="goal-status">
-            <option value="in-progress">In Progress</option>
-            <option value="completed">Completed</option>
-            <option value="expired">Expired</option>
-        </select>
+            <label for="goal-status">Goal Status:</label>
 
-    </section>
+            <select id="goal-status" name="goal-status">
+                <option value="in-progress">In Progress</option>
+                <option value="completed">Completed</option>
+                <option value="expired">Expired</option>
+            </select>
 
-</main>
-<!DOCTYPE html>
-<html lang ="en">
-<head>
-	<meta charset="utf-8">
-	<meta name="description" content="Learn about the history of My Budget app and what inspired its creation.">
-	<meta name="keywords" content="About the app and my budjeting journey">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>My Budget - Budgeting Not Nickel And Diming </title>
-	<link rel="stylesheet" href="css/style.css">
-</head>
+        </section>
 
-<body>
-    <header>
-          <nav>
-            <ul>
-                <li><a href="index.html"><img src="image/home.png" alt="home shortcut"></a></li>
-                <li><a href="account.html"><img src="image/Account.png" alt="account shortcut"></a></li>
-                <li><a href="goals.html">Goals</a></li>
-                <li><a href="index.html">About</a></li>
-                <li><a href="settings.html"><img src="image/settings.png" alt="Settings"></a></li>
-            </ul>
-        </nav>
-    </header>
-	<h1>
-		Budgeting Not Nickel And Diming
-	</h1>
-	<h2>
-		My budgeting story
-	</h2>
-	<p>
-	Making and maintaining a budget has been one of my long‑term passions. 
-		I enjoy finding ways to stretch what I have as far as possible.
-		One strategy I’ve used over the years is setting a strict spending limit when I go to local festivals, such as Art in the Park.
-		I bring $200 with me to spend, but I leave $40 in the car so I have a small backup amount without carrying a card or check, which helps me avoid overspending.
-	</p>
+    </main>
 
-	<img
-		src = "image/Money.jpg"
-		alt="A close up image of an American hundred-dollar bill, a twenty-dollar bill and a five-dollar bill on a purple background"
-		width="400"
->
-
-	<p>
-		<a href="https://www.thepennyhoarder.com/budgeting/budgeting-for-beginners/" target="_blank">
-	Learn more simple budgeting tips and methods </a>
-	</p>
-	
-</body>
-</html>
 </body>
 </html>
