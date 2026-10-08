@@ -1,20 +1,13 @@
-// ============================================================
+  // ============================================================
 // MY BUDGET - GOALS SCRIPT
 // ============================================================
 
-// ============================================================
-// GOALS
-// ============================================================
 
-// Load saved goals from the browser.
-//
-// Goals are stored as an array of objects.
-//
-// If no goals have been saved yet,
-// start with an empty array.
+// ============================================================
+// GOALS - LOAD SAVED GOALS
+// ============================================================
 
 let goals;
-
 
 try {
 
@@ -139,7 +132,7 @@ function updateExpiredGoals() {
 
     goals.forEach(function(goal) {
 
-        // Completed goals should NEVER become expired.
+        // Completed goals should never become expired.
 
         if (
             goal.status !== "completed" &&
@@ -275,6 +268,12 @@ function displayGoals() {
 
     });
 
+
+    addGoalButtonEvents();
+
+}
+
+
 // ============================================================
 // GOALS - CREATE GOAL CARD
 // ============================================================
@@ -392,10 +391,13 @@ function createGoalCard(
         </p>
 
         <p>
+
             Status:
+
             <span class="goal-status">
                 ${goal.status}
             </span>
+
         </p>
 
         <div class="goal-actions">
@@ -707,19 +709,13 @@ if (goalForm) {
             };
 
 
-            // Add the goal to the array.
-
             goals.push(
                 newGoal
             );
 
 
-            // Save immediately.
-
             saveGoals();
 
-
-            // Display immediately.
 
             displayGoals();
 
@@ -729,8 +725,6 @@ if (goalForm) {
             );
 
 
-            // Clear the form.
-
             this.reset();
 
         }
@@ -738,10 +732,6 @@ if (goalForm) {
 
 }
 
-
-    addGoalButtonEvents();
-
-}
 
 // ============================================================
 // GOALS - BUTTON EVENTS
@@ -1033,10 +1023,6 @@ function updateGoalProgress(index) {
         goal.status ===
         "expired"
     ) {
-
-        // Keep an expired goal expired.
-        // This prevents old goals from disappearing
-        // back into the current section.
 
         goal.status =
             "expired";
@@ -1334,6 +1320,7 @@ if (searchGoalsButton) {
 
 }
 
+
 // ============================================================
 // GOALS - SEARCH RESULTS
 // ============================================================
@@ -1366,8 +1353,6 @@ function displaySearchResults(
 
     }
 
-
-    // Clear all three sections.
 
     currentGoals.innerHTML =
         "";
@@ -1406,14 +1391,10 @@ function displaySearchResults(
         function(goal) {
 
             // Find the ORIGINAL index
-            // in the main goals array.
+            // in the goals array.
             //
-            // This is important because search
-            // creates a filtered array.
-            //
-            // Using the filtered array index
-            // could cause Edit/Delete to affect
-            // the wrong goal.
+            // This keeps Edit/Delete/Complete
+            // working correctly after a search.
 
             const index =
                 goals.indexOf(
@@ -1483,11 +1464,11 @@ function displaySearchResults(
 // GOALS - INITIAL LOAD
 // ============================================================
 
-// First check saved goals for expired dates.
-
 updateExpiredGoals();
 
-
-// Then display all saved goals.
-
 displayGoals();
+
+
+// ============================================================
+// END OF GOALS SCRIPT
+// ============================================================
