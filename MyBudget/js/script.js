@@ -523,6 +523,177 @@ links.forEach(function(link) {
             if (!leaveSite) {
 
                 event.preventDefault();
+    // ==============================
+// GOALS - ADD GOAL
+// ==============================
+
+const goalForm =
+    document.getElementById("goal-form");
+
+if (goalForm) {
+
+    goalForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const goalName =
+            document.getElementById("goal-name").value.trim();
+
+        const goalAmount =
+            parseFloat(
+                document.getElementById("goal-amount").value
+            );
+
+        const goalProgress =
+            parseFloat(
+                document.getElementById("goal-progress").value
+            );
+
+
+        if (goalName === "") {
+
+            alert("Please enter a goal name.");
+
+            return;
+        }
+
+
+        if (isNaN(goalAmount) || goalAmount < 0) {
+
+            alert("Please enter a valid goal amount.");
+
+            return;
+        }
+
+
+        if (isNaN(goalProgress) || goalProgress < 0) {
+
+            alert("Please enter a valid current progress amount.");
+
+            return;
+        }
+
+
+        if (goalProgress > goalAmount) {
+
+            alert("Current progress cannot be greater than the goal amount.");
+
+            return;
+        }
+
+
+        alert("Goal added successfully.");
+
+        this.reset();
+    });
+}
+
+
+// ==============================
+// GOALS - EDIT GOAL
+// ==============================
+
+const editGoalButton =
+    document.getElementById("edit-goal-button");
+
+if (editGoalButton) {
+
+    editGoalButton.addEventListener("click", function() {
+
+        alert("Goal editing selected.");
+
+    });
+}
+
+
+// ==============================
+// GOALS - UPDATE PROGRESS
+// ==============================
+
+const updateProgressButton =
+    document.getElementById("update-progress-button");
+
+if (updateProgressButton) {
+
+    updateProgressButton.addEventListener("click", function() {
+
+        alert("Goal progress update selected.");
+
+    });
+}
+
+
+// ==============================
+// GOALS - COMPLETE GOAL
+// ==============================
+
+const completeGoalButton =
+    document.getElementById("complete-goal-button");
+
+if (completeGoalButton) {
+
+    completeGoalButton.addEventListener("click", function() {
+
+        const confirmComplete =
+            confirm("Mark this goal as completed?");
+
+        if (confirmComplete) {
+
+            alert("Goal marked as completed.");
+
+        }
+    });
+}
+
+
+// ==============================
+// GOALS - DELETE GOAL
+// ==============================
+
+const deleteGoalButton =
+    document.getElementById("delete-goal-button");
+
+if (deleteGoalButton) {
+
+    deleteGoalButton.addEventListener("click", function() {
+
+        const confirmDelete =
+            confirm("Are you sure you want to delete this goal?");
+
+        if (confirmDelete) {
+
+            alert("Goal deleted.");
+
+        }
+    });
+}
+
+
+// ==============================
+// GOALS - SEARCH
+// ==============================
+
+const searchGoalsButton =
+    document.getElementById("search-goals-button");
+
+if (searchGoalsButton) {
+
+    searchGoalsButton.addEventListener("click", function() {
+
+        const searchValue =
+            document.getElementById("search-value").value.trim();
+
+        if (searchValue === "") {
+
+            alert("Please enter something to search for.");
+
+            return;
+        }
+
+        alert("Searching goals for: " + searchValue);
+
+    });
+}
 
             }
         }
