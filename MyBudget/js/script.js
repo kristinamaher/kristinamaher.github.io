@@ -531,11 +531,294 @@ links.forEach(function(link) {
 
 
 // ==============================
+// GOALS
+// ==============================
+
+// Load saved goals from the browser.
+// If there are no saved goals, start with an empty array.
+let goals =
+    JSON.parse(localStorage.getItem("myBudgetGoals")) || [];
+
+
+// ==============================
+// GOALS - SAVE
+// ==============================
+
+function saveGoals() {
+
+    localStorage.setItem(
+        "myBudgetGoals",
+        JSON.stringify(goals)
+    );
+
+}
+
+
+// ==============================
+// GOALS - CHECK EXPIRED
+// ==============================
+
+function updateExpiredGoals() {
+
+    const today =
+        new Date().toISOString().split("T")[0];
+
+
+    let changed = false;
+
+
+    goals.forEach(function(goal) {
+
+        // Completed goals should NEVER become expired.
+        if (
+            goal.status !== "completed" &&
+            goal.date !== "" &&
+            goal.date < today
+        ) {
+
+            if (goal.status !== "expired") {
+
+                goal.status = "expired";
+
+                changed = true;
+
+            }
+
+        }
+
+    });
+
+
+    if (changed) {
+
+        saveGoals();
+
+    }
+
+}
+
+
+// ==============================
+// GOALS - DISPLAY
+// ==============================
+
+function displayGoals() {
+
+    const currentGoals =
+        document.getElementById("current-goals");
+
+    const completedGoals =
+        document.getElementById("completed-goals");
+
+    const expiredGoals =
+        document.getElementById("expired-goals");
+
+
+    if (!currentGoals) {
+
+        return;
+
+    }
+
+
+    // Clear only the containers that we are going to rebuild.
+    currentGoals.innerHTML = "";
+
+
+    if (completedGoals) {
+
+        completedGoals.innerHTML =
+            "<h3>Completed Goals</h3>";
+
+    }
+
+
+    if (expiredGoals) {
+
+        expiredGoals.innerHTML =
+            "<h3>Expired Goals</h3>";
+
+    }
+
+
+    goals.forEach(function(goal, index) {
+
+        const goalCard =
+            createGoalCard(goal, index);
+
+
+        if (goal.status === "completed") {
+
+            if (completedGoals) {
+
+                completedGoals.appendChild(goalCard);
+
+            }
+
+        } else if (goal.status === "expired") {
+
+            if (expiredGoals) {
+
+                expiredGoals.appendChild(goalCard);
+
+            }
+
+        } else {
+
+            currentGoals.appendChild(goalCard);
+
+        }
+
+    });
+
+
+    addGoalButtonEvents();
+
+}
+
+
+// ==============================
+// GOALS - CREATE GOAL CARD
+// ==============================
+
+function createGoalCard(goal, index) {
+
+    const goalCard =
+        document.createElement("article");
+
+
+    goalCard.className =
+        "goal-card";
+
+
+    const progressPercent =
+        goal.amount > 0
+            ? (goal.progress / goal.amount) * 100
+            : 0;
+
+
+    goalCard.innerHTML = `
+
+        <h3 class="goal-name">
+            ${goal.name}
+        </h3>
+
+        <p>
+            Goal Type:
+            <span class="goal-type">
+                ${goal.type}
+            </span>
+        </p>
+
+        <p>
+            Category:
+            <span class="goal-category">
+                ${goal.category}
+            </span>
+        </p>
+
+        <p>
+            Priority:
+            <span class="goal-priority">
+                ${goal.priority}
+            </span>
+        </p>
+
+        <p>
+            Frequency:
+            <span class="goal-frequency">
+                ${goal.frequency || "Not specified"}
+            </span>
+        </p>
+
+        <div class="goal-progress">
+
+            <p>Progress:</p>
+
+            <progress
+                value="${progressPercent}"
+                max="100">
+            </progress>
+
+            <p>
+                <span class="current-amount">
+                    $${goal.progress.toFixed(2)}
+                </span>
+
+                /
+
+                <span class="goal-amount">
+                    $${goal.amount.toFixed(2)}
+                </span>
+            </p>
+
+        </div>
+
+        <p>
+            Target Date:
+            <span class="goal-date">
+                ${goal.date || "No target date"}
+            </span>
+        </p>
+
+        <p>Notes:</p>
+
+        <p class="goal-notes">
+            ${goal.notes || "No notes"}
+        </p>
+
+        <p>
+            Status:
+            ${goal.status}
+        </p>
+
+        <div class="goal-actions">
+
+            <button
+                type="button"
+                class="edit-goal-button"
+                data-index="${index}">
+                Edit Goal
+            </button>
+
+            <button
+                type="button"
+                class="update-progress-button"
+                data-index="${index}">
+                Update Progress
+            </button>
+
+            <button
+                type="button"
+                class="complete-goal-button"
+                data-index="${index}">
+                Complete Goal
+            </button>
+
+            <button
+                type="button"
+                class="delete-goal-button"
+                data-index="${index}">
+                Delete Goal
+            </button>
+
+        </div>
+
+    `;
+
+
+    return goalCard;
+
+}
+
+
+// ==============================
 // GOALS - ADD GOAL
 // ==============================
 
 const goalForm =
     document.getElementById("goal-form");
+
 
 if (goalForm) {
 
@@ -543,25 +826,98 @@ if (goalForm) {
 
         event.preventDefault();
 
+
         const goalName =
-            document.getElementById("goal-name").value.trim();
+            document
+                .getElementById("goal-name")
+                .value
+                .trim();
+
+
+        const goalType =
+            document
+                .getElementById("goal-type")
+                .value;
+
+
+        const customType =
+            document
+                .getElementById("custom-type")
+                .value
+                .trim();
+
+
+        const goalCategory =
+            document
+                .getElementById("goal-category")
+                .value;
+
+
+        const customCategory =
+            document
+                .getElementById("custom-category")
+                .value
+                .trim();
+
+
+        const goalPriority =
+            document
+                .getElementById("goal-priority")
+                .value;
+
+
+        const frequency =
+            document
+                .getElementById("frequency")
+                .value;
+
+
+        const customFrequency =
+            document
+                .getElementById("custom-frequency")
+                .value
+                .trim();
+
 
         const goalAmount =
             parseFloat(
-                document.getElementById("goal-amount").value
+                document
+                    .getElementById("goal-amount")
+                    .value
             );
+
 
         const goalProgress =
             parseFloat(
-                document.getElementById("goal-progress").value
+                document
+                    .getElementById("goal-progress")
+                    .value
             );
 
+
+        const goalDate =
+            document
+                .getElementById("goal-date")
+                .value;
+
+
+        const goalNotes =
+            document
+                .getElementById("goal-notes")
+                .value
+                .trim();
+
+
+        // ------------------------------
+        // VALIDATION
+        // ------------------------------
 
         if (goalName === "") {
 
             alert("Please enter a goal name.");
 
             return;
+
         }
 
 
@@ -570,46 +926,243 @@ if (goalForm) {
             alert("Please enter a valid goal amount.");
 
             return;
+
         }
 
 
         if (isNaN(goalProgress) || goalProgress < 0) {
 
-            alert("Please enter a valid current progress amount.");
+            alert(
+                "Please enter a valid current progress amount."
+            );
 
             return;
+
         }
 
 
         if (goalProgress > goalAmount) {
 
-            alert("Current progress cannot be greater than the goal amount.");
+            alert(
+                "Current progress cannot be greater than the goal amount."
+            );
 
             return;
+
         }
+
+
+        // ------------------------------
+        // CREATE GOAL
+        // ------------------------------
+
+        const newGoal = {
+
+            name: goalName,
+
+            type:
+                customType !== ""
+                    ? customType
+                    : goalType,
+
+            category:
+                customCategory !== ""
+                    ? customCategory
+                    : goalCategory,
+
+            priority:
+                goalPriority,
+
+            frequency:
+                customFrequency !== ""
+                    ? customFrequency
+                    : frequency,
+
+            amount:
+                goalAmount,
+
+            progress:
+                goalProgress,
+
+            date:
+                goalDate,
+
+            notes:
+                goalNotes,
+
+            status:
+                goalProgress === goalAmount
+                    ? "completed"
+                    : "in-progress"
+
+        };
+
+
+        // Add the goal.
+        goals.push(newGoal);
+
+
+        // Save the goal.
+        saveGoals();
+
+
+        // Show the updated list.
+        displayGoals();
 
 
         alert("Goal added successfully.");
 
+
+        // Clear the form.
         this.reset();
+
     });
+
 }
 
 
 // ==============================
-// GOALS - EDIT GOAL
+// GOALS - BUTTON EVENTS
 // ==============================
 
-const editGoalButton =
-    document.getElementById("edit-goal-button");
+function addGoalButtonEvents() {
 
-if (editGoalButton) {
+    const editButtons =
+        document.querySelectorAll(
+            ".edit-goal-button"
+        );
 
-    editGoalButton.addEventListener("click", function() {
 
-        alert("Goal editing selected.");
+    const progressButtons =
+        document.querySelectorAll(
+            ".update-progress-button"
+        );
+
+
+    const completeButtons =
+        document.querySelectorAll(
+            ".complete-goal-button"
+        );
+
+
+    const deleteButtons =
+        document.querySelectorAll(
+            ".delete-goal-button"
+        );
+
+
+    editButtons.forEach(function(button) {
+
+        button.addEventListener("click", function() {
+
+            const index =
+                parseInt(this.dataset.index);
+
+
+            editGoal(index);
+
+        });
 
     });
+
+
+    progressButtons.forEach(function(button) {
+
+        button.addEventListener("click", function() {
+
+            const index =
+                parseInt(this.dataset.index);
+
+
+            updateGoalProgress(index);
+
+        });
+
+    });
+
+
+    completeButtons.forEach(function(button) {
+
+        button.addEventListener("click", function() {
+
+            const index =
+                parseInt(this.dataset.index);
+
+
+            completeGoal(index);
+
+        });
+
+    });
+
+
+    deleteButtons.forEach(function(button) {
+
+        button.addEventListener("click", function() {
+
+            const index =
+                parseInt(this.dataset.index);
+
+
+            deleteGoal(index);
+
+        });
+
+    });
+
+}
+
+
+// ==============================
+// GOALS - EDIT
+// ==============================
+
+function editGoal(index) {
+
+    const goal =
+        goals[index];
+
+
+    if (!goal) {
+
+        return;
+
+    }
+
+
+    const newName =
+        prompt(
+            "Edit goal name:",
+            goal.name
+        );
+
+
+    if (newName === null) {
+
+        return;
+
+    }
+
+
+    if (newName.trim() === "") {
+
+        alert(
+            "Goal name cannot be empty."
+        );
+
+        return;
+
+    }
+
+
+    goal.name =
+        newName.trim();
+
+
+    saveGoals();
+
+    displayGoals();
+
 }
 
 
@@ -617,62 +1170,178 @@ if (editGoalButton) {
 // GOALS - UPDATE PROGRESS
 // ==============================
 
-const updateProgressButton =
-    document.getElementById("update-progress-button");
+function updateGoalProgress(index) {
 
-if (updateProgressButton) {
+    const goal =
+        goals[index];
 
-    updateProgressButton.addEventListener("click", function() {
 
-        alert("Goal progress update selected.");
+    if (!goal) {
 
-    });
+        return;
+
+    }
+
+
+    const newProgress =
+        parseFloat(
+            prompt(
+                "Enter the new progress amount:",
+                goal.progress
+            )
+        );
+
+
+    if (isNaN(newProgress)) {
+
+        alert(
+            "Please enter a valid amount."
+        );
+
+        return;
+
+    }
+
+
+    if (newProgress < 0) {
+
+        alert(
+            "Progress cannot be negative."
+        );
+
+        return;
+
+    }
+
+
+    if (newProgress > goal.amount) {
+
+        alert(
+            "Progress cannot be greater than the goal amount."
+        );
+
+        return;
+
+    }
+
+
+    goal.progress =
+        newProgress;
+
+
+    // If the goal reaches the full amount,
+    // mark it completed.
+    if (goal.progress === goal.amount) {
+
+        goal.status =
+            "completed";
+
+    }
+
+    // If the goal is expired, keep it expired.
+    // Otherwise, keep it in progress.
+    else if (goal.status === "expired") {
+
+        goal.status =
+            "expired";
+
+    }
+
+    else {
+
+        goal.status =
+            "in-progress";
+
+    }
+
+
+    saveGoals();
+
+    displayGoals();
+
+}
+// ==============================
+// GOALS - COMPLETE
+// ==============================
+
+function completeGoal(index) {
+
+    const goal =
+        goals[index];
+
+
+    if (!goal) {
+
+        return;
+
+    }
+
+
+    const confirmComplete =
+        confirm(
+            "Mark this goal as completed?"
+        );
+
+
+    if (!confirmComplete) {
+
+        return;
+
+    }
+
+
+    goal.status =
+        "completed";
+
+
+    goal.progress =
+        goal.amount;
+
+
+    saveGoals();
+
+    displayGoals();
+
 }
 
 
 // ==============================
-// GOALS - COMPLETE GOAL
+// GOALS - DELETE
 // ==============================
 
-const completeGoalButton =
-    document.getElementById("complete-goal-button");
+function deleteGoal(index) {
 
-if (completeGoalButton) {
-
-    completeGoalButton.addEventListener("click", function() {
-
-        const confirmComplete =
-            confirm("Mark this goal as completed?");
-
-        if (confirmComplete) {
-
-            alert("Goal marked as completed.");
-
-        }
-    });
-}
+    const goal =
+        goals[index];
 
 
-// ==============================
-// GOALS - DELETE GOAL
-// ==============================
+    if (!goal) {
 
-const deleteGoalButton =
-    document.getElementById("delete-goal-button");
+        return;
 
-if (deleteGoalButton) {
+    }
 
-    deleteGoalButton.addEventListener("click", function() {
 
-        const confirmDelete =
-            confirm("Are you sure you want to delete this goal?");
+    const confirmDelete =
+        confirm(
+            "Are you sure you want to delete this goal?"
+        );
 
-        if (confirmDelete) {
 
-            alert("Goal deleted.");
+    if (!confirmDelete) {
 
-        }
-    });
+        return;
+
+    }
+
+
+    goals.splice(index, 1);
+
+
+    saveGoals();
+
+    displayGoals();
+
 }
 
 
@@ -681,23 +1350,251 @@ if (deleteGoalButton) {
 // ==============================
 
 const searchGoalsButton =
-    document.getElementById("search-goals-button");
+    document.getElementById(
+        "search-goals-button"
+    );
+
 
 if (searchGoalsButton) {
 
-    searchGoalsButton.addEventListener("click", function() {
+    searchGoalsButton.addEventListener(
+        "click",
+        function() {
 
-        const searchValue =
-            document.getElementById("search-value").value.trim();
+            const searchInput =
+                document.getElementById(
+                    "search-value"
+                );
 
-        if (searchValue === "") {
 
-            alert("Please enter something to search for.");
+            const searchValue =
+                searchInput
+                    ? searchInput.value
+                        .trim()
+                        .toLowerCase()
+                    : "";
 
-            return;
+
+            if (searchValue === "") {
+
+                displayGoals();
+
+                return;
+
+            }
+
+
+            const searchBy =
+                document.querySelector(
+                    'input[name="searchBy"]:checked'
+                );
+
+
+            if (!searchBy) {
+
+                alert(
+                    "Please select what you want to search by."
+                );
+
+                return;
+
+            }
+
+
+            const searchType =
+                searchBy.value;
+
+
+            const matchingGoals =
+                goals.filter(function(goal) {
+
+                    let value = "";
+
+
+                    if (searchType === "name") {
+
+                        value = goal.name;
+
+                    }
+
+
+                    if (searchType === "type") {
+
+                        value = goal.type;
+
+                    }
+
+
+                    if (searchType === "category") {
+
+                        value = goal.category;
+
+                    }
+
+
+                    if (searchType === "priority") {
+
+                        value = goal.priority;
+
+                    }
+
+
+                    if (searchType === "frequency") {
+
+                        value = goal.frequency;
+
+                    }
+
+
+                    if (searchType === "status") {
+
+                        value = goal.status;
+
+                    }
+
+
+                    if (searchType === "amount") {
+
+                        value =
+                            goal.amount.toString();
+
+                    }
+
+
+                    if (searchType === "date") {
+
+                        value = goal.date;
+
+                    }
+
+
+                    return value
+                        .toLowerCase()
+                        .includes(searchValue);
+
+                });
+
+
+            displaySearchResults(
+                matchingGoals
+            );
+
+        }
+    );
+
+}
+
+
+// ==============================
+// GOALS - SEARCH RESULTS
+// ==============================
+
+function displaySearchResults(results) {
+
+    const currentGoals =
+        document.getElementById(
+            "current-goals"
+        );
+
+
+    const completedGoals =
+        document.getElementById(
+            "completed-goals"
+        );
+
+
+    const expiredGoals =
+        document.getElementById(
+            "expired-goals"
+        );
+
+
+    if (!currentGoals) {
+
+        return;
+
+    }
+
+
+    // Clear all three sections so search
+    // does not leave misleading old results.
+    currentGoals.innerHTML = "";
+
+    if (completedGoals) {
+
+        completedGoals.innerHTML =
+            "<h3>Completed Goals</h3>";
+
+    }
+
+    if (expiredGoals) {
+
+        expiredGoals.innerHTML =
+            "<h3>Expired Goals</h3>";
+
+    }
+
+
+    if (results.length === 0) {
+
+        currentGoals.innerHTML =
+            "<p>No matching goals found.</p>";
+
+        return;
+
+    }
+
+
+    results.forEach(function(goal) {
+
+        // Find the ORIGINAL index in the goals array.
+        // This keeps Edit/Delete/Complete working
+        // correctly after a search.
+        const index =
+            goals.indexOf(goal);
+
+
+        const goalCard =
+            createGoalCard(goal, index);
+
+
+        if (goal.status === "completed") {
+
+            if (completedGoals) {
+
+                completedGoals.appendChild(goalCard);
+
+            }
+
+        } else if (goal.status === "expired") {
+
+            if (expiredGoals) {
+
+                expiredGoals.appendChild(goalCard);
+
+            }
+
+        } else {
+
+            currentGoals.appendChild(goalCard);
+
         }
 
-        alert("Searching goals for: " + searchValue);
-
     });
+
+
+    addGoalButtonEvents();
+
 }
+
+
+// ==============================
+// GOALS - INITIAL LOAD
+// ==============================
+
+// Check whether any saved goals have expired.
+updateExpiredGoals();
+
+
+// Display all saved goals.
+displayGoals();
