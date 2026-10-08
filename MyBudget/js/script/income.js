@@ -2,7 +2,6 @@
 // MY BUDGET - INCOME SCRIPT
 // ============================================================
 
-
 // ============================================================
 // INCOME / MONEY TOTALS
 // ============================================================
@@ -24,7 +23,6 @@ let cardTotal =
     parseFloat(
         localStorage.getItem("myBudgetCardTotal")
     ) || 0;
-
 
 // ============================================================
 // SAVE MONEY TOTALS
@@ -48,7 +46,6 @@ function saveMoneyTotals() {
     );
 
 }
-
 
 // ============================================================
 // UPDATE INCOME SUMMARY
@@ -76,7 +73,6 @@ function updateIncomeSummary() {
             "spendable-total"
         );
 
-
     // Regular income
 
     if (incomeDisplay) {
@@ -85,7 +81,6 @@ function updateIncomeSummary() {
             "$" + incomeTotal.toFixed(2);
 
     }
-
 
     // Money gifts
 
@@ -96,7 +91,6 @@ function updateIncomeSummary() {
 
     }
 
-
     // Gift cards / prepaid cards
 
     if (cardDisplay) {
@@ -105,7 +99,6 @@ function updateIncomeSummary() {
             "$" + cardTotal.toFixed(2);
 
     }
-
 
     // Total spendable money
 
@@ -116,14 +109,12 @@ function updateIncomeSummary() {
             giftTotal +
             cardTotal;
 
-
         spendableDisplay.textContent =
             "$" + spendableTotal.toFixed(2);
 
     }
 
 }
-
 
 // ============================================================
 // ADD REGULAR INCOME
@@ -134,7 +125,6 @@ const incomeForm =
         "income-form"
     );
 
-
 if (incomeForm) {
 
     incomeForm.addEventListener(
@@ -143,12 +133,10 @@ if (incomeForm) {
 
             event.preventDefault();
 
-
             const amountInput =
                 document.getElementById(
                     "income-amount"
                 );
-
 
             const amount =
                 amountInput
@@ -156,7 +144,6 @@ if (incomeForm) {
                         amountInput.value
                     )
                     : NaN;
-
 
             if (
                 isNaN(amount) ||
@@ -171,20 +158,16 @@ if (incomeForm) {
 
             }
 
-
             incomeTotal += amount;
-
 
             // Save immediately so the
             // amount survives a refresh.
 
             saveMoneyTotals();
 
-
             // Update the displayed totals.
 
             updateIncomeSummary();
-
 
             // Clear the form.
 
@@ -195,7 +178,6 @@ if (incomeForm) {
 
 }
 
-
 // ============================================================
 // ADD MONEY GIFT
 // ============================================================
@@ -205,7 +187,6 @@ const giftForm =
         "gift-form"
     );
 
-
 if (giftForm) {
 
     giftForm.addEventListener(
@@ -214,12 +195,10 @@ if (giftForm) {
 
             event.preventDefault();
 
-
             const amountInput =
                 document.getElementById(
                     "gift-amount"
                 );
-
 
             const amount =
                 amountInput
@@ -227,7 +206,6 @@ if (giftForm) {
                         amountInput.value
                     )
                     : NaN;
-
 
             if (
                 isNaN(amount) ||
@@ -242,19 +220,15 @@ if (giftForm) {
 
             }
 
-
             giftTotal += amount;
-
 
             // Save immediately.
 
             saveMoneyTotals();
 
-
             // Update displayed totals.
 
             updateIncomeSummary();
-
 
             // Clear the form.
 
@@ -265,7 +239,6 @@ if (giftForm) {
 
 }
 
-
 // ============================================================
 // ADD GIFT CARD / PREPAID CARD
 // ============================================================
@@ -275,7 +248,6 @@ const cardForm =
         "card-form"
     );
 
-
 if (cardForm) {
 
     cardForm.addEventListener(
@@ -284,12 +256,10 @@ if (cardForm) {
 
             event.preventDefault();
 
-
             const amountInput =
                 document.getElementById(
                     "card-balance"
                 );
-
 
             const amount =
                 amountInput
@@ -297,7 +267,6 @@ if (cardForm) {
                         amountInput.value
                     )
                     : NaN;
-
 
             if (
                 isNaN(amount) ||
@@ -312,19 +281,15 @@ if (cardForm) {
 
             }
 
-
             cardTotal += amount;
-
 
             // Save immediately.
 
             saveMoneyTotals();
 
-
             // Update displayed totals.
 
             updateIncomeSummary();
-
 
             // Clear the form.
 
@@ -335,7 +300,6 @@ if (cardForm) {
 
 }
 
-
 // ============================================================
 // INITIAL DISPLAY
 // ============================================================
@@ -344,8 +308,6 @@ if (cardForm) {
 
 updateIncomeSummary();
 
-
 // ============================================================
 // END OF INCOME SCRIPT
 // ============================================================
-
