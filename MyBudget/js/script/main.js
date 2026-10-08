@@ -43,7 +43,19 @@ links.forEach(function(link) {
     );
 
 });
+// ============================================================
+// LEAVING MY BUDGET
+// ============================================================
 
+window.addEventListener(
+    "beforeunload",
+    function(event) {
+
+        event.preventDefault();
+
+        event.returnValue = "";
+    }
+);
 // ============================================================
 // END OF MY BUDGET SCRIPT
 // ==================================================
