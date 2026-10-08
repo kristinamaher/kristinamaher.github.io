@@ -11,7 +11,6 @@ const notificationForm =
         "notification-form"
     );
 
-
 if (notificationForm) {
 
     notificationForm.addEventListener(
@@ -19,7 +18,6 @@ if (notificationForm) {
         function(event) {
 
             event.preventDefault();
-
 
             alert(
                 "Notification preferences saved."
@@ -30,7 +28,6 @@ if (notificationForm) {
 
 }
 
-
 // ============================================================
 // SETTINGS - SECURITY
 // ============================================================
@@ -40,7 +37,6 @@ const securityForm =
         "security-form"
     );
 
-
 if (securityForm) {
 
     securityForm.addEventListener(
@@ -48,7 +44,6 @@ if (securityForm) {
         function(event) {
 
             event.preventDefault();
-
 
             alert(
                 "Security settings saved."
@@ -59,7 +54,6 @@ if (securityForm) {
 
 }
 
-
 // ============================================================
 // SETTINGS - DISPLAY
 // ============================================================
@@ -69,7 +63,6 @@ const displayForm =
         "display-form"
     );
 
-
 if (displayForm) {
 
     displayForm.addEventListener(
@@ -77,7 +70,6 @@ if (displayForm) {
         function(event) {
 
             event.preventDefault();
-
 
             alert(
                 "Display preferences saved."
@@ -88,7 +80,6 @@ if (displayForm) {
 
 }
 
-
 // ============================================================
 // SETTINGS - DATE & TIME
 // ============================================================
@@ -98,7 +89,6 @@ const dateTimeForm =
         "date-time-form"
     );
 
-
 if (dateTimeForm) {
 
     dateTimeForm.addEventListener(
@@ -106,7 +96,6 @@ if (dateTimeForm) {
         function(event) {
 
             event.preventDefault();
-
 
             alert(
                 "Date and time settings saved."
@@ -117,7 +106,6 @@ if (dateTimeForm) {
 
 }
 
-
 // ============================================================
 // SETTINGS - PRIVACY
 // ============================================================
@@ -127,7 +115,6 @@ const privacyForm =
         "privacy-form"
     );
 
-
 if (privacyForm) {
 
     privacyForm.addEventListener(
@@ -135,7 +122,6 @@ if (privacyForm) {
         function(event) {
 
             event.preventDefault();
-
 
             alert(
                 "Privacy settings saved."
@@ -146,7 +132,6 @@ if (privacyForm) {
 
 }
 
-
 // ============================================================
 // SETTINGS - BUDGET
 // ============================================================
@@ -156,7 +141,6 @@ const budgetPreferencesForm =
         "budget-preferences-form"
     );
 
-
 if (budgetPreferencesForm) {
 
     budgetPreferencesForm.addEventListener(
@@ -164,7 +148,6 @@ if (budgetPreferencesForm) {
         function(event) {
 
             event.preventDefault();
-
 
             alert(
                 "Budget preferences saved."
@@ -175,12 +158,6 @@ if (budgetPreferencesForm) {
 
 }
 
-
 // ============================================================
-// NOTE:
-// The old "beforeunload" code has intentionally been removed.
-//
-// localStorage already saves the user's budget data.
-// There is no need to warn the user every time they
-// refresh, close, or leave the page.
+//END SETTING SCRIPT
 // ============================================================
