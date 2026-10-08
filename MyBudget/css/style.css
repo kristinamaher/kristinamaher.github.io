@@ -94,7 +94,13 @@ textarea,
 button {
     padding: 8px;
     margin: 5px;
+}
+button{
 	cursor:pointer;
+}
+input[type="text"],
+textarea{
+	cursor: text;
 }
 
 /***** Media Queries *****/
