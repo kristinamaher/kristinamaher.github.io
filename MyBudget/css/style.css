@@ -93,7 +93,7 @@ select,
 textarea,
 button {
     padding: 8px;
-    margin: 5px;
+   box-sizing: border-box;
 }
 button{
 	cursor:pointer;
