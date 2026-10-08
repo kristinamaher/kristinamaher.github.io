@@ -1,567 +1,1042 @@
-// My Budget - Main JavaScript
+// ============================================================
+// MY BUDGET - MAIN JAVASCRIPT
+// ============================================================
 
 
-// ==============================
-// INCOME TOTALS
-// ==============================
+// ============================================================
+// INCOME / MONEY TOTALS
+// ============================================================
 
-let incomeTotal = 0;
-let giftTotal = 0;
-let cardTotal = 0;
+// Load saved totals from the browser.
+// If nothing has been saved yet, start at $0.
 
+let incomeTotal =
+    parseFloat(localStorage.getItem("myBudgetIncomeTotal")) || 0;
 
-function updateIncomeSummary() {
+let giftTotal =
+    parseFloat(localStorage.getItem("myBudgetGiftTotal")) || 0;
 
-    const incomeDisplay = document.getElementById("income-total");
-    const giftDisplay = document.getElementById("gift-total");
-    const cardDisplay = document.getElementById("card-total");
-    const spendableDisplay = document.getElementById("spendable-total");
+let cardTotal =
+    parseFloat(localStorage.getItem("myBudgetCardTotal")) || 0;
 
-    if (incomeDisplay) {
-        incomeDisplay.textContent =
-            "$" + incomeTotal.toFixed(2);
-    }
 
-    if (giftDisplay) {
-        giftDisplay.textContent =
-            "$" + giftTotal.toFixed(2);
-    }
+// ============================================================
+// SAVE MONEY TOTALS
+// ============================================================
 
-    if (cardDisplay) {
-        cardDisplay.textContent =
-            "$" + cardTotal.toFixed(2);
-    }
-
-    if (spendableDisplay) {
-
-        let spendableTotal =
-            incomeTotal + giftTotal + cardTotal;
-
-        spendableDisplay.textContent =
-            "$" + spendableTotal.toFixed(2);
-    }
-}
-
-
-// Add regular income
-const incomeForm =
-    document.getElementById("income-form");
-
-if (incomeForm) {
-
-    incomeForm.addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-        let amount =
-            parseFloat(
-                document.getElementById("income-amount").value
-            );
-
-        if (!isNaN(amount) && amount >= 0) {
-
-            incomeTotal += amount;
-
-            updateIncomeSummary();
-
-            this.reset();
-        }
-    });
-}
-
-
-// Add money gift
-const giftForm =
-    document.getElementById("gift-form");
-
-if (giftForm) {
-
-    giftForm.addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-        let amount =
-            parseFloat(
-                document.getElementById("gift-amount").value
-            );
-
-        if (!isNaN(amount) && amount >= 0) {
-
-            giftTotal += amount;
-
-            updateIncomeSummary();
-
-            this.reset();
-        }
-    });
-}
-
-
-// Add gift card or prepaid card
-const cardForm =
-    document.getElementById("card-form");
-
-if (cardForm) {
-
-    cardForm.addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-        let amount =
-            parseFloat(
-                document.getElementById("card-balance").value
-            );
-
-        if (!isNaN(amount) && amount >= 0) {
-
-            cardTotal += amount;
-
-            updateIncomeSummary();
-
-            this.reset();
-        }
-    });
-}
-
-
-updateIncomeSummary();
-
-
-// ==============================
-// ACCOUNT - CREATE ACCOUNT
-// ==============================
-
-const createAccountForm =
-    document.getElementById("create-account-form");
-
-if (createAccountForm) {
-
-    createAccountForm.addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-        const username =
-            document.getElementById("username").value.trim();
-
-        const email =
-            document.getElementById("email").value.trim();
-
-        const password =
-            document.getElementById("password").value;
-
-        const confirmPassword =
-            document.getElementById("confirm-password").value;
-
-
-        if (username === "" ||
-            email === "" ||
-            password === "" ||
-            confirmPassword === "") {
-
-            alert("Please complete all required account information.");
-
-            return;
-        }
-
-
-        if (password !== confirmPassword) {
-
-            alert("Passwords do not match.");
-
-            return;
-        }
-
-
-        alert("Account created successfully.");
-
-        this.reset();
-    });
-}
-
-
-// ==============================
-// ACCOUNT - LOGIN INFORMATION
-// ==============================
-
-const loginInformationForm =
-    document.getElementById("login-information-form");
-
-if (loginInformationForm) {
-
-    loginInformationForm.addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-        const username =
-            document.getElementById("username").value.trim();
-
-        const email =
-            document.getElementById("email").value.trim();
-
-        const password =
-            document.getElementById("password").value;
-
-        const confirmPassword =
-            document.getElementById("confirm-password").value;
-
-
-        if (username === "" ||
-            email === "" ||
-            password === "" ||
-            confirmPassword === "") {
-
-            alert("Please complete all login information.");
-
-            return;
-        }
-
-
-        if (password !== confirmPassword) {
-
-            alert("Passwords do not match.");
-
-            return;
-        }
-
-
-        alert("Login information saved.");
-
-        this.reset();
-    });
-}
-
-
-// ==============================
-// ACCOUNT - PERSONAL INFORMATION
-// ==============================
-
-const personalInformationForm =
-    document.getElementById("personal-information-form");
-
-if (personalInformationForm) {
-
-    personalInformationForm.addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-        alert("Personal information saved.");
-
-        this.reset();
-    });
-}
-
-
-// ==============================
-// ACCOUNT - CURRENCY PREFERENCE
-// ==============================
-
-const currencyForm =
-    document.getElementById("currency-form");
-
-if (currencyForm) {
-
-    currencyForm.addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-        alert("Currency preference saved.");
-
-    });
-}
-
-
-// ==============================
-// ACCOUNT - PROFILE PICTURE
-// ==============================
-
-const profilePictureForm =
-    document.getElementById("profile-picture-form");
-
-if (profilePictureForm) {
-
-    profilePictureForm.addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-        const picture =
-            document.getElementById("profile-picture");
-
-        if (!picture.files.length) {
-
-            alert("Please choose a profile picture.");
-
-            return;
-        }
-
-        alert("Profile picture saved.");
-
-    });
-}
-
-
-// ==============================
-// ACCOUNT - LOG OUT
-// ==============================
-
-const logoutButton =
-    document.getElementById("logout-button");
-
-if (logoutButton) {
-
-    logoutButton.addEventListener("click", function() {
-
-        const confirmLogout =
-            confirm("Do you want to log out?");
-
-        if (confirmLogout) {
-
-            alert("You have been logged out.");
-
-        }
-    });
-}
-
-
-// ==============================
-// ACCOUNT - DEACTIVATE
-// ==============================
-
-const deactivateButton =
-    document.getElementById("deactivate-button");
-
-if (deactivateButton) {
-
-    deactivateButton.addEventListener("click", function() {
-
-        const confirmDeactivate =
-            confirm(
-                "Do you want to deactivate your account?"
-            );
-
-        if (confirmDeactivate) {
-
-            alert("Your account has been deactivated.");
-
-        }
-    });
-}
-
-
-// ==============================
-// ACCOUNT - DELETE
-// ==============================
-
-const deleteButton =
-    document.getElementById("delete-account-button");
-
-if (deleteButton) {
-
-    deleteButton.addEventListener("click", function() {
-
-        const confirmDelete =
-            confirm(
-                "Are you sure you want to permanently delete your account?"
-            );
-
-        if (confirmDelete) {
-
-            alert("Your account has been deleted.");
-
-        }
-    });
-}
-
-
-// ==============================
-// SETTINGS - NOTIFICATIONS
-// ==============================
-
-const notificationForm =
-    document.getElementById("notification-form");
-
-if (notificationForm) {
-
-    notificationForm.addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-        alert("Notification preferences saved.");
-
-    });
-}
-
-
-// ==============================
-// SETTINGS - SECURITY
-// ==============================
-
-const securityForm =
-    document.getElementById("security-form");
-
-if (securityForm) {
-
-    securityForm.addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-        alert("Security settings saved.");
-
-    });
-}
-
-
-// ==============================
-// SETTINGS - DISPLAY
-// ==============================
-
-const displayForm =
-    document.getElementById("display-form");
-
-if (displayForm) {
-
-    displayForm.addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-        alert("Display preferences saved.");
-
-    });
-}
-
-
-// ==============================
-// SETTINGS - DATE & TIME
-// ==============================
-
-const dateTimeForm =
-    document.getElementById("date-time-form");
-
-if (dateTimeForm) {
-
-    dateTimeForm.addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-        alert("Date and time settings saved.");
-
-    });
-}
-
-
-// ==============================
-// SETTINGS - PRIVACY
-// ==============================
-
-const privacyForm =
-    document.getElementById("privacy-form");
-
-if (privacyForm) {
-
-    privacyForm.addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-        alert("Privacy settings saved.");
-
-    });
-}
-
-
-// ==============================
-// SETTINGS - BUDGET
-// ==============================
-
-const budgetPreferencesForm =
-    document.getElementById("budget-preferences-form");
-
-if (budgetPreferencesForm) {
-
-    budgetPreferencesForm.addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-        alert("Budget preferences saved.");
-
-    });
-}
-
-
-// ==============================
-// LEAVING THE SITE
-// ==============================
-
-window.addEventListener("beforeunload", function(event) {
-
-    event.preventDefault();
-
-    event.returnValue = "";
-
-});
-
-
-// ==============================
-// EXTERNAL LINKS
-// ==============================
-
-const links =
-    document.querySelectorAll("a");
-
-links.forEach(function(link) {
-
-    link.addEventListener("click", function(event) {
-
-        const destination =
-            new URL(link.href, window.location.href);
-
-        if (destination.origin !== window.location.origin) {
-
-            const leaveSite =
-                confirm(
-                    "You are about to leave My Budget. You may not be logged out! Do you want to continue?"
-                );
-
-            if (!leaveSite) {
-
-                event.preventDefault();
-
-            }
-        }
-    });
-});
-
-
-// ==============================
-// GOALS
-// ==============================
-
-// Load saved goals from the browser.
-// If there are no saved goals, start with an empty array.
-let goals =
-    JSON.parse(localStorage.getItem("myBudgetGoals")) || [];
-
-
-// ==============================
-// GOALS - SAVE
-// ==============================
-
-function saveGoals() {
+function saveMoneyTotals() {
 
     localStorage.setItem(
-        "myBudgetGoals",
-        JSON.stringify(goals)
+        "myBudgetIncomeTotal",
+        incomeTotal.toString()
+    );
+
+    localStorage.setItem(
+        "myBudgetGiftTotal",
+        giftTotal.toString()
+    );
+
+    localStorage.setItem(
+        "myBudgetCardTotal",
+        cardTotal.toString()
     );
 
 }
 
 
-// ==============================
+// ============================================================
+// UPDATE INCOME SUMMARY
+// ============================================================
+
+function updateIncomeSummary() {
+
+    const incomeDisplay =
+        document.getElementById("income-total");
+
+    const giftDisplay =
+        document.getElementById("gift-total");
+
+    const cardDisplay =
+        document.getElementById("card-total");
+
+    const spendableDisplay =
+        document.getElementById("spendable-total");
+
+
+    if (incomeDisplay) {
+
+        incomeDisplay.textContent =
+            "$" + incomeTotal.toFixed(2);
+
+    }
+
+
+    if (giftDisplay) {
+
+        giftDisplay.textContent =
+            "$" + giftTotal.toFixed(2);
+
+    }
+
+
+    if (cardDisplay) {
+
+        cardDisplay.textContent =
+            "$" + cardTotal.toFixed(2);
+
+    }
+
+
+    if (spendableDisplay) {
+
+        const spendableTotal =
+            incomeTotal +
+            giftTotal +
+            cardTotal;
+
+
+        spendableDisplay.textContent =
+            "$" + spendableTotal.toFixed(2);
+
+    }
+
+}
+
+
+// ============================================================
+// ADD REGULAR INCOME
+// ============================================================
+
+const incomeForm =
+    document.getElementById("income-form");
+
+
+if (incomeForm) {
+
+    incomeForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const amountInput =
+                document.getElementById("income-amount");
+
+
+            const amount =
+                amountInput
+                    ? parseFloat(amountInput.value)
+                    : NaN;
+
+
+            if (isNaN(amount) || amount < 0) {
+
+                alert(
+                    "Please enter a valid income amount."
+                );
+
+                return;
+
+            }
+
+
+            incomeTotal += amount;
+
+
+            // Save immediately so the amount
+            // survives a page refresh.
+            saveMoneyTotals();
+
+
+            updateIncomeSummary();
+
+
+            this.reset();
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// ADD MONEY GIFT
+// ============================================================
+
+const giftForm =
+    document.getElementById("gift-form");
+
+
+if (giftForm) {
+
+    giftForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const amountInput =
+                document.getElementById("gift-amount");
+
+
+            const amount =
+                amountInput
+                    ? parseFloat(amountInput.value)
+                    : NaN;
+
+
+            if (isNaN(amount) || amount < 0) {
+
+                alert(
+                    "Please enter a valid gift amount."
+                );
+
+                return;
+
+            }
+
+
+            giftTotal += amount;
+
+
+            saveMoneyTotals();
+
+
+            updateIncomeSummary();
+
+
+            this.reset();
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// ADD GIFT CARD / PREPAID CARD
+// ============================================================
+
+const cardForm =
+    document.getElementById("card-form");
+
+
+if (cardForm) {
+
+    cardForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const amountInput =
+                document.getElementById("card-balance");
+
+
+            const amount =
+                amountInput
+                    ? parseFloat(amountInput.value)
+                    : NaN;
+
+
+            if (isNaN(amount) || amount < 0) {
+
+                alert(
+                    "Please enter a valid card balance."
+                );
+
+                return;
+
+            }
+
+
+            cardTotal += amount;
+
+
+            saveMoneyTotals();
+
+
+            updateIncomeSummary();
+
+
+            this.reset();
+
+        }
+    );
+
+}
+
+
+// Display saved totals immediately
+// when the page loads.
+
+updateIncomeSummary();
+
+
+// ============================================================
+// ACCOUNT - CREATE ACCOUNT
+// ============================================================
+
+const createAccountForm =
+    document.getElementById("create-account-form");
+
+
+if (createAccountForm) {
+
+    createAccountForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const usernameElement =
+                document.getElementById("username");
+
+            const emailElement =
+                document.getElementById("email");
+
+            const passwordElement =
+                document.getElementById("password");
+
+            const confirmPasswordElement =
+                document.getElementById("confirm-password");
+
+
+            const username =
+                usernameElement
+                    ? usernameElement.value.trim()
+                    : "";
+
+            const email =
+                emailElement
+                    ? emailElement.value.trim()
+                    : "";
+
+            const password =
+                passwordElement
+                    ? passwordElement.value
+                    : "";
+
+            const confirmPassword =
+                confirmPasswordElement
+                    ? confirmPasswordElement.value
+                    : "";
+
+
+            if (
+                username === "" ||
+                email === "" ||
+                password === "" ||
+                confirmPassword === ""
+            ) {
+
+                alert(
+                    "Please complete all required account information."
+                );
+
+                return;
+
+            }
+
+
+            if (password !== confirmPassword) {
+
+                alert(
+                    "Passwords do not match."
+                );
+
+                return;
+
+            }
+
+
+            alert(
+                "Account created successfully."
+            );
+
+
+            this.reset();
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// ACCOUNT - LOGIN INFORMATION
+// ============================================================
+
+const loginInformationForm =
+    document.getElementById(
+        "login-information-form"
+    );
+
+
+if (loginInformationForm) {
+
+    loginInformationForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const usernameElement =
+                document.getElementById("username");
+
+            const emailElement =
+                document.getElementById("email");
+
+            const passwordElement =
+                document.getElementById("password");
+
+            const confirmPasswordElement =
+                document.getElementById("confirm-password");
+
+
+            const username =
+                usernameElement
+                    ? usernameElement.value.trim()
+                    : "";
+
+            const email =
+                emailElement
+                    ? emailElement.value.trim()
+                    : "";
+
+            const password =
+                passwordElement
+                    ? passwordElement.value
+                    : "";
+
+            const confirmPassword =
+                confirmPasswordElement
+                    ? confirmPasswordElement.value
+                    : "";
+
+
+            if (
+                username === "" ||
+                email === "" ||
+                password === "" ||
+                confirmPassword === ""
+            ) {
+
+                alert(
+                    "Please complete all login information."
+                );
+
+                return;
+
+            }
+
+
+            if (password !== confirmPassword) {
+
+                alert(
+                    "Passwords do not match."
+                );
+
+                return;
+
+            }
+
+
+            alert(
+                "Login information saved."
+            );
+
+
+            this.reset();
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// ACCOUNT - PERSONAL INFORMATION
+// ============================================================
+
+const personalInformationForm =
+    document.getElementById(
+        "personal-information-form"
+    );
+
+
+if (personalInformationForm) {
+
+    personalInformationForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            alert(
+                "Personal information saved."
+            );
+
+
+            this.reset();
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// ACCOUNT - CURRENCY PREFERENCE
+// ============================================================
+
+const currencyForm =
+    document.getElementById("currency-form");
+
+
+if (currencyForm) {
+
+    currencyForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            alert(
+                "Currency preference saved."
+            );
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// ACCOUNT - PROFILE PICTURE
+// ============================================================
+
+const profilePictureForm =
+    document.getElementById(
+        "profile-picture-form"
+    );
+
+
+if (profilePictureForm) {
+
+    profilePictureForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const picture =
+                document.getElementById(
+                    "profile-picture"
+                );
+
+
+            if (
+                !picture ||
+                !picture.files ||
+                !picture.files.length
+            ) {
+
+                alert(
+                    "Please choose a profile picture."
+                );
+
+                return;
+
+            }
+
+
+            alert(
+                "Profile picture saved."
+            );
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// ACCOUNT - LOG OUT
+// ============================================================
+
+const logoutButton =
+    document.getElementById(
+        "logout-button"
+    );
+
+
+if (logoutButton) {
+
+    logoutButton.addEventListener(
+        "click",
+        function() {
+
+            const confirmLogout =
+                confirm(
+                    "Do you want to log out?"
+                );
+
+
+            if (confirmLogout) {
+
+                alert(
+                    "You have been logged out."
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// ACCOUNT - DEACTIVATE
+// ============================================================
+
+const deactivateButton =
+    document.getElementById(
+        "deactivate-button"
+    );
+
+
+if (deactivateButton) {
+
+    deactivateButton.addEventListener(
+        "click",
+        function() {
+
+            const confirmDeactivate =
+                confirm(
+                    "Do you want to deactivate your account?"
+                );
+
+
+            if (confirmDeactivate) {
+
+                alert(
+                    "Your account has been deactivated."
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// ACCOUNT - DELETE
+// ============================================================
+
+const deleteButton =
+    document.getElementById(
+        "delete-account-button"
+    );
+
+
+if (deleteButton) {
+
+    deleteButton.addEventListener(
+        "click",
+        function() {
+
+            const confirmDelete =
+                confirm(
+                    "Are you sure you want to permanently delete your account?"
+                );
+
+
+            if (confirmDelete) {
+
+                alert(
+                    "Your account has been deleted."
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// SETTINGS - NOTIFICATIONS
+// ============================================================
+
+const notificationForm =
+    document.getElementById(
+        "notification-form"
+    );
+
+
+if (notificationForm) {
+
+    notificationForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            alert(
+                "Notification preferences saved."
+            );
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// SETTINGS - SECURITY
+// ============================================================
+
+const securityForm =
+    document.getElementById(
+        "security-form"
+    );
+
+
+if (securityForm) {
+
+    securityForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            alert(
+                "Security settings saved."
+            );
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// SETTINGS - DISPLAY
+// ============================================================
+
+const displayForm =
+    document.getElementById(
+        "display-form"
+    );
+
+
+if (displayForm) {
+
+    displayForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            alert(
+                "Display preferences saved."
+            );
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// SETTINGS - DATE & TIME
+// ============================================================
+
+const dateTimeForm =
+    document.getElementById(
+        "date-time-form"
+    );
+
+
+if (dateTimeForm) {
+
+    dateTimeForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            alert(
+                "Date and time settings saved."
+            );
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// SETTINGS - PRIVACY
+// ============================================================
+
+const privacyForm =
+    document.getElementById(
+        "privacy-form"
+    );
+
+
+if (privacyForm) {
+
+    privacyForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            alert(
+                "Privacy settings saved."
+            );
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// SETTINGS - BUDGET
+// ============================================================
+
+const budgetPreferencesForm =
+    document.getElementById(
+        "budget-preferences-form"
+    );
+
+
+if (budgetPreferencesForm) {
+
+    budgetPreferencesForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            alert(
+                "Budget preferences saved."
+            );
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// NOTE:
+// The old "beforeunload" code has intentionally been removed.
+//
+// localStorage already saves the user's budget data.
+// There is no need to warn the user every time they
+// refresh, close, or leave the page.
+// ============================================================
+
+
+// ============================================================
+// EXTERNAL LINKS
+// ============================================================
+
+const links =
+    document.querySelectorAll("a");
+
+
+links.forEach(function(link) {
+
+    link.addEventListener(
+        "click",
+        function(event) {
+
+            const destination =
+                new URL(
+                    link.href,
+                    window.location.href
+                );
+
+
+            if (
+                destination.origin !==
+                window.location.origin
+            ) {
+
+                const leaveSite =
+                    confirm(
+                        "You are about to leave My Budget. You may not be logged out! Do you want to continue?"
+                    );
+
+
+                if (!leaveSite) {
+
+                    event.preventDefault();
+
+                }
+
+            }
+
+        }
+    );
+
+});
+
+
+// ============================================================
+// GOALS
+// ============================================================
+
+// Load saved goals from the browser.
+//
+// Goals are stored as an array of objects.
+//
+// If no goals have been saved yet,
+// start with an empty array.
+
+let goals;
+
+
+try {
+
+    goals =
+        JSON.parse(
+            localStorage.getItem("myBudgetGoals")
+        ) || [];
+
+} catch (error) {
+
+    console.error(
+        "Could not load saved goals:",
+        error
+    );
+
+    goals = [];
+
+}
+
+
+// ============================================================
+// GOALS - CLEAN OLD / MISSING DATA
+// ============================================================
+
+function normalizeGoals() {
+
+    goals = goals.map(function(goal) {
+
+        return {
+
+            name:
+                goal.name || "",
+
+            type:
+                goal.type || "",
+
+            category:
+                goal.category || "",
+
+            priority:
+                goal.priority || "",
+
+            frequency:
+                goal.frequency || "",
+
+            amount:
+                Number.isFinite(
+                    Number(goal.amount)
+                )
+                    ? Number(goal.amount)
+                    : 0,
+
+            progress:
+                Number.isFinite(
+                    Number(goal.progress)
+                )
+                    ? Number(goal.progress)
+                    : 0,
+
+            date:
+                goal.date || "",
+
+            notes:
+                goal.notes || "",
+
+            status:
+                goal.status || "in-progress"
+
+        };
+
+    });
+
+}
+
+
+normalizeGoals();
+
+
+// ============================================================
+// GOALS - SAVE
+// ============================================================
+
+function saveGoals() {
+
+    try {
+
+        localStorage.setItem(
+            "myBudgetGoals",
+            JSON.stringify(goals)
+        );
+
+    } catch (error) {
+
+        console.error(
+            "Could not save goals:",
+            error
+        );
+
+        alert(
+            "There was a problem saving your goals."
+        );
+
+    }
+
+}
+
+
+// ============================================================
 // GOALS - CHECK EXPIRED
-// ==============================
+// ============================================================
 
 function updateExpiredGoals() {
 
     const today =
-        new Date().toISOString().split("T")[0];
+        new Date()
+            .toISOString()
+            .split("T")[0];
 
 
     let changed = false;
@@ -570,15 +1045,19 @@ function updateExpiredGoals() {
     goals.forEach(function(goal) {
 
         // Completed goals should NEVER become expired.
+
         if (
             goal.status !== "completed" &&
             goal.date !== "" &&
             goal.date < today
         ) {
 
-            if (goal.status !== "expired") {
+            if (
+                goal.status !== "expired"
+            ) {
 
-                goal.status = "expired";
+                goal.status =
+                    "expired";
 
                 changed = true;
 
@@ -598,20 +1077,26 @@ function updateExpiredGoals() {
 }
 
 
-// ==============================
+// ============================================================
 // GOALS - DISPLAY
-// ==============================
+// ============================================================
 
 function displayGoals() {
 
     const currentGoals =
-        document.getElementById("current-goals");
+        document.getElementById(
+            "current-goals"
+        );
 
     const completedGoals =
-        document.getElementById("completed-goals");
+        document.getElementById(
+            "completed-goals"
+        );
 
     const expiredGoals =
-        document.getElementById("expired-goals");
+        document.getElementById(
+            "expired-goals"
+        );
 
 
     if (!currentGoals) {
@@ -621,9 +1106,12 @@ function displayGoals() {
     }
 
 
-    // Clear only the containers that we are going to rebuild.
+    // Clear current goals.
+
     currentGoals.innerHTML = "";
 
+
+    // Rebuild completed section.
 
     if (completedGoals) {
 
@@ -632,6 +1120,8 @@ function displayGoals() {
 
     }
 
+
+    // Rebuild expired section.
 
     if (expiredGoals) {
 
@@ -644,28 +1134,47 @@ function displayGoals() {
     goals.forEach(function(goal, index) {
 
         const goalCard =
-            createGoalCard(goal, index);
+            createGoalCard(
+                goal,
+                index
+            );
 
 
-        if (goal.status === "completed") {
+        if (
+            goal.status ===
+            "completed"
+        ) {
 
             if (completedGoals) {
 
-                completedGoals.appendChild(goalCard);
+                completedGoals.appendChild(
+                    goalCard
+                );
 
             }
 
-        } else if (goal.status === "expired") {
+        }
+
+        else if (
+            goal.status ===
+            "expired"
+        ) {
 
             if (expiredGoals) {
 
-                expiredGoals.appendChild(goalCard);
+                expiredGoals.appendChild(
+                    goalCard
+                );
 
             }
 
-        } else {
+        }
 
-            currentGoals.appendChild(goalCard);
+        else {
+
+            currentGoals.appendChild(
+                goalCard
+            );
 
         }
 
@@ -677,23 +1186,42 @@ function displayGoals() {
 }
 
 
-// ==============================
+// ============================================================
 // GOALS - CREATE GOAL CARD
-// ==============================
+// ============================================================
 
-function createGoalCard(goal, index) {
+function createGoalCard(
+    goal,
+    index
+) {
 
     const goalCard =
-        document.createElement("article");
+        document.createElement(
+            "article"
+        );
 
 
     goalCard.className =
         "goal-card";
 
 
+    const amount =
+        Number(goal.amount) || 0;
+
+
+    const progress =
+        Number(goal.progress) || 0;
+
+
     const progressPercent =
-        goal.amount > 0
-            ? (goal.progress / goal.amount) * 100
+        amount > 0
+            ? Math.min(
+                100,
+                Math.max(
+                    0,
+                    (progress / amount) * 100
+                )
+            )
             : 0;
 
 
@@ -741,27 +1269,34 @@ function createGoalCard(goal, index) {
             </progress>
 
             <p>
+
                 <span class="current-amount">
-                    $${goal.progress.toFixed(2)}
+                    $${progress.toFixed(2)}
                 </span>
 
                 /
 
                 <span class="goal-amount">
-                    $${goal.amount.toFixed(2)}
+                    $${amount.toFixed(2)}
                 </span>
+
             </p>
 
         </div>
 
         <p>
+
             Target Date:
+
             <span class="goal-date">
                 ${goal.date || "No target date"}
             </span>
+
         </p>
 
-        <p>Notes:</p>
+        <p>
+            Notes:
+        </p>
 
         <p class="goal-notes">
             ${goal.notes || "No notes"}
@@ -769,7 +1304,9 @@ function createGoalCard(goal, index) {
 
         <p>
             Status:
-            ${goal.status}
+            <span class="goal-status">
+                ${goal.status}
+            </span>
         </p>
 
         <div class="goal-actions">
@@ -812,218 +1349,310 @@ function createGoalCard(goal, index) {
 }
 
 
-// ==============================
+// ============================================================
 // GOALS - ADD GOAL
-// ==============================
+// ============================================================
 
 const goalForm =
-    document.getElementById("goal-form");
+    document.getElementById(
+        "goal-form"
+    );
 
 
 if (goalForm) {
 
-    goalForm.addEventListener("submit", function(event) {
+    goalForm.addEventListener(
+        "submit",
+        function(event) {
 
-        event.preventDefault();
-
-
-        const goalName =
-            document
-                .getElementById("goal-name")
-                .value
-                .trim();
+            event.preventDefault();
 
 
-        const goalType =
-            document
-                .getElementById("goal-type")
-                .value;
-
-
-        const customType =
-            document
-                .getElementById("custom-type")
-                .value
-                .trim();
-
-
-        const goalCategory =
-            document
-                .getElementById("goal-category")
-                .value;
-
-
-        const customCategory =
-            document
-                .getElementById("custom-category")
-                .value
-                .trim();
-
-
-        const goalPriority =
-            document
-                .getElementById("goal-priority")
-                .value;
-
-
-        const frequency =
-            document
-                .getElementById("frequency")
-                .value;
-
-
-        const customFrequency =
-            document
-                .getElementById("custom-frequency")
-                .value
-                .trim();
-
-
-        const goalAmount =
-            parseFloat(
+            const goalName =
                 document
-                    .getElementById("goal-amount")
+                    .getElementById(
+                        "goal-name"
+                    )
                     .value
+                    .trim();
+
+
+            const goalType =
+                document
+                    .getElementById(
+                        "goal-type"
+                    )
+                    .value;
+
+
+            const customType =
+                document
+                    .getElementById(
+                        "custom-type"
+                    )
+                    .value
+                    .trim();
+
+
+            const goalCategory =
+                document
+                    .getElementById(
+                        "goal-category"
+                    )
+                    .value;
+
+
+            const customCategory =
+                document
+                    .getElementById(
+                        "custom-category"
+                    )
+                    .value
+                    .trim();
+
+
+            const goalPriority =
+                document
+                    .getElementById(
+                        "goal-priority"
+                    )
+                    .value;
+
+
+            const frequency =
+                document
+                    .getElementById(
+                        "frequency"
+                    )
+                    .value;
+
+
+            const customFrequency =
+                document
+                    .getElementById(
+                        "custom-frequency"
+                    )
+                    .value
+                    .trim();
+
+
+            const goalAmount =
+                parseFloat(
+                    document
+                        .getElementById(
+                            "goal-amount"
+                        )
+                        .value
+                );
+
+
+            const goalProgress =
+                parseFloat(
+                    document
+                        .getElementById(
+                            "goal-progress"
+                        )
+                        .value
+                );
+
+
+            const goalDate =
+                document
+                    .getElementById(
+                        "goal-date"
+                    )
+                    .value;
+
+
+            const goalNotes =
+                document
+                    .getElementById(
+                        "goal-notes"
+                    )
+                    .value
+                    .trim();
+
+
+            // ------------------------------------------------
+            // VALIDATION
+            // ------------------------------------------------
+
+            if (
+                goalName === ""
+            ) {
+
+                alert(
+                    "Please enter a goal name."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                isNaN(goalAmount) ||
+                goalAmount < 0
+            ) {
+
+                alert(
+                    "Please enter a valid goal amount."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                isNaN(goalProgress) ||
+                goalProgress < 0
+            ) {
+
+                alert(
+                    "Please enter a valid current progress amount."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                goalProgress >
+                goalAmount
+            ) {
+
+                alert(
+                    "Current progress cannot be greater than the goal amount."
+                );
+
+                return;
+
+            }
+
+
+            // ------------------------------------------------
+            // DETERMINE STATUS
+            // ------------------------------------------------
+
+            let goalStatus =
+                "in-progress";
+
+
+            if (
+                goalProgress ===
+                goalAmount
+            ) {
+
+                goalStatus =
+                    "completed";
+
+            }
+
+            else if (
+                goalDate !== ""
+            ) {
+
+                const today =
+                    new Date()
+                        .toISOString()
+                        .split("T")[0];
+
+
+                if (
+                    goalDate <
+                    today
+                ) {
+
+                    goalStatus =
+                        "expired";
+
+                }
+
+            }
+
+
+            // ------------------------------------------------
+            // CREATE GOAL
+            // ------------------------------------------------
+
+            const newGoal = {
+
+                name:
+                    goalName,
+
+                type:
+                    customType !== ""
+                        ? customType
+                        : goalType,
+
+                category:
+                    customCategory !== ""
+                        ? customCategory
+                        : goalCategory,
+
+                priority:
+                    goalPriority,
+
+                frequency:
+                    customFrequency !== ""
+                        ? customFrequency
+                        : frequency,
+
+                amount:
+                    goalAmount,
+
+                progress:
+                    goalProgress,
+
+                date:
+                    goalDate,
+
+                notes:
+                    goalNotes,
+
+                status:
+                    goalStatus
+
+            };
+
+
+            // Add the goal to the array.
+
+            goals.push(
+                newGoal
             );
 
 
-        const goalProgress =
-            parseFloat(
-                document
-                    .getElementById("goal-progress")
-                    .value
-            );
+            // Save immediately.
+
+            saveGoals();
 
 
-        const goalDate =
-            document
-                .getElementById("goal-date")
-                .value;
+            // Display immediately.
 
+            displayGoals();
 
-        const goalNotes =
-            document
-                .getElementById("goal-notes")
-                .value
-                .trim();
-
-
-        // ------------------------------
-        // VALIDATION
-        // ------------------------------
-
-        if (goalName === "") {
-
-            alert("Please enter a goal name.");
-
-            return;
-
-        }
-
-
-        if (isNaN(goalAmount) || goalAmount < 0) {
-
-            alert("Please enter a valid goal amount.");
-
-            return;
-
-        }
-
-
-        if (isNaN(goalProgress) || goalProgress < 0) {
 
             alert(
-                "Please enter a valid current progress amount."
+                "Goal added successfully."
             );
 
-            return;
+
+            // Clear the form.
+
+            this.reset();
 
         }
-
-
-        if (goalProgress > goalAmount) {
-
-            alert(
-                "Current progress cannot be greater than the goal amount."
-            );
-
-            return;
-
-        }
-
-
-        // ------------------------------
-        // CREATE GOAL
-        // ------------------------------
-
-        const newGoal = {
-
-            name: goalName,
-
-            type:
-                customType !== ""
-                    ? customType
-                    : goalType,
-
-            category:
-                customCategory !== ""
-                    ? customCategory
-                    : goalCategory,
-
-            priority:
-                goalPriority,
-
-            frequency:
-                customFrequency !== ""
-                    ? customFrequency
-                    : frequency,
-
-            amount:
-                goalAmount,
-
-            progress:
-                goalProgress,
-
-            date:
-                goalDate,
-
-            notes:
-                goalNotes,
-
-            status:
-                goalProgress === goalAmount
-                    ? "completed"
-                    : "in-progress"
-
-        };
-
-
-        // Add the goal.
-        goals.push(newGoal);
-
-
-        // Save the goal.
-        saveGoals();
-
-
-        // Show the updated list.
-        displayGoals();
-
-
-        alert("Goal added successfully.");
-
-
-        // Clear the form.
-        this.reset();
-
-    });
+    );
 
 }
 
 
-// ==============================
+// ============================================================
 // GOALS - BUTTON EVENTS
-// ==============================
+// ============================================================
 
 function addGoalButtonEvents() {
 
@@ -1051,71 +1680,121 @@ function addGoalButtonEvents() {
         );
 
 
-    editButtons.forEach(function(button) {
+    // --------------------------------------------------------
+    // EDIT BUTTONS
+    // --------------------------------------------------------
 
-        button.addEventListener("click", function() {
+    editButtons.forEach(
+        function(button) {
 
-            const index =
-                parseInt(this.dataset.index);
+            button.addEventListener(
+                "click",
+                function() {
 
-
-            editGoal(index);
-
-        });
-
-    });
-
-
-    progressButtons.forEach(function(button) {
-
-        button.addEventListener("click", function() {
-
-            const index =
-                parseInt(this.dataset.index);
+                    const index =
+                        parseInt(
+                            this.dataset.index,
+                            10
+                        );
 
 
-            updateGoalProgress(index);
+                    editGoal(index);
 
-        });
+                }
+            );
 
-    });
-
-
-    completeButtons.forEach(function(button) {
-
-        button.addEventListener("click", function() {
-
-            const index =
-                parseInt(this.dataset.index);
+        }
+    );
 
 
-            completeGoal(index);
+    // --------------------------------------------------------
+    // UPDATE PROGRESS BUTTONS
+    // --------------------------------------------------------
 
-        });
+    progressButtons.forEach(
+        function(button) {
 
-    });
+            button.addEventListener(
+                "click",
+                function() {
+
+                    const index =
+                        parseInt(
+                            this.dataset.index,
+                            10
+                        );
 
 
-    deleteButtons.forEach(function(button) {
+                    updateGoalProgress(
+                        index
+                    );
 
-        button.addEventListener("click", function() {
+                }
+            );
 
-            const index =
-                parseInt(this.dataset.index);
+        }
+    );
 
 
-            deleteGoal(index);
+    // --------------------------------------------------------
+    // COMPLETE BUTTONS
+    // --------------------------------------------------------
 
-        });
+    completeButtons.forEach(
+        function(button) {
 
-    });
+            button.addEventListener(
+                "click",
+                function() {
+
+                    const index =
+                        parseInt(
+                            this.dataset.index,
+                            10
+                        );
+
+
+                    completeGoal(index);
+
+                }
+            );
+
+        }
+    );
+
+
+    // --------------------------------------------------------
+    // DELETE BUTTONS
+    // --------------------------------------------------------
+
+    deleteButtons.forEach(
+        function(button) {
+
+            button.addEventListener(
+                "click",
+                function() {
+
+                    const index =
+                        parseInt(
+                            this.dataset.index,
+                            10
+                        );
+
+
+                    deleteGoal(index);
+
+                }
+            );
+
+        }
+    );
 
 }
 
 
-// ==============================
+// ============================================================
 // GOALS - EDIT
-// ==============================
+// ============================================================
 
 function editGoal(index) {
 
@@ -1137,14 +1816,20 @@ function editGoal(index) {
         );
 
 
-    if (newName === null) {
+    if (
+        newName ===
+        null
+    ) {
 
         return;
 
     }
 
 
-    if (newName.trim() === "") {
+    if (
+        newName.trim() ===
+        ""
+    ) {
 
         alert(
             "Goal name cannot be empty."
@@ -1161,14 +1846,15 @@ function editGoal(index) {
 
     saveGoals();
 
+
     displayGoals();
 
 }
 
 
-// ==============================
+// ============================================================
 // GOALS - UPDATE PROGRESS
-// ==============================
+// ============================================================
 
 function updateGoalProgress(index) {
 
@@ -1192,7 +1878,9 @@ function updateGoalProgress(index) {
         );
 
 
-    if (isNaN(newProgress)) {
+    if (
+        isNaN(newProgress)
+    ) {
 
         alert(
             "Please enter a valid amount."
@@ -1203,7 +1891,9 @@ function updateGoalProgress(index) {
     }
 
 
-    if (newProgress < 0) {
+    if (
+        newProgress < 0
+    ) {
 
         alert(
             "Progress cannot be negative."
@@ -1214,7 +1904,10 @@ function updateGoalProgress(index) {
     }
 
 
-    if (newProgress > goal.amount) {
+    if (
+        newProgress >
+        goal.amount
+    ) {
 
         alert(
             "Progress cannot be greater than the goal amount."
@@ -1229,18 +1922,28 @@ function updateGoalProgress(index) {
         newProgress;
 
 
-    // If the goal reaches the full amount,
-    // mark it completed.
-    if (goal.progress === goal.amount) {
+    // --------------------------------------------------------
+    // DETERMINE NEW STATUS
+    // --------------------------------------------------------
+
+    if (
+        goal.progress ===
+        goal.amount
+    ) {
 
         goal.status =
             "completed";
 
     }
 
-    // If the goal is expired, keep it expired.
-    // Otherwise, keep it in progress.
-    else if (goal.status === "expired") {
+    else if (
+        goal.status ===
+        "expired"
+    ) {
+
+        // Keep an expired goal expired.
+        // This prevents old goals from disappearing
+        // back into the current section.
 
         goal.status =
             "expired";
@@ -1257,12 +1960,15 @@ function updateGoalProgress(index) {
 
     saveGoals();
 
+
     displayGoals();
 
 }
-// ==============================
+
+
+// ============================================================
 // GOALS - COMPLETE
-// ==============================
+// ============================================================
 
 function completeGoal(index) {
 
@@ -1300,14 +2006,15 @@ function completeGoal(index) {
 
     saveGoals();
 
+
     displayGoals();
 
 }
 
 
-// ==============================
+// ============================================================
 // GOALS - DELETE
-// ==============================
+// ============================================================
 
 function deleteGoal(index) {
 
@@ -1335,19 +2042,23 @@ function deleteGoal(index) {
     }
 
 
-    goals.splice(index, 1);
+    goals.splice(
+        index,
+        1
+    );
 
 
     saveGoals();
+
 
     displayGoals();
 
 }
 
 
-// ==============================
+// ============================================================
 // GOALS - SEARCH
-// ==============================
+// ============================================================
 
 const searchGoalsButton =
     document.getElementById(
@@ -1375,7 +2086,13 @@ if (searchGoalsButton) {
                     : "";
 
 
-            if (searchValue === "") {
+            // Empty search restores
+            // the complete goal list.
+
+            if (
+                searchValue ===
+                ""
+            ) {
 
                 displayGoals();
 
@@ -1406,73 +2123,113 @@ if (searchGoalsButton) {
 
 
             const matchingGoals =
-                goals.filter(function(goal) {
+                goals.filter(
+                    function(goal) {
 
-                    let value = "";
+                        let value =
+                            "";
 
 
-                    if (searchType === "name") {
+                        if (
+                            searchType ===
+                            "name"
+                        ) {
 
-                        value = goal.name;
+                            value =
+                                goal.name;
+
+                        }
+
+
+                        if (
+                            searchType ===
+                            "type"
+                        ) {
+
+                            value =
+                                goal.type;
+
+                        }
+
+
+                        if (
+                            searchType ===
+                            "category"
+                        ) {
+
+                            value =
+                                goal.category;
+
+                        }
+
+
+                        if (
+                            searchType ===
+                            "priority"
+                        ) {
+
+                            value =
+                                goal.priority;
+
+                        }
+
+
+                        if (
+                            searchType ===
+                            "frequency"
+                        ) {
+
+                            value =
+                                goal.frequency;
+
+                        }
+
+
+                        if (
+                            searchType ===
+                            "status"
+                        ) {
+
+                            value =
+                                goal.status;
+
+                        }
+
+
+                        if (
+                            searchType ===
+                            "amount"
+                        ) {
+
+                            value =
+                                String(
+                                    goal.amount
+                                );
+
+                        }
+
+
+                        if (
+                            searchType ===
+                            "date"
+                        ) {
+
+                            value =
+                                goal.date;
+
+                        }
+
+
+                        return String(
+                            value || ""
+                        )
+                            .toLowerCase()
+                            .includes(
+                                searchValue
+                            );
 
                     }
-
-
-                    if (searchType === "type") {
-
-                        value = goal.type;
-
-                    }
-
-
-                    if (searchType === "category") {
-
-                        value = goal.category;
-
-                    }
-
-
-                    if (searchType === "priority") {
-
-                        value = goal.priority;
-
-                    }
-
-
-                    if (searchType === "frequency") {
-
-                        value = goal.frequency;
-
-                    }
-
-
-                    if (searchType === "status") {
-
-                        value = goal.status;
-
-                    }
-
-
-                    if (searchType === "amount") {
-
-                        value =
-                            goal.amount.toString();
-
-                    }
-
-
-                    if (searchType === "date") {
-
-                        value = goal.date;
-
-                    }
-
-
-                    return value
-                        .toLowerCase()
-                        .includes(searchValue);
-
-                });
+                );
 
 
             displaySearchResults(
@@ -1485,11 +2242,13 @@ if (searchGoalsButton) {
 }
 
 
-// ==============================
+// ============================================================
 // GOALS - SEARCH RESULTS
-// ==============================
+// ============================================================
 
-function displaySearchResults(results) {
+function displaySearchResults(
+    results
+) {
 
     const currentGoals =
         document.getElementById(
@@ -1516,9 +2275,11 @@ function displaySearchResults(results) {
     }
 
 
-    // Clear all three sections so search
-    // does not leave misleading old results.
-    currentGoals.innerHTML = "";
+    // Clear all three sections.
+
+    currentGoals.innerHTML =
+        "";
+
 
     if (completedGoals) {
 
@@ -1526,6 +2287,7 @@ function displaySearchResults(results) {
             "<h3>Completed Goals</h3>";
 
     }
+
 
     if (expiredGoals) {
 
@@ -1535,7 +2297,10 @@ function displaySearchResults(results) {
     }
 
 
-    if (results.length === 0) {
+    if (
+        results.length ===
+        0
+    ) {
 
         currentGoals.innerHTML =
             "<p>No matching goals found.</p>";
@@ -1545,42 +2310,76 @@ function displaySearchResults(results) {
     }
 
 
-    results.forEach(function(goal) {
+    results.forEach(
+        function(goal) {
 
-        // Find the ORIGINAL index in the goals array.
-        // This keeps Edit/Delete/Complete working
-        // correctly after a search.
-        const index =
-            goals.indexOf(goal);
+            // Find the ORIGINAL index
+            // in the main goals array.
+            //
+            // This is important because search
+            // creates a filtered array.
+            //
+            // Using the filtered array index
+            // could cause Edit/Delete to affect
+            // the wrong goal.
+
+            const index =
+                goals.indexOf(
+                    goal
+                );
 
 
-        const goalCard =
-            createGoalCard(goal, index);
+            const goalCard =
+                createGoalCard(
+                    goal,
+                    index
+                );
 
 
-        if (goal.status === "completed") {
+            if (
+                goal.status ===
+                "completed"
+            ) {
 
-            if (completedGoals) {
+                if (
+                    completedGoals
+                ) {
 
-                completedGoals.appendChild(goalCard);
+                    completedGoals.appendChild(
+                        goalCard
+                    );
+
+                }
 
             }
 
-        } else if (goal.status === "expired") {
+            else if (
+                goal.status ===
+                "expired"
+            ) {
 
-            if (expiredGoals) {
+                if (
+                    expiredGoals
+                ) {
 
-                expiredGoals.appendChild(goalCard);
+                    expiredGoals.appendChild(
+                        goalCard
+                    );
+
+                }
 
             }
 
-        } else {
+            else {
 
-            currentGoals.appendChild(goalCard);
+                currentGoals.appendChild(
+                    goalCard
+                );
+
+            }
 
         }
-
-    });
+    );
 
 
     addGoalButtonEvents();
@@ -1588,13 +2387,20 @@ function displaySearchResults(results) {
 }
 
 
-// ==============================
+// ============================================================
 // GOALS - INITIAL LOAD
-// ==============================
+// ============================================================
 
-// Check whether any saved goals have expired.
+// First check saved goals for expired dates.
+
 updateExpiredGoals();
 
 
-// Display all saved goals.
+// Then display all saved goals.
+
 displayGoals();
+
+
+// ============================================================
+// END OF MY BUDGET JAVASCRIPT
+// ==================================================
