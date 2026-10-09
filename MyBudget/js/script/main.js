@@ -2,7 +2,6 @@
 // MY BUDGET - MAIN SCRIPT
 // ============================================================
 
-
 // ============================================================
 // EXTERNAL LINKS
 // ============================================================
@@ -48,30 +47,22 @@ links.forEach(function(link) {
 
 });
 
-// ============================================================
-// LEAVING MY BUDGET
-// ============================================================
-
-window.addEventListener(
-    "beforeunload",
-    function(event) {
-
-        const isLoggedIn =
-            localStorage.getItem(
-                "myBudgetLoggedIn"
-            ) === "true";
-
-        if (!isLoggedIn) {
-
-            return;
-
-        }
-
-        event.preventDefault();
-
+// ============================================================ 
+//LEAVING MY BUDGET //
+//============================================================ 
+window.addEventListener( 
+    "beforeunload", 
+    function(event) { 
+        const currentAccount = 
+            localStorage.getItem( 
+                "myBudgeyCurrentAccount"
+            ); 
+            if (!currentAccount) { 
+                return; 
+            }
+        event.preventDefault(); 
         event.returnValue = "";
-
-    }
+    } 
 );
 
 // ============================================================
