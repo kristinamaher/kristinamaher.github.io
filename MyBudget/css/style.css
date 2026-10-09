@@ -4,6 +4,7 @@
 h1{
 	font-family: Arial,sans-serif;
 	font-weight: bold;
+	max-width: 900px;
 	width: 100%;
 	text-align: center;
 }
