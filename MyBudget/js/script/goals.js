@@ -167,96 +167,77 @@ function displayGoals() {
         );
 
     if (!currentGoals) {
-
         return;
-
     }
+
+    // Clear the current goals section.
 
     currentGoals.innerHTML = "";
 
-    if (completedGoals) {
+    // Reset the completed goals section.
 
+    if (completedGoals) {
         completedGoals.innerHTML =
             "<h3>Completed Goals</h3>";
-
     }
 
-    if (expiredGoals) {
+    // Reset the expired goals section.
 
+    if (expiredGoals) {
         expiredGoals.innerHTML =
             "<h3>Expired Goals</h3>";
-
     }
 
     let currentGoalCount = 0;
 
-    goals.forEach(
-        function(goal, index) {
+    // Display each goal in its appropriate section.
 
-            const goalCard =
-                createGoalCard(
-                    goal,
-                    index
-                );
+    goals.forEach(function(goal, index) {
 
-            if (
-                goal.status ===
-                "completed"
-            ) {
+        const goalCard =
+            createGoalCard(
+                goal,
+                index
+            );
 
-                if (
-                    completedGoals
-                ) {
+        if (goal.status === "completed") {
 
-                    completedGoals.appendChild(
-                        goalCard
-                    );
-
-                }
-
-            }
-
-            else if (
-                goal.status ===
-                "expired"
-            ) {
-
-                if (
-                    expiredGoals
-                ) {
-
-                    expiredGoals.appendChild(
-                        goalCard
-                    );
-
-                }
-
-            }
-
-            else {
-
-                currentGoals.appendChild(
+            if (completedGoals) {
+                completedGoals.appendChild(
                     goalCard
                 );
-
-                currentGoalCount++;
-
             }
 
-        }
-    );
+        } else if (goal.status === "expired") {
 
-    if (
-        currentGoalCount === 0
-    ) {
+            if (expiredGoals) {
+                expiredGoals.appendChild(
+                    goalCard
+                );
+            }
+
+        } else {
+
+            currentGoals.appendChild(
+                goalCard
+            );
+
+            currentGoalCount++;
+        }
+    });
+
+    // Show the empty-state message only when
+    // there are no current goals.
+
+    if (currentGoalCount === 0) {
 
         currentGoals.innerHTML =
-            "<p id='no-current-goals'>You haven't added any goals yet.</p>";
-
+            "<p id='no-current-goals'>You haven't added any current goals yet.</p>";
     }
 
-    addGoalButtonEvents();
+    // Reconnect the buttons on the displayed cards.
 
+    addGoalButtonEvents();
 }
 
 // ============================================================
