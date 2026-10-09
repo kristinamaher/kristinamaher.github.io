@@ -1,4 +1,4 @@
-  // ============================================================
+// ============================================================
 // MY BUDGET - GOALS SCRIPT
 // ============================================================
 
@@ -169,69 +169,91 @@ function displayGoals() {
     if (!currentGoals) {
 
         return;
+
     }
 
-    // Clear current goals.
-
     currentGoals.innerHTML = "";
-
-    // Rebuild completed section.
 
     if (completedGoals) {
 
         completedGoals.innerHTML =
             "<h3>Completed Goals</h3>";
-    }
 
-    // Rebuild expired section.
+    }
 
     if (expiredGoals) {
 
         expiredGoals.innerHTML =
             "<h3>Expired Goals</h3>";
+
     }
 
-    goals.forEach(function(goal, index) {
+    let currentGoalCount = 0;
 
-        const goalCard =
-            createGoalCard(
-                goal,
-                index
-            );
+    goals.forEach(
+        function(goal, index) {
 
-        if (
-            goal.status ===
-            "completed"
-        ) {
+            const goalCard =
+                createGoalCard(
+                    goal,
+                    index
+                );
 
-            if (completedGoals) {
+            if (
+                goal.status ===
+                "completed"
+            ) {
 
-                completedGoals.appendChild(
+                if (
+                    completedGoals
+                ) {
+
+                    completedGoals.appendChild(
+                        goalCard
+                    );
+
+                }
+
+            }
+
+            else if (
+                goal.status ===
+                "expired"
+            ) {
+
+                if (
+                    expiredGoals
+                ) {
+
+                    expiredGoals.appendChild(
+                        goalCard
+                    );
+
+                }
+
+            }
+
+            else {
+
+                currentGoals.appendChild(
                     goalCard
                 );
+
+                currentGoalCount++;
+
             }
+
         }
+    );
 
-        else if (
-            goal.status ===
-            "expired"
-        ) {
+    if (
+        currentGoalCount === 0
+    ) {
 
-            if (expiredGoals) {
+        currentGoals.innerHTML =
+            "<p id='no-current-goals'>You haven't added any goals yet.</p>";
 
-                expiredGoals.appendChild(
-                    goalCard
-                );
-            }
-        }
-
-        else {
-
-            currentGoals.appendChild(
-                goalCard
-            );
-        }
-    });
+    }
 
     addGoalButtonEvents();
 
