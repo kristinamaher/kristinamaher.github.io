@@ -35,7 +35,8 @@
 /*laptop*/
 @media screen and (min-width: 901px) {
 	h1 {
-		width: 900px;
+		max-width: 900px;
+		width: 100%;
 	}
 
 	p {
