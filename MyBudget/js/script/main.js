@@ -48,7 +48,6 @@ links.forEach(function(link) {
 
 });
 
-
 // ============================================================
 // LEAVING MY BUDGET
 // ============================================================
@@ -57,13 +56,23 @@ window.addEventListener(
     "beforeunload",
     function(event) {
 
+        const isLoggedIn =
+            localStorage.getItem(
+                "myBudgetLoggedIn"
+            ) === "true";
+
+        if (!isLoggedIn) {
+
+            return;
+
+        }
+
         event.preventDefault();
 
         event.returnValue = "";
 
     }
 );
-
 
 // ============================================================
 // END OF MY BUDGET MAIN SCRIPT
