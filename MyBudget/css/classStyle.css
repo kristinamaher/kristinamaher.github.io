@@ -1,3 +1,4 @@
+/* GOAL CLASSES */
 .goal-card{
     border: 1px solid #ccc;
     padding: 15px;
@@ -38,3 +39,31 @@
     font-weight:bold;
     text-transform:capitalize;
 }
+.goal-type{
+    font-weight:bold;
+}
+
+.goal-category{
+    font-weight:bold;
+}
+
+.goal-priority{
+    font-weight:bold;
+}
+
+.goal-frequency{
+    font-weight:bold;
+}
+
+.goal-date{
+    font-style:italic;
+}
+
+.goal-notes{
+    margin-top:10px;
+    padding:10px;
+    background-color:#ffffff;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
