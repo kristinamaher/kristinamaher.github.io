@@ -120,8 +120,11 @@ nav > a {
 
 nav > a img {
     display: block;
-    width: 100px;
     height: auto;
+    width: auto;
+    max-width: 150px;
+    max-height: 60px;
+    object-fit: contain;
 }
 
 /* NAVIGATION LIST */
