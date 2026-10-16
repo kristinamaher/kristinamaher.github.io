@@ -109,16 +109,29 @@ nav {
     padding: 10px 20px;
     background-color: #8000FF;
 }
+nav > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
+nav > div p {
+    margin: 0;
+}
+
+nav > div p a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
 /* LOGO */
 
-nav > a {
+nav > div >  a {
     display: flex;
     align-items: center;
     flex-shrink: 0;
 }
 
-nav > a img {
+nav div > a img {
     display: block;
     width: auto;
     height: 50px;
