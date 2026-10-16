@@ -117,8 +117,9 @@ nav > div {
 
 nav > div p {
     margin: 0;
+    max-width: none;
+    color: #FFFFFF;
 }
-
 nav > div p a:link,
 nav > div p a:visited,
 nav > div p a:hover,
