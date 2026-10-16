@@ -119,7 +119,10 @@ nav > div p {
     margin: 0;
 }
 
-nav > div p a {
+nav > div p a:link,
+nav > div p a:visited,
+nav > div p a:hover,
+nav > div p a:active {
     color: #FFFFFF;
     text-decoration: none;
 }
