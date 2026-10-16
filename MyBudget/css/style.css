@@ -1,98 +1,329 @@
-*{
-    box-sizing:border-box;
-}
-h1{
-	font-family: Arial,sans-serif;
-	font-weight: bold;
-	max-width: 900px;
-	width: 100%;
-	text-align: center;
+/* ========================================
+   GLOBAL SETTINGS
+======================================== */
+
+* {
+    box-sizing: border-box;
 }
 
-body{
-	background: linear-gradient(to bottom, slategray, cornflowerblue, blueviolet);
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
-	padding: 30px;
-	font-family:"Times New Roman", serif;
+/* ========================================
+   PAGE BODY
+======================================== */
+
+body {
+    background-color: #C0C0C0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    margin: 0;
+    font-family: "Times New Roman", serif;
+    color: #2B1B3D;
 }
 
-p{
-	font-size: 20px;
-	letter-spacing: 1.5px;
-	max-width: 900px;
-}
-	
-/*unvisited link*/
-a:link{
-    color:darkblue;
+/* ========================================
+   HEADINGS
+======================================== */
+
+h1 {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    color: #2B1B3D;
 }
 
-/*Visited link */
-a:visited{
-    color:white;
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Arial, sans-serif;
+    color: #2B1B3D;
 }
 
-/*mouse over link*/
-a:hover{
-    color:indigo;
+/* ========================================
+   PARAGRAPHS
+======================================== */
+
+p {
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    max-width: 900px;
 }
 
-/*selected link */
-a:active{
-    color: #b19cd9;
+/* ========================================
+   GENERAL LINKS
+======================================== */
+
+a:link {
+    color: #2B1B3D;
 }
+
+a:visited {
+    color: #8000FF;
+}
+
+a:hover {
+    color: #8000FF;
+}
+
+a:active {
+    color: #2B1B3D;
+}
+
+/* ========================================
+   GENERAL LISTS
+   Basic defaults only.
+   Navigation styling is separate.
+======================================== */
+
 ul {
-    display:flex;
-    justify-content:center;
     list-style-type: none;
     margin: 0;
     padding: 0;
-	width: 100%;
-    overflow: hidden;
-    background-color:#3D52A0;
-    font-family:"Newsreader", Times, serif;
 }
-li{
-    border-right:1px solid #ede8F5;
+
+/* ========================================
+   HEADER
+======================================== */
+
+header {
+    width: 100%;
+    background-color: #8000FF;
+    color: #FFFFFF;
 }
-li a {
+
+/* ========================================
+   NAVIGATION BAR
+   Logo on the left.
+   Navigation links on the right.
+======================================== */
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #8000FF;
+}
+
+/* LOGO */
+
+nav > a {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+nav > a img {
     display: block;
-    padding: 14px 16px;
-    text-decoration: none;
+    height: auto;
+    max-width: 100%;
 }
-li:last-child {
+
+/* NAVIGATION LIST */
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+    width: auto;
+    overflow: visible;
+    background-color: transparent;
+    font-family: "Newsreader", Times, serif;
+}
+
+/* NAVIGATION ITEMS */
+
+nav li {
+    border-right: 1px solid #FFFFFF;
+}
+
+nav li:last-child {
     border-right: none;
 }
-main{
+
+/* NAVIGATION LINKS */
+
+nav li a {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    background-color: #E6CCFF;
+    color: #2B1B3D;
+    text-decoration: none;
+}
+
+/* NAVIGATION LINK STATES */
+
+nav li a:link,
+nav li a:visited {
+    color: #2B1B3D;
+}
+
+nav li a:hover {
+    background-color: #FFFFFF;
+    color: #8000FF;
+}
+
+nav li a:active {
+    background-color: #2B1B3D;
+    color: #FFFFFF;
+}
+
+/* NAVIGATION ICONS */
+
+nav li a img {
+    display: block;
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+/* ========================================
+   MAIN CONTENT
+======================================== */
+
+main {
     max-width: 900px;
     width: 100%;
 }
-section{
-    background-color: white;
+
+/* ========================================
+   CONTENT SECTIONS
+======================================== */
+
+section {
+    background-color: #2B1B3D;
+    color: #FFFFFF;
     padding: 20px;
     margin: 15px 0;
     border-radius: 10px;
     width: 100%;
     max-width: 900px;
 }
-nav{
-    width:100%;
+
+section h2,
+section h3,
+section h4 {
+    color: #FFFFFF;
 }
+
+/* ========================================
+   FORM CONTROLS
+======================================== */
+
 input,
 select,
 textarea,
 button {
     padding: 8px;
-   box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: inherit;
 }
-button{
-	cursor:pointer;
+
+/* TEXT INPUTS */
+
+input,
+select,
+textarea {
+    background-color: #FFFFFF;
+    color: #2B1B3D;
+    border: 1px solid #8000FF;
+    border-radius: 4px;
 }
+
+/* INPUT FOCUS */
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #8000FF;
+    outline-offset: 2px;
+}
+
+/* BUTTONS */
+
+button {
+    cursor: pointer;
+    background-color: #E6CCFF;
+    color: #2B1B3D;
+    border: 1px solid #8000FF;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #8000FF;
+    color: #FFFFFF;
+}
+
+/* TEXT CURSOR */
+
 input[type="text"],
-textarea{
-	cursor: text;
+textarea {
+    cursor: text;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+footer {
+    width: 100%;
+    background-color: #8000FF;
+    color: #FFFFFF;
+    padding: 15px;
+    text-align: center;
+}
+
+footer a:link,
+footer a:visited {
+    color: #FFFFFF;
+}
+
+footer a:hover {
+    color: #E6CCFF;
+}
+
+/* ========================================
+   SMALL SCREENS
+======================================== */
+
+@media screen and (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 10px;
+    }
+
+    nav ul {
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+
+    nav li a {
+        padding: 10px;
+    }
+
+    nav li a img {
+        width: 24px;
+        height: 24px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 17px;
+    }
 }
