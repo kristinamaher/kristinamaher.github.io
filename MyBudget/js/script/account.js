@@ -6,8 +6,8 @@
 // STORAGE
 // ============================================================
 
-const ACCOUNTS_STORAGE_KEY = "myBudgeyAccounts";
-const CURRENT_ACCOUNT_KEY = "myBudgeyCurrentAccount";
+const ACCOUNTS_STORAGE_KEY = "myBudgetAccounts";
+const CURRENT_ACCOUNT_KEY = "myBudgetCurrentAccount";
 
 // Get all stored accounts
 function getAccounts() {
