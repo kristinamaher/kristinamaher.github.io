@@ -7,8 +7,6 @@
 // ============================================================
 document.addEventListener("DOMContentLoaded", function () {
     const expenseForm = document.getElementById("expense-form");
-    const expenseHistory = document.getElementById("expense-history");
-    const expenseCategories = document.getElementById("expense-categories");
     const expenseSummary = document.getElementById("expense-summary");
 
     let expenses = [];
@@ -85,55 +83,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
   
-    function updateExpenseTotals() {
-        const categoryTotals = {
-            housing: 0,
-            food: 0,
-            transportation: 0,
-            utilities: 0,
-            healthcare: 0,
-            entertainment: 0,
-            subscription: 0,
-            education: 0,
-            personal: 0,
-            travel: 0,
-            shopping: 0,
-            insurance: 0,
-            other: 0
-        };
-
-        let totalExpenses = 0;
-
-        expenses.forEach(function (expense) {
-            categoryTotals[expense.category] += expense.amount;
-            totalExpenses += expense.amount;
-        });
-
-        expenseCategories.replaceChildren();
-
-        for (const category in categoryTotals) {
-            const paragraph = document.createElement("p");
-            const label = category.charAt(0).toUpperCase() + category.slice(1);
-
-            paragraph.textContent =
-                label + ": $" + categoryTotals[category].toFixed(2);
-
-            expenseCategories.appendChild(paragraph);
-        }
-
-        expenseSummary.replaceChildren();
-
-        const summary = document.createElement("p");
-        summary.textContent =
-            "Total Expenses: $" + totalExpenses.toFixed(2);
-
-        expenseSummary.appendChild(summary);
-    }
-
 displayExpenses();
-updateExpenseTotals();
 
-  expenseForm.reset();
 });
 
 // ============================================================
