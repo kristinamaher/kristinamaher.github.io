@@ -50,11 +50,22 @@
             <option value="healthcare">Healthcare</option>
             <option value="entertainment">Entertainment</option>
             <option value="subscription">Subscription</option>
+			<option value="education">Education</option>
+			<option value="insurance">Insurance</option>
+			<option value="travel">Travel</option>
             <option value="other">Other</option>
         </select>
 
         <label for="expense-amount">Amount:</label>
         <input type="number" id="expense-amount" name="expense-amount">
+
+		<label for="expense-payment">Payment Method:</label>
+		<select id="expense-payment" name="expense-payment">
+    		<option value="cash">Cash</option>
+   		 	<option value="card">Card</option>
+    		<option value="check">Check</option>
+			<option value="other">Other</option>
+		</select>
 
         <label for="expense-date">Date:</label>
         <input type="date" id="expense-date" name="expense-date">
@@ -79,6 +90,10 @@
         <p>Healthcare: $0.00</p>
         <p>Entertainment: $0.00</p>
         <p>Subscription: $0.00</p>
+		<p>Education: $0.00</p>
+		<p>Insurance: $0.00</p>
+		<p>Travel: $0.00</p>
+		<p>Shoppung: $0.00</p>
         <p>Other: $0.00</p>
 
     </div>
@@ -144,3 +159,4 @@
   </main>
   <script src="js/script/expences.js"></script>
   </body>
+</html>
