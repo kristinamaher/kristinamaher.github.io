@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Where money is going">
+	<meta name="keywords" content="outgoing, spending, subscriptions">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Budget - Expenses</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/mediaStyle.css">
+	<link rel="stylesheet" href="css/classStyle.css">
+
+</head>
+
+<body>
+    <header>
+    <nav>
+        <div>
+            <a href="home.html"><img src="image/logo.png" alt="My Budget Finance Logo"></a>
+            <p>My Budget</p>
+        </div>
+
+        <ul>
+            <li><a href="goals.html">Goals</a></li>
+            <li><a href="income.html">Income</a></li>
+            <li><a href="expences.html">Expenses</a></li>
+            <li><a href="about.html">About</a></li>
+			<li><a href="home.html"><img src="image/home.png" alt="Home shortcut"></a></li>
+            <li><a href="account.html"><img src="image/Account.png" alt="Account shortcut"></a></li>
+            <li><a href="settings.html"><img src="image/settings.png" alt="Settings shortcut"></a></li>
+        </ul>
+    </nav>
+</header>
+	<main>
+	  <h1>Expenses</h1>
+      <section>
+    <h2>Add Expense</h2>
+
+    <form id="expense-form">
+
+        <label for="expense-name">Expense Name:</label>
+        <input type="text" id="expense-name" name="expense-name">
+
+        <label for="expense-category">Category:</label>
+        <select id="expense-category" name="expense-category">
+            <option value="housing">Housing</option>
+            <option value="food">Food</option>
+            <option value="transportation">Transportation</option>
+            <option value="utilities">Utilities</option>
+            <option value="healthcare">Healthcare</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="subscription">Subscription</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="expense-amount">Amount:</label>
+        <input type="number" id="expense-amount" name="expense-amount">
+
+        <label for="expense-date">Date:</label>
+        <input type="date" id="expense-date" name="expense-date">
+
+        <label for="expense-notes">Notes:</label>
+        <textarea id="expense-notes" name="expense-notes"></textarea>
+
+        <button type="submit">Save Expense</button>
+
+    </form>
+</section>
+
+  <section>
+    <h2>Expense Categories</h2>
+
+    <div id="expense-categories">
+
+        <p>Housing: $0.00</p>
+        <p>Food: $0.00</p>
+        <p>Transportation: $0.00</p>
+        <p>Utilities: $0.00</p>
+        <p>Healthcare: $0.00</p>
+        <p>Entertainment: $0.00</p>
+        <p>Subscription: $0.00</p>
+        <p>Other: $0.00</p>
+
+    </div>
+</section>
+
+<section>
+    <h2>Upcoming Bills</h2>
+
+    <form id="upcoming-bill-form">
+
+        <label for="bill-name">Bill Name:</label>
+        <input type="text" id="bill-name" name="bill-name">
+
+        <label for="bill-category">Category:</label>
+        <select id="bill-category" name="bill-category">
+            <option value="housing">Housing</option>
+            <option value="utilities">Utilities</option>
+            <option value="subscription">Subscription</option>
+            <option value="insurance">Insurance</option>
+            <option value="transportation">Transportation</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="bill-amount">Amount:</label>
+        <input type="number" id="bill-amount" name="bill-amount">
+
+        <label for="bill-due-date">Due Date:</label>
+        <input type="date" id="bill-due-date" name="bill-due-date">
+
+        <label for="bill-frequency">Frequency:</label>
+        <select id="bill-frequency" name="bill-frequency">
+            <option value="one-time">One Time</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+            <option value="yearly">Yearly</option>
+        </select>
+
+        <button type="submit">Add Bill</button>
+
+    </form>
+
+    <div id="upcoming-bills">
+        <p>No upcoming bills.</p>
+    </div>
+</section>
+  
+  <section>
+    <h2>Expense History</h2>
+
+    <div id="expense-history">
+        <p>No expenses have been added.</p>
+    </div>
+</section>
+
+<section>
+    <h2>Total Outgoing</h2>
+
+    <div id="expense-summary">
+        <p>Total Expenses: $0.00</p>
+    </div>
+</section>
+  
+  </main>
+  <script src="js/script/expences.js"></script>
+  </body>
