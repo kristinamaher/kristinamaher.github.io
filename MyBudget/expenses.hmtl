@@ -50,9 +50,6 @@
             <option value="healthcare">Healthcare</option>
             <option value="entertainment">Entertainment</option>
             <option value="subscription">Subscription</option>
-			<option value="education">Education</option>
-			<option value="insurance">Insurance</option>
-			<option value="travel">Travel</option>
             <option value="other">Other</option>
         </select>
 
@@ -90,10 +87,6 @@
         <p>Healthcare: $0.00</p>
         <p>Entertainment: $0.00</p>
         <p>Subscription: $0.00</p>
-		<p>Education: $0.00</p>
-		<p>Insurance: $0.00</p>
-		<p>Travel: $0.00</p>
-		<p>Shoppung: $0.00</p>
         <p>Other: $0.00</p>
 
     </div>
