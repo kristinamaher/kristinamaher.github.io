@@ -142,22 +142,24 @@
     border-radius:5px;
 }
 
-/* PROFILE PICTURE */
+/* ========================================
+PROFILE PICTURE 
+======================================== */
 
-.profile-picture-section label *
+.profile-picture-section label * {
     display: block;
-    margin-bo*tom: 10px;
+    margin-bottom: 10px;
 }
 
-.profile-picture-sec*ion input[type="radio"] {
-    widt*: auto;
+.profile-picture-section input[type="radio"] {
+    width: auto;
     margin-right: 6px;
 }
 
-*profile-picture-section input[type="file"] {
+.profile-picture-section input[type="file"] {
     display: block;
-    *argin: 10px 0;
-    max-width: 100%*
+    margin: 10px 0;
+    max-width: 100%;
 }
 
 /* ========================================
