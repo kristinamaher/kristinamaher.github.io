@@ -225,3 +225,45 @@
   font-size: 0.95rem;
   margin-top: 10px;
 }
+
+.tutorials {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.tutorials h2 {
+    text-align: center;
+}
+
+.tutorial-video,
+.tutorial-resource {
+    margin: 25px 0;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f5f7f5;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+.video-container iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 8px;
+}
+
+.video-caption {
+    font-size: 0.9rem;
+    margin-top: 12px;
+}
+
+.tutorial-resource a {
+    overflow-wrap: anywhere;
+}
+
