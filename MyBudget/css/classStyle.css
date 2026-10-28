@@ -202,3 +202,26 @@
     border: 1px solid #8000FF;
     border-radius: 5px;
 }
+
+/* ========================================
+   Home PAGE
+======================================== */
+
+.budget-animation {
+  max-width: 450px;
+  margin: 24px auto;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.budget-animation img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.image-caption {
+  font-size: 0.95rem;
+  margin-top: 10px;
+}
