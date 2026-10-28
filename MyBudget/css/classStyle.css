@@ -67,3 +67,20 @@
     border-radius:5px;
 }
 
+/* PROFILE PICTURE */
+
+.profile-picture-section label *
+    display: block;
+    margin-bo*tom: 10px;
+}
+
+.profile-picture-sec*ion input[type="radio"] {
+    widt*: auto;
+    margin-right: 6px;
+}
+
+*profile-picture-section input[type="file"] {
+    display: block;
+    *argin: 10px 0;
+    max-width: 100%*
+}
