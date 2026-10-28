@@ -159,3 +159,46 @@
     *argin: 10px 0;
     max-width: 100%*
 }
+
+/* ========================================
+   SUMMARY PAGE
+======================================== */
+
+#total-income,
+#total-expenses,
+#remaining-balance,
+#total-goals,
+#completed-goals,
+#upcoming-bills-count {
+    font-weight: bold;
+}
+
+/* SUMMARY EXPENSE CATEGORIES */
+
+#summary-expense-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#summary-expense-categories p {
+    flex: 1;
+    min-width: 200px;
+    margin: 0;
+    padding: 10px;
+    background-color: #FFFFFF;
+    color: #2B1B3D;
+    border: 1px solid #8000FF;
+    border-radius: 5px;
+}
+
+/* FINANCIAL OVERVIEW */
+
+#financial-overview {
+    margin: 0;
+    padding: 10px;
+    background-color: #FFFFFF;
+    color: #2B1B3D;
+    border: 1px solid #8000FF;
+    border-radius: 5px;
+}
