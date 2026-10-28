@@ -39,10 +39,10 @@
     <form id="expense-form">
 
         <label for="expense-name">Expense Name:</label>
-        <input type="text" id="expense-name" name="expense-name">
+        <input type="text" id="expense-name" name="expense-name" required>
 
         <label for="expense-category">Category:</label>
-        <select id="expense-category" name="expense-category">
+        <select id="expense-category" name="expense-category" required>
             <option value="housing">Housing</option>
             <option value="food">Food</option>
             <option value="transportation">Transportation</option>
@@ -59,10 +59,10 @@
         </select>
 
         <label for="expense-amount">Amount:</label>
-        <input type="number" id="expense-amount" name="expense-amount">
+        <input type="number" id="expense-amount" name="expense-amount" min="0.01" step="0.01" required>
 
 		<label for="expense-payment">Payment Method:</label>
-		<select id="expense-payment" name="expense-payment">
+		<select id="expense-payment" name="expense-payment" required>
     		<option value="cash">Cash</option>
    		 	<option value="card">Card</option>
     		<option value="check">Check</option>
@@ -70,7 +70,7 @@
 		</select>
 
         <label for="expense-date">Date:</label>
-        <input type="date" id="expense-date" name="expense-date">
+        <input type="date" id="expense-date" name="expense-date" required>
 
         <label for="expense-notes">Notes:</label>
         <textarea id="expense-notes" name="expense-notes"></textarea>
@@ -108,7 +108,7 @@
     <form id="upcoming-bill-form">
 
         <label for="bill-name">Bill Name:</label>
-        <input type="text" id="bill-name" name="bill-name">
+        <input type="text" id="bill-name" name="bill-name" required>
 
         <label for="bill-category">Category:</label>
         <select id="bill-category" name="bill-category">
@@ -121,10 +121,10 @@
         </select>
 
         <label for="bill-amount">Amount:</label>
-        <input type="number" id="bill-amount" name="bill-amount">
+        <input type="number" id="bill-amount" name="bill-amount" min="0.01" step="0.01" required>
 
         <label for="bill-due-date">Due Date:</label>
-        <input type="date" id="bill-due-date" name="bill-due-date">
+        <input type="date" id="bill-due-date" name="bill-due-date" required>
 
         <label for="bill-frequency">Frequency:</label>
         <select id="bill-frequency" name="bill-frequency">
