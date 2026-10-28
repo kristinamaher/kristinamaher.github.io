@@ -1,3 +1,78 @@
+/* ========================================
+   EXPENSE PAGE
+======================================== */
+
+/* EXPENSE FORMS */
+
+#expense-form,
+#upcoming-bill-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#expense-form input,
+#expense-form select,
+#expense-form textarea,
+#upcoming-bill-form input,
+#upcoming-bill-form select {
+    width: 100%;
+}
+
+#expense-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* EXPENSE CATEGORIES */
+
+#expense-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#expense-categories p {
+    flex: 1;
+    min-width: 200px;
+    margin: 0;
+    padding: 10px;
+    background-color: #FFFFFF;
+    color: #2B1B3D;
+    border: 1px solid #8000FF;
+    border-radius: 5px;
+}
+
+/* UPCOMING BILLS */
+
+#upcoming-bills {
+    margin-top: 20px;
+}
+
+#upcoming-bills p {
+    margin: 0;
+}
+
+/* EXPENSE HISTORY */
+
+#expense-history p {
+    margin: 0;
+}
+
+/* EXPENSE SUMMARY */
+
+#expense-summary {
+    padding: 10px;
+    background-color: #FFFFFF;
+    color: #2B1B3D;
+    border: 1px solid #8000FF;
+    border-radius: 5px;
+}
+
+#expense-summary p {
+    margin: 0;
+    font-weight: bold;
+}
 /* GOAL CLASSES */
 .goal-card{
     border: 1px solid #ccc;
