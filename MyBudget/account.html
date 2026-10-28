@@ -152,15 +152,48 @@
         </section>
 
         <section>
-            <h2>Profile Picture</h2>
+    <h2>Profile Picture</h2>
 
-            <form id="profile-picture-form">
-                <label for="profile-picture">Choose a profile picture:</label>
-                <input type="file" id="profile-picture" name="profile-picture" accept="image/*">
+    <form id="profile-picture-form">
 
-                <button type="submit">Save Profile Picture</button>
-            </form>
-        </section>
+        <label>
+            <input
+                type="radio"
+                name="picture-option"
+                value="default"
+                checked
+            >
+            Display Default Picture
+        </label>
+
+        <label>
+            <input
+                type="radio"
+                name="picture-option"
+                value="custom"
+            >
+            Use Uploaded Picture
+        </label>
+
+        <br>
+
+        <label for="profile-picture">
+            Choose a profile picture:
+        </label>
+
+        <input
+            type="file"
+            id="profile-picture"
+            name="profile-picture"
+            accept="image/*"
+        >
+
+        <button type="submit">
+            Save Profile Picture
+        </button>
+
+    </form>
+</section>
 
         <section>
             <h2>Account Management</h2>
