@@ -244,6 +244,12 @@ PROFILE PICTURE
     padding: 20px;
     border-radius: 10px;
     background-color: #f5f7f5;
+    color: #2B1B3D;
+}
+
+.tutorial-video h3,
+.tutorial-resource h3 {
+    color: #2B1B3D;
 }
 
 .video-container {
