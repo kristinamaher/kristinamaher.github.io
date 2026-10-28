@@ -426,12 +426,37 @@ const profilePictureForm =
         "profile-picture-form"
     );
 
-if (profilePictureForm) {
+const accountIcon =
+    document.querySelector(
+        'a[href="account.html"] img'
+    );
 
+function displayAccountPicture() {
+    const account =
+        getCurrentAccount();
+
+    if (!accountIcon) {
+        return;
+    }
+
+    if (
+        account &&
+        account.profilePicture
+    ) {
+        accountIcon.src =
+            account.profilePicture;
+    } else {
+        accountIcon.src =
+            "image/Account.png";
+    }
+}
+
+displayAccountPicture();
+
+if (profilePictureForm) {
     profilePictureForm.addEventListener(
         "submit",
         function(event) {
-
             event.preventDefault();
 
             const account =
@@ -441,6 +466,45 @@ if (profilePictureForm) {
                 alert(
                     "Please create or log into an account first."
                 );
+                return;
+            }
+
+            const pictureOption =
+                document.querySelector(
+                    'input[name="picture-option"]:checked'
+                );
+
+            if (!pictureOption) {
+                alert(
+                    "Please select a picture option."
+                );
+                return;
+            }
+
+            const accounts =
+                getAccounts();
+
+            const usernameKey =
+                localStorage.getItem(
+                    CURRENT_ACCOUNT_KEY
+                );
+
+            if (
+                pictureOption.value ===
+                "default"
+            ) {
+                account.profilePicture = "";
+
+                accounts[usernameKey] =
+                    account;
+
+                saveAccounts(accounts);
+                displayAccountPicture();
+
+                alert(
+                    "Default profile picture selected."
+                );
+
                 return;
             }
 
@@ -463,30 +527,66 @@ if (profilePictureForm) {
             const file =
                 picture.files[0];
 
+            if (
+                !file.type.startsWith("image/")
+            ) {
+                alert(
+                    "Please choose an image file."
+                );
+                return;
+            }
+
             const reader =
                 new FileReader();
 
             reader.onload =
                 function() {
-                    account.profilePicture =
+                    const uploadedImage =
+                        new Image();
+
+                    uploadedImage.onload =
+                        function() {
+                            const canvas =
+                                document.createElement(
+                                    "canvas"
+                                );
+
+                            canvas.width = 64;
+                            canvas.height = 64;
+
+                            const context =
+                                canvas.getContext(
+                                    "2d"
+                                );
+
+                            context.drawImage(
+                                uploadedImage,
+                                0,
+                                0,
+                                64,
+                                64
+                            );
+
+                            account.profilePicture =
+                                canvas.toDataURL(
+                                    "image/png"
+                                );
+
+                            accounts[usernameKey] =
+                                account;
+
+                            saveAccounts(accounts);
+                            displayAccountPicture();
+
+                            alert(
+                                "Profile picture saved."
+                            );
+
+                            profilePictureForm.reset();
+                        };
+
+                    uploadedImage.src =
                         reader.result;
-
-                    const accounts =
-                        getAccounts();
-                    const usernameKey =
-                        localStorage.getItem(
-                            CURRENT_ACCOUNT_KEY
-                        );
-
-                    accounts[usernameKey] =
-                        account;
-
-                    saveAccounts(accounts);
-
-                    alert(
-                        "Profile picture saved."
-                    );
-
                 };
 
             reader.readAsDataURL(file);
