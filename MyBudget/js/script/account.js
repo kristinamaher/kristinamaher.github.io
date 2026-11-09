@@ -257,11 +257,24 @@ if (loginInformationForm) {
 
             if (!account) {
 
-                alert(
-                    "Account not found."
-                );
-                return;
-            }
+    alert(
+        "Account not found."
+    );
+    return;
+}
+
+if (account.deactivated) {
+    alert(
+        "This account has been deactivated."
+    );
+    return;
+}
+
+if (
+    account.email.toLowerCase() !==
+    email.toLowerCase()
+) 
+{
 
             if (
                 account.email.toLowerCase() !==
@@ -736,3 +749,64 @@ if (deleteButton) {
         }
     );
 }
+// ============================================================
+// ACCOUNT - LOAD SAVED DATA
+// ============================================================
+
+function loadAccountInformation() {
+    const account = getCurrentAccount();
+
+    if (!account) {
+        return;
+    }
+
+    const firstName =
+        document.getElementById("first-name");
+
+    const lastName =
+        document.getElementById("last-name");
+
+    const phone =
+        document.getElementById("phone");
+
+    const country =
+        document.getElementById("country");
+
+    if (firstName) {
+        firstName.value =
+            account.personal.firstName || "";
+    }
+
+    if (lastName) {
+        lastName.value =
+            account.personal.lastName || "";
+    }
+
+    if (phone) {
+        phone.value =
+            account.personal.phone || "";
+    }
+
+    if (country) {
+        country.value =
+            account.personal.country || "us";
+    }
+
+    const currency =
+        document.getElementById("currency");
+
+    const travelMode =
+        document.getElementById("travel-mode");
+
+    if (currency) {
+        currency.value =
+            account.preferences.currency || "usd";
+    }
+
+    if (travelMode) {
+        travelMode.checked =
+            account.preferences.travelMode || false;
+    }
+}
+
+loadAccountInformation();
