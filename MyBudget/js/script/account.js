@@ -273,26 +273,20 @@ if (account.deactivated) {
 if (
     account.email.toLowerCase() !==
     email.toLowerCase()
-) 
-{
+) {
+    alert(
+        "The email address does not match this account."
+    );
+    return;
+}
 
-            if (
-                account.email.toLowerCase() !==
-                email.toLowerCase()
-            ) {
-                alert(
-                    "The email address does not match this account."
-                );
-                return;
-            }
+if (account.password !== password) {
+    alert(
+        "Incorrect password."
+    );
 
-            if (account.password !== password) {
-                alert(
-                    "Incorrect password."
-                );
-
-                return;
-            }
+    return;
+}
 
             setCurrentAccount(usernameKey);
 
