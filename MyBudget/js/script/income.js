@@ -3,7 +3,7 @@
 // ============================================================
 
 // ============================================================
-// MY BUDGET - INCOME CURRENCY PREFFERENCE SLECTORE IMPORT
+// INCOME - CURRENCY FORMAT
 // ============================================================
 function formatCurrency(amount) {
 
