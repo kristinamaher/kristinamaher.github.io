@@ -1,7 +1,7 @@
-
 // ============================================================
 // MY BUDGET - EXPENSES SCRIPT
 // ============================================================
+
 
 // ============================================================
 // STORAGE
@@ -73,12 +73,23 @@ const expenseCategoryNames = {
 // ============================================================
 
 function formatMoney(amount) {
-    return Number(amount).toLocaleString("en-US", {
-        style: "currency",
-        currency: "USD"
-    });
-}
 
+    const account =
+        getCurrentAccount();
+
+    const currency =
+        account?.preferences?.currency ||
+        "usd";
+
+    return Number(amount).toLocaleString(
+        "en-US",
+        {
+            style: "currency",
+            currency:
+                currency.toUpperCase()
+        }
+    );
+}
 function getToday() {
     const today = new Date();
     const year = today.getFullYear();
