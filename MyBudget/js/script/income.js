@@ -3,48 +3,103 @@
 // ============================================================
 
 // ============================================================
+// MY BUDGET - INCOME CURRENCY PREFFERENCE SLECTORE IMPORT
+// ============================================================
+function formatCurrency(amount) {
+
+    const account =
+        getCurrentAccount();
+
+    const currency =
+        account?.preferences?.currency ||
+        "usd";
+
+    return new Intl.NumberFormat(
+        "en-US",
+        {
+            style: "currency",
+            currency:
+                currency.toUpperCase()
+        }
+    ).format(amount);
+}
+// ============================================================
 // INCOME / MONEY TOTALS
 // ============================================================
 
-// Load saved totals from localStorage.
-// If nothing has been saved yet, start at $0.
+function getCurrentAccount() {
+
+    const username =
+        localStorage.getItem(
+            "myBudgetCurrentAccount"
+        );
+
+    if (!username) {
+        return null;
+    }
+
+    const accounts =
+        JSON.parse(
+            localStorage.getItem(
+                "myBudgetAccounts"
+            )
+        ) || {};
+
+    return accounts[username] || null;
+}
+
+const account =
+    getCurrentAccount();
 
 let incomeTotal =
-    parseFloat(
-        localStorage.getItem("myBudgetIncomeTotal")
-    ) || 0;
+    account
+        ? Number(account.incomeTotal) || 0
+        : 0;
 
 let giftTotal =
-    parseFloat(
-        localStorage.getItem("myBudgetGiftTotal")
-    ) || 0;
+    account
+        ? Number(account.giftTotal) || 0
+        : 0;
 
 let cardTotal =
-    parseFloat(
-        localStorage.getItem("myBudgetCardTotal")
-    ) || 0;
-
+    account
+        ? Number(account.cardTotal) || 0
+        : 0;
 // ============================================================
 // SAVE MONEY TOTALS
 // ============================================================
 
 function saveMoneyTotals() {
 
-    localStorage.setItem(
-        "myBudgetIncomeTotal",
-        incomeTotal.toString()
-    );
+    const username =
+        localStorage.getItem(
+            "myBudgetCurrentAccount"
+        );
+
+    if (!username) {
+        return;
+    }
+
+    const accounts =
+        JSON.parse(
+            localStorage.getItem(
+                "myBudgetAccounts"
+            )
+        ) || {};
+
+    accounts[username].incomeTotal =
+        incomeTotal;
+
+    accounts[username].giftTotal =
+        giftTotal;
+
+    accounts[username].cardTotal =
+        cardTotal;
 
     localStorage.setItem(
-        "myBudgetGiftTotal",
-        giftTotal.toString()
+        "myBudgetAccounts",
+        JSON.stringify(accounts)
     );
-
-    localStorage.setItem(
-        "myBudgetCardTotal",
-        cardTotal.toString()
-    );
-
 }
 
 // ============================================================
@@ -78,7 +133,7 @@ function updateIncomeSummary() {
     if (incomeDisplay) {
 
         incomeDisplay.textContent =
-            "$" + incomeTotal.toFixed(2);
+            formatCurrency(incomeTotal)
 
     }
 
@@ -87,7 +142,7 @@ function updateIncomeSummary() {
     if (giftDisplay) {
 
         giftDisplay.textContent =
-            "$" + giftTotal.toFixed(2);
+            formatCurrency(giftTotal)
 
     }
 
@@ -96,7 +151,7 @@ function updateIncomeSummary() {
     if (cardDisplay) {
 
         cardDisplay.textContent =
-            "$" + cardTotal.toFixed(2);
+            formatCurrency(cardTotal)
 
     }
 
@@ -110,7 +165,7 @@ function updateIncomeSummary() {
             cardTotal;
 
         spendableDisplay.textContent =
-            "$" + spendableTotal.toFixed(2);
+           formatCurrency(spendableTotal)
 
     }
 
