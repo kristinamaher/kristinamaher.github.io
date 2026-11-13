@@ -6,24 +6,34 @@
 // GOALS - LOAD SAVED GOALS
 // ============================================================
 
-let goals;
+function getCurrentAccount() {
 
-try {
+    const username =
+        localStorage.getItem(
+            "myBudgetCurrentAccount"
+        );
 
-    goals =
+    if (!username) {
+        return null;
+    }
+
+    const accounts =
         JSON.parse(
-            localStorage.getItem("myBudgetGoals")
-        ) || [];
+            localStorage.getItem(
+                "myBudgetAccounts"
+            )
+        ) || {};
 
-} catch (error) {
-
-    console.error(
-        "Could not load saved goals:",
-        error
-    );
-
-    goals = [];
+    return accounts[username] || null;
 }
+
+const account =
+    getCurrentAccount();
+
+let goals =
+    account
+        ? account.goals
+        : [];
 
 // ============================================================
 // GOALS - CLEAN OLD / MISSING DATA
@@ -86,9 +96,28 @@ function saveGoals() {
 
     try {
 
+        const username =
+            localStorage.getItem(
+                "myBudgetCurrentAccount"
+            );
+
+        if (!username) {
+            return;
+        }
+
+        const accounts =
+            JSON.parse(
+                localStorage.getItem(
+                    "myBudgetAccounts"
+                )
+            ) || {};
+
+        accounts[username].goals =
+            goals;
+
         localStorage.setItem(
-            "myBudgetGoals",
-            JSON.stringify(goals)
+            "myBudgetAccounts",
+            JSON.stringify(accounts)
         );
 
     } catch (error) {
