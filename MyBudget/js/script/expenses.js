@@ -2,6 +2,53 @@
 // MY BUDGET - EXPENSES SCRIPT
 // ============================================================
 
+// ============================================================
+// HELPER FUNCTIONS
+// ============================================================
+
+function formatMoney(amount) {
+
+    const account =
+        getCurrentAccount();
+
+    const currency =
+        account?.preferences?.currency ||
+        "usd";
+
+    return Number(amount).toLocaleString(
+        "en-US",
+        {
+            style: "currency",
+            currency:
+                currency.toUpperCase()
+        }
+    );
+}
+function getToday() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+}
+
+function getAccountData() {
+    const account = getCurrentAccount();
+
+    if (!account) return null;
+
+    if (!Array.isArray(account.expenses)) {
+        account.expenses = [];
+    }
+
+    if (!Array.isArray(account.upcomingBills)) {
+        account.upcomingBills = [];
+    }
+
+    return account;
+}
+
 
 // ============================================================
 // STORAGE
@@ -68,52 +115,6 @@ const expenseCategoryNames = {
     other: "Other"
 };
 
-// ============================================================
-// HELPER FUNCTIONS
-// ============================================================
-
-function formatMoney(amount) {
-
-    const account =
-        getCurrentAccount();
-
-    const currency =
-        account?.preferences?.currency ||
-        "usd";
-
-    return Number(amount).toLocaleString(
-        "en-US",
-        {
-            style: "currency",
-            currency:
-                currency.toUpperCase()
-        }
-    );
-}
-function getToday() {
-    const today = new Date();
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, "0");
-    const day = String(today.getDate()).padStart(2, "0");
-
-    return `${year}-${month}-${day}`;
-}
-
-function getAccountData() {
-    const account = getCurrentAccount();
-
-    if (!account) return null;
-
-    if (!Array.isArray(account.expenses)) {
-        account.expenses = [];
-    }
-
-    if (!Array.isArray(account.upcomingBills)) {
-        account.upcomingBills = [];
-    }
-
-    return account;
-}
 
 // ============================================================
 // ADD EXPENSE
