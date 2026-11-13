@@ -3,6 +3,28 @@
 // ============================================================
 
 // ============================================================
+// MY BUDGET - GOALS cURRENCY FORMAT SELECTION IMPORT
+// ============================================================
+function formatCurrency(amount) {
+
+    const account =
+        getCurrentAccount();
+
+    const currency =
+        account?.preferences?.currency ||
+        "usd";
+
+    return new Intl.NumberFormat(
+        "en-US",
+        {
+            style: "currency",
+            currency:
+                currency.toUpperCase()
+        }
+    ).format(amount);
+}
+
+// ============================================================
 // GOALS - LOAD SAVED GOALS
 // ============================================================
 
@@ -349,13 +371,13 @@ function createGoalCard(
             <p>
 
                 <span class="current-amount">
-                    $${progress.toFixed(2)}
+                    ${formatCurrency(progress)}
                 </span>
 
                 /
 
                 <span class="goal-amount">
-                    $${amount.toFixed(2)}
+                   ${formatCurrency(amount)}
                 </span>
 
             </p>
