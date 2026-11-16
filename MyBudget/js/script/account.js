@@ -169,7 +169,8 @@ if (createAccountForm) {
                 goals: [],
                 income: [],
                 expenses: [],
-                transactions: []
+                transactions: [],
+                upcomingBills: []
             };
 
             // Save account
