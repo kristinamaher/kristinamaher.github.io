@@ -3,6 +3,64 @@
 // ============================================================
 
 // ============================================================
+// STORAGE
+// ============================================================
+
+const ACCOUNTS_STORAGE_KEY =
+    "myBudgetAccounts";
+
+const CURRENT_ACCOUNT_KEY =
+    "myBudgetCurrentAccount";
+
+function getCurrentAccount() {
+
+    const username =
+        localStorage.getItem(
+            CURRENT_ACCOUNT_KEY
+        );
+
+    if (!username) {
+        return null;
+    }
+
+    const accounts =
+        JSON.parse(
+            localStorage.getItem(
+                ACCOUNTS_STORAGE_KEY
+            )
+        ) || {};
+
+    return accounts[username] || null;
+}
+
+function saveCurrentAccount(account) {
+
+    const username =
+        localStorage.getItem(
+            CURRENT_ACCOUNT_KEY
+        );
+
+    if (!username) {
+        return;
+    }
+
+    const accounts =
+        JSON.parse(
+            localStorage.getItem(
+                ACCOUNTS_STORAGE_KEY
+            )
+        ) || {};
+
+    accounts[username] =
+        account;
+
+    localStorage.setItem(
+        ACCOUNTS_STORAGE_KEY,
+        JSON.stringify(accounts)
+    );
+}
+
+// ============================================================
 // SETTINGS - NOTIFICATIONS
 // ============================================================
 
@@ -19,9 +77,50 @@ if (notificationForm) {
 
             event.preventDefault();
 
-            alert(
-                "Notification preferences saved."
-            );
+const account =
+    getCurrentAccount();
+
+if (!account) {
+    return;
+}
+
+const budgetAlerts =
+    document.querySelector(
+        'input[name="budget-alerts"]'
+    );
+
+const goalReminders =
+    document.querySelector(
+        'input[name="goal-reminders"]'
+    );
+
+const monthlySummary =
+    document.querySelector(
+        'input[name="monthly-summary"]'
+    );
+
+account.preferences.notifications = {
+    budgetAlerts:
+        budgetAlerts
+            ? budgetAlerts.checked
+            : false,
+
+    goalReminders:
+        goalReminders
+            ? goalReminders.checked
+            : false,
+
+    monthlySummary:
+        monthlySummary
+            ? monthlySummary.checked
+            : false
+};
+
+saveCurrentAccount(account);
+
+alert(
+    "Notification preferences saved."
+);
 
         }
     );
