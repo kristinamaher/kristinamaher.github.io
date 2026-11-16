@@ -12,9 +12,6 @@ const ACCOUNTS_STORAGE_KEY =
 const CURRENT_ACCOUNT_KEY =
     "myBudgetCurrentAccount";
 
-const GOALS_STORAGE_KEY =
-    "myBudgetGoals";
-
 
 // ============================================================
 // GET CURRENT ACCOUNT
@@ -56,59 +53,36 @@ function getCurrentAccount() {
 // ============================================================
 
 function getSavedGoals() {
-    try {
-        return (
-            JSON.parse(
-                localStorage.getItem(
-                    GOALS_STORAGE_KEY
-                )
-            ) || []
-        );
 
-    } catch (error) {
-        console.error(
-            "Could not load saved goals:",
-            error
-        );
+    const account =
+        getCurrentAccount();
 
+    if (!account) {
         return [];
     }
-}
 
+    return account.goals || [];
+}
 
 // ============================================================
 // GET INCOME TOTAL
 // ============================================================
 
 function getIncomeTotal() {
-    const incomeTotal =
-        parseFloat(
-            localStorage.getItem(
-                "myBudgetIncomeTotal"
-            )
-        ) || 0;
 
-    const giftTotal =
-        parseFloat(
-            localStorage.getItem(
-                "myBudgetGiftTotal"
-            )
-        ) || 0;
+    const account =
+        getCurrentAccount();
 
-    const cardTotal =
-        parseFloat(
-            localStorage.getItem(
-                "myBudgetCardTotal"
-            )
-        ) || 0;
+    if (!account) {
+        return 0;
+    }
 
     return (
-        incomeTotal +
-        giftTotal +
-        cardTotal
+        (Number(account.incomeTotal) || 0) +
+        (Number(account.giftTotal) || 0) +
+        (Number(account.cardTotal) || 0)
     );
 }
-
 
 // ============================================================
 // GET EXPENSE TOTAL
@@ -145,6 +119,25 @@ function getExpenseTotal(account) {
 // DISPLAY INCOME
 // ============================================================
 
+function formatCurrency(amount) {
+
+    const account =
+        getCurrentAccount();
+
+    const currency =
+        account?.preferences?.currency ||
+        "usd";
+
+    return new Intl.NumberFormat(
+        "en-US",
+        {
+            style: "currency",
+            currency:
+                currency.toUpperCase()
+        }
+    ).format(amount);
+}
+
 function displayIncomeSummary(
     incomeTotal
 ) {
@@ -154,9 +147,8 @@ function displayIncomeSummary(
         );
 
     if (incomeDisplay) {
-        incomeDisplay.textContent =
-            "$" +
-            incomeTotal.toFixed(2);
+            incomeDisplay.textContent = 
+                formatCurrency(incomeTotal);
     }
 }
 
@@ -174,9 +166,8 @@ function displayExpenseSummary(
         );
 
     if (expenseDisplay) {
-        expenseDisplay.textContent =
-            "$" +
-            expenseTotal.toFixed(2);
+       expenseDisplay.textContent =
+           formatCurrency(expenseTotal);
     }
 }
 
@@ -203,8 +194,9 @@ function displayRemainingBalance(
         expenseTotal;
 
     balanceDisplay.textContent =
-        "$" +
-        remainingBalance.toFixed(2);
+        formatCurrency(
+            remainingBalance
+    );
 }
 
 
@@ -367,8 +359,8 @@ function displayExpenseCategories(
 
             categoryDisplay.textContent =
                 categoryNames[category] +
-                ": $" +
-                total.toFixed(2);
+                ": " +
+                formatCurrency(total);
 
             categoryContainer.appendChild(
                 categoryDisplay
@@ -421,19 +413,23 @@ function displayFinancialOverview(
             "Add income and expenses to see your financial overview.";
 
     } else if (remainingBalance > 0) {
-        overviewDisplay.textContent =
-            "Your income is currently greater than your expenses by $" +
-            remainingBalance.toFixed(2) +
+         overviewDisplay.textContent =
+            "Your income is currently greater than your expenses by " +
+            formatCurrency(
+                remainingBalance
+            ) +
             ".";
+
 
     } else if (remainingBalance < 0) {
-        overviewDisplay.textContent =
-            "Your expenses currently exceed your income by $" +
-            Math.abs(
-                remainingBalance
-            ).toFixed(2) +
-            ".";
-
+       overviewDisplay.textContent =
+           "Your expenses currently exceed your income by " +
+           formatCurrency(
+               Math.abs(
+                   remainingBalance
+               )
+           ) +
+           ".";
     } else {
         overviewDisplay.textContent =
             "Your income and expenses are currently equal.";
