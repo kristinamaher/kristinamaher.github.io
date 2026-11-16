@@ -160,8 +160,32 @@ if (createAccountForm) {
 
                 preferences: {
                     currency: "usd",
-                    travelMode: false
+                    travelMode: false,
+
+            notifications: {
+                enabled: true
                 },
+
+            security: {
+                rememberLogin: false
+            },
+
+            display: {
+                theme: "light"
+            },
+
+            dateTime: {
+                dateFormat: "MM/DD/YYYY"
+            },
+
+            privacy: {
+                analytics: true
+            },
+
+            budget: {
+                warnings: true
+                }
+            },
 
                 profilePicture: "",
 
@@ -170,7 +194,11 @@ if (createAccountForm) {
                 income: [],
                 expenses: [],
                 transactions: [],
-                upcomingBills: []
+                upcomingBills: [],
+
+                incomeTotal: 0,
+                giftTotal: 0,
+                cardTotal: 0
             };
 
             // Save account
