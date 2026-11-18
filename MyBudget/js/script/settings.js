@@ -144,9 +144,40 @@ if (securityForm) {
 
             event.preventDefault();
 
-            alert(
-                "Security settings saved."
-            );
+const account =
+    getCurrentAccount();
+
+if (!account) {
+    return;
+}
+
+const twoFactor =
+    document.getElementById(
+        "two-factor"
+    );
+
+const loginAlerts =
+    document.getElementById(
+        "login-alerts"
+    );
+
+account.preferences.security = {
+    twoFactor:
+        twoFactor
+            ? twoFactor.checked
+            : false,
+
+    loginAlerts:
+        loginAlerts
+            ? loginAlerts.checked
+            : false
+};
+
+saveCurrentAccount(account);
+
+alert(
+    "Security settings saved."
+);
 
         }
     );
@@ -170,9 +201,51 @@ if (displayForm) {
 
             event.preventDefault();
 
-            alert(
-                "Display preferences saved."
-            );
+const account =
+    getCurrentAccount();
+
+if (!account) {
+    return;
+}
+
+const theme =
+    document.getElementById(
+        "theme"
+    );
+
+const layout =
+    document.getElementById(
+        "layout"
+    );
+
+const dashboardInfo =
+    document.querySelector(
+        'input[name="dashboard-info"]'
+    );
+
+account.preferences.display = {
+    theme:
+        theme
+            ? theme.value
+            : "light",
+
+    layout:
+        layout
+            ? layout.value
+            : "comfortable",
+
+    dashboardInfo:
+        dashboardInfo
+            ? dashboardInfo.checked
+            : true
+};
+
+saveCurrentAccount(account);
+applyDisplaySettings();
+
+alert(
+    "Display preferences saved."
+);
 
         }
     );
@@ -257,6 +330,33 @@ if (budgetPreferencesForm) {
 
 }
 
+// ============================================================
+// APPLY DISPLAY SETTINGS
+// ============================================================
+
+function applyDisplaySettings() {
+
+    const account =
+        getCurrentAccount();
+
+    if (!account) {
+        return;
+    }
+
+    const theme =
+        account.preferences?.display?.theme;
+
+    if (theme === "dark") {
+        document.body.classList.add(
+            "dark-theme"
+        );
+    } else {
+        document.body.classList.remove(
+            "dark-theme"
+        );
+    }
+}
+applyDisplaySettings();
 // ============================================================
 //END SETTING SCRIPT
 // ============================================================
