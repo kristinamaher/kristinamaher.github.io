@@ -286,7 +286,13 @@ input[type="text"],
 textarea {
     cursor: text;
 }
-
+/* ========================================
+   DARK MODE
+======================================== */
+.dark-theme {
+    background-color: #121212;
+    color: #FFFFFF;
+}
 .dark-theme header {
     background-color: #1e1e1e;
 }
