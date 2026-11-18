@@ -280,6 +280,10 @@ const dateFormat =
     document.getElementById(
         "date-format"
     );
+const timeFormat =
+    document.getElementById(
+        "time-format"
+    );
 
 const timezone =
     document.getElementById(
@@ -296,6 +300,11 @@ account.preferences.dateTime = {
         dateFormat
             ? dateFormat.value
             : "mm-dd-yyyy",
+
+    timeFormat:
+        timeFormat
+            ? timeFormat.value
+            : "24-hour",
 
     timezone:
         timezone
@@ -336,9 +345,40 @@ if (privacyForm) {
 
             event.preventDefault();
 
-            alert(
-                "Privacy settings saved."
-            );
+const account =
+    getCurrentAccount();
+
+if (!account) {
+    return;
+}
+
+const hideName =
+    document.querySelector(
+        'input[name="hide-name"]'
+    );
+
+const hideGifts =
+    document.querySelector(
+        'input[name="hide-gifts"]'
+    );
+
+account.preferences.privacy = {
+    hideName:
+        hideName
+            ? hideName.checked
+            : false,
+
+    hideGifts:
+        hideGifts
+            ? hideGifts.checked
+            : false
+};
+
+saveCurrentAccount(account);
+
+alert(
+    "Privacy settings saved."
+);
 
         }
     );
@@ -362,9 +402,40 @@ if (budgetPreferencesForm) {
 
             event.preventDefault();
 
-            alert(
-                "Budget preferences saved."
-            );
+const account =
+    getCurrentAccount();
+
+if (!account) {
+    return;
+}
+
+const budgetPeriod =
+    document.getElementById(
+        "budget-period"
+    );
+
+const budgetWarning =
+    document.getElementById(
+        "budget-warning"
+    );
+
+account.preferences.budget = {
+    period:
+        budgetPeriod
+            ? budgetPeriod.value
+            : "monthly",
+
+    warningThreshold:
+        budgetWarning
+            ? budgetWarning.value
+            : "80"
+};
+
+saveCurrentAccount(account);
+
+alert(
+    "Budget preferences saved."
+);
 
         }
     );
