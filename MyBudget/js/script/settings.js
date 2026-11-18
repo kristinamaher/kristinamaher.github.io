@@ -269,9 +269,50 @@ if (dateTimeForm) {
 
             event.preventDefault();
 
-            alert(
-                "Date and time settings saved."
-            );
+const account =
+    getCurrentAccount();
+
+if (!account) {
+    return;
+}
+
+const dateFormat =
+    document.getElementById(
+        "date-format"
+    );
+
+const timezone =
+    document.getElementById(
+        "timezone"
+    );
+
+const weekStart =
+    document.getElementById(
+        "week-start"
+    );
+
+account.preferences.dateTime = {
+    dateFormat:
+        dateFormat
+            ? dateFormat.value
+            : "mm-dd-yyyy",
+
+    timezone:
+        timezone
+            ? timezone.value
+            : "local",
+
+    weekStart:
+        weekStart
+            ? weekStart.value
+            : "sunday"
+};
+
+saveCurrentAccount(account);
+
+alert(
+    "Date and time settings saved."
+);
 
         }
     );
