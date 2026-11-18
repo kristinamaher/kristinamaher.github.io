@@ -115,6 +115,12 @@
             <option value="yyyy-mm-dd">YYYY-MM-DD</option>
         </select>
 
+		<label for="time-format">Time Format:</label>
+		<select id="time-format" name="time-format">
+    		<option value="24-hour">24 Hour Time</option>
+			<option value="12-hour">12 Hour Time</option>
+		</select>
+
         <label for="timezone">Time Zone:</label>
         <select id="timezone" name="timezone">
             <option value="local">Use Local Time</option>
@@ -145,20 +151,6 @@
     Hide gifts from dashboard
 </label>
 
-<label>
-    <input type="checkbox" name="hide-income">
-    Hide income on dashboard
-</label>
-
-<label>
-    <input type="checkbox" name="hide-expenses">
-    Hide expenses on dashboard
-</label>
-
-<label>
-    <input type="checkbox" name="hide-balance">
-    Hide remaining balance on dashboard
-</label>
 
         <button type="submit">Save Privacy Settings</button>
     </form>
