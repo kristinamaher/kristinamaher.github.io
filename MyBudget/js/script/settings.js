@@ -60,6 +60,61 @@ function saveCurrentAccount(account) {
     );
 }
 
+
+// ============================================================
+// SETTINGS - LANGUAGE
+// ============================================================
+
+const languageForm =
+    document.getElementById("language-form");
+
+const languageSelect =
+    document.getElementById("language");
+
+if (languageForm && languageSelect) {
+
+    const account = getCurrentAccount();
+
+    const savedLanguage =
+        account?.preferences?.language ||
+        localStorage.getItem("myBudgetLanguage") ||
+        "en";
+
+    languageSelect.value = savedLanguage;
+
+    languageForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+            const selectedLanguage =
+                languageSelect.value;
+
+            // Remember language for all visitors
+            localStorage.setItem(
+                "myBudgetLanguage",
+                selectedLanguage
+            );
+
+            // Remember language on logged-in account
+            const account = getCurrentAccount();
+
+            if (account) {
+
+                account.preferences =
+                    account.preferences || {};
+
+                account.preferences.language =
+                    selectedLanguage;
+
+                saveCurrentAccount(account);
+            }
+
+            alert("Language preference saved.");
+        }
+    );
+}
 // ============================================================
 // SETTINGS - NOTIFICATIONS
 // ============================================================
