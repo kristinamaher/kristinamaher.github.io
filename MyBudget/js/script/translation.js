@@ -14,6 +14,7 @@ const translation = {
         "nav.summary": "Summary",
         "nav.settings": "Settings",
         "nav.about": "About",
+        "nav.brand": "My Budget",
 
         "settings.title": "Settings",
         "settings.notifications": "Notification Preferences",
@@ -37,6 +38,7 @@ const translation = {
         "nav.summary": "概要",
         "nav.settings": "設定",
         "nav.about": "このサイトについて",
+        "nav.brand": "マイバジェット",
 
         "settings.title": "設定",
         "settings.notifications": "通知設定",
@@ -50,9 +52,6 @@ const translation = {
         "language.website": "ウェブサイトの言語：",
         "language.save": "言語設定を保存"
     },
-
-    fr: {},
-    es: {}
 
 };
 
