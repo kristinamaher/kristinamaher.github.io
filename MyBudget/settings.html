@@ -15,7 +15,7 @@
     <header>
 	     <nav>
         <div>
-            <a href="home.html"><img src="image/logo.png" alt="My Budget Finance Logo"></a>
+            <a href="home.html"><img src="image/logo.png" alt="My Budget Finance Logo"   data-translate-alt="nav.logoAlt"></a>
             <p data-translate="nav.brand">My Budget</p>
         </div>
 
@@ -28,9 +28,9 @@
 			<li><a href="summary.html" data-translate="nav.summary">Summary</a></li>
 			<li><a href="settings.html" data-translate="nav.settings">Settings</a></li>
 			<li><a href="about.html" data-translate="nav.about">About</a></li>
-			<li><a href="home.html"><img src="image/home.png" alt="Home shortcut"></a></li>
-            <li><a href="account.html"><img src="image/Account.png" alt="Account shortcut"></a></li>
-            <li><a href="settings.html"><img src="image/settings.png" alt="Settings shortcut"></a></li>
+			<li><a href="home.html"><img src="image/home.png" alt="Home shortcut"  data-translate-alt="nav.homeAlt"></a></li>
+            <li><a href="account.html"><img src="image/Account.png" alt="Account shortcut" data-translate-alt="nav.accountAlt"></a></li>
+            <li><a href="settings.html"><img src="image/settings.png" alt="Settings shortcut" data-translate-alt="nav.settingsAlt"></a></li>
         </ul>
     </nav>
 </header>
@@ -92,12 +92,12 @@
 
         <label for="login-alerts">
             <input type="checkbox" id="login-alerts" name="login-alerts">
-			<span data-translate="language.loginAlert">Login alerts</span>
+			<span data-translate="settings.loginAlerts">Login alerts</span>
             
         </label>
 
     		<button type="submit">
-    			<span data-translate="settings.saveNotifications">Save Security Settings</span>
+    			<span data-translate="settings.saveSecurity">Save Security Settings</span>
 			</button>
     </form>
 </section>
@@ -106,24 +106,30 @@
     <h2 data-translate="settings.display">Display Preferences</h2>
 
     <form id="display-form">
-        <label for="theme">Theme:</label>
+       <label for="theme">
+    		<span data-translate="settings.theme">Theme:</span>
+		</label>
         <select id="theme" name="theme">
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
+            <option value="light" data-translate="settings.light">Light</option>
+            <option value="dark" data-translate="settings.dark">Dark</option>
         </select>
 
-        <label for="layout">Layout:</label>
+        <label for="layout">
+    		<span data-translate="settings.layout">Layout:</span>
+		</label>
         <select id="layout" name="layout">
-            <option value="comfortable">Comfortable</option>
-            <option value="compact">Compact</option>
+            <option value="comfortable" data-translate="settings.comfortable">Comfortable</option>
+            <option value="compact" data-translate="settings.compact">Compact</option>
         </select>
 
-        <label>
-            <input type="checkbox" name="dashboard-info">
-            Show financial information on dashboard
-        </label>
+      	<label>
+    	<input type="checkbox" name="dashboard-info">
+    	<span data-translate="settings.dashboardInfo">Show financial information on dashboard</span>
+		</label>
 
-        <button type="submit">Save Display Preferences</button>
+		<button type="submit">
+    		<span data-translate="settings.saveDisplay">Save Display Preferences</span>
+		</button>
     </form>
 </section>
 
@@ -131,32 +137,42 @@
     <h2 data-translate="settings.datetime">Date &amp; Time</h2>
 
     <form id="date-time-form">
-        <label for="date-format">Date Format:</label>
+        <label for="date-format">
+            <span data-translate="settings.dateFormat">Date Format:</span>
+        </label>
         <select id="date-format" name="date-format">
-            <option value="mm-dd-yyyy">MM-DD-YYYY</option>
-            <option value="dd-mm-yyyy">DD-MM-YYYY</option>
-            <option value="yyyy-mm-dd">YYYY-MM-DD</option>
+            <option value="mm-dd-yyyy" data-translate="settings.dateMMDD">MM-DD-YYYY</option>
+            <option value="dd-mm-yyyy" data-translate="settings.dateDDMM">DD-MM-YYYY</option>
+            <option value="yyyy-mm-dd" data-translate="settings.dateYYYYMM">YYYY-MM-DD</option>
         </select>
 
-		<label for="time-format">Time Format:</label>
-		<select id="time-format" name="time-format">
-    		<option value="24-hour">24 Hour Time</option>
-			<option value="12-hour">12 Hour Time</option>
-		</select>
+        <label for="time-format">
+            <span data-translate="settings.timeFormat">Time Format:</span>
+        </label>
+        <select id="time-format" name="time-format">
+            <option value="24-hour" data-translate="settings.time24">24 Hour Time</option>
+            <option value="12-hour" data-translate="settings.time12">12 Hour Time</option>
+        </select>
 
-        <label for="timezone">Time Zone:</label>
+        <label for="timezone">
+            <span data-translate="settings.timezone">Time Zone:</span>
+        </label>
         <select id="timezone" name="timezone">
-            <option value="local">Use Local Time</option>
+            <option value="local" data-translate="settings.localTime">Use Local Time</option>
             <option value="utc">UTC</option>
         </select>
 
-        <label for="week-start">First Day of the Week:</label>
+        <label for="week-start">
+            <span data-translate="settings.weekStart">First Day of the Week:</span>
+        </label>
         <select id="week-start" name="week-start">
-            <option value="sunday">Sunday</option>
-            <option value="monday">Monday</option>
+            <option value="sunday" data-translate="settings.sunday">Sunday</option>
+            <option value="monday" data-translate="settings.monday">Monday</option>
         </select>
 
-        <button type="submit">Save Date &amp; Time Settings</button>
+        <button type="submit">
+            <span data-translate="settings.saveDateTime">Save Date &amp; Time Settings</span>
+        </button>
     </form>
 </section>
 
@@ -164,18 +180,19 @@
     <h2 data-translate="settings.privacy">Privacy</h2>
 
     <form id="privacy-form">
-	<label>
-    <input type="checkbox" name="hide-name">
-    Hide name on dashboard
-</label>
+        <label>
+            <input type="checkbox" name="hide-name">
+            <span data-translate="settings.hideName">Hide name on dashboard</span>
+        </label>
 
-<label>
-    <input type="checkbox" name="hide-gifts">
-    Hide gifts from dashboard
-</label>
+        <label>
+            <input type="checkbox" name="hide-gifts">
+            <span data-translate="settings.hideGifts">Hide gifts from dashboard</span>
+        </label>
 
-
-        <button type="submit">Save Privacy Settings</button>
+        <button type="submit">
+            <span data-translate="settings.savePrivacy">Save Privacy Settings</span>
+        </button>
     </form>
 </section>
 
@@ -183,13 +200,19 @@
     <h2 data-translate="settings.budget">Budget Preferences</h2>
 
     <form id="budget-preferences-form">
-        <label for="budget-period">Default Budget Period:</label>
+        <label for="budget-period">
+            <span data-translate="settings.budgetPeriod">Default Budget Period:</span>
+        </label>
+
         <select id="budget-period" name="budget-period">
-            <option value="weekly">Weekly</option>
-            <option value="monthly">Monthly</option>
+            <option value="weekly" data-translate="settings.weekly">Weekly</option>
+            <option value="monthly" data-translate="settings.monthly">Monthly</option>
         </select>
 
-        <label for="budget-warning">Budget Warning Threshold:</label>
+        <label for="budget-warning">
+            <span data-translate="settings.budgetWarning">Budget Warning Threshold:</span>
+        </label>
+
         <select id="budget-warning" name="budget-warning">
             <option value="50">50%</option>
             <option value="75">75%</option>
@@ -197,7 +220,9 @@
             <option value="90">90%</option>
         </select>
 
-        <button type="submit">Save Budget Preferences</button>
+        <button type="submit">
+            <span data-translate="settings.saveBudget">Save Budget Preferences</span>
+        </button>
     </form>
 </section>
 
