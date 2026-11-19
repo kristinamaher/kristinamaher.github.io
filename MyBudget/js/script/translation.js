@@ -1,4 +1,3 @@
-
  // ============================================================
  // MY BUDGET - TRANSLATION SYSTEM
  // ============================================================
@@ -26,7 +25,11 @@ const translation = {
         "settings.budget": "Budget Preferences",
 
         "language.website": "Website Language:",
-        "language.save": "Save Language Preference"
+        "language.save": "Save Language Preference",
+        "settings.budgetAlerts": "Budget alerts",
+        "settings.goalReminders": "Goal reminders",
+        "settings.monthlySummary": "Monthly financial summary",
+        "settings.saveNotifications": "Save Notification Preferences"
     },
 
     ja: {
