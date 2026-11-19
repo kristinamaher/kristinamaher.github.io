@@ -111,6 +111,8 @@ if (languageForm && languageSelect) {
                 saveCurrentAccount(account);
             }
 
+            applyTranslations();
+
             alert("Language preference saved.");
         }
     );
