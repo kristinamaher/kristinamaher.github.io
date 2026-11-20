@@ -16,6 +16,10 @@ const translation = {
         "nav.about": "About",
         "nav.brand": "My Budget",
      
+//Langguage
+        "language.website": "Website Language:",
+        "language.save": "Save Language Preference",
+     
 //settings page
         "settings.title": "Settings",
         "settings.notifications": "Notification Preferences",
@@ -25,9 +29,6 @@ const translation = {
         "settings.datetime": "Date & Time",
         "settings.privacy": "Privacy",
         "settings.budget": "Budget Preferences",
-
-        "language.website": "Website Language:",
-        "language.save": "Save Language Preference",
         "settings.budgetAlerts": "Budget alerts",
         "settings.goalReminders": "Goal reminders",
         "settings.monthlySummary": "Monthly financial summary",
@@ -35,7 +36,6 @@ const translation = {
         "settings.twoFactor": "Two-factor authentication",
         "settings.loginAlerts": "Login alerts",
         "settings.saveSecurity": "Save Security Settings",
-
         "settings.theme": "Theme:",
         "settings.light": "Light",
         "settings.dark": "Dark",
@@ -53,17 +53,22 @@ const translation = {
         "settings.timezone": "Time Zone:",
         "settings.localTime": "Use Local Time",
         "settings.weekStart": "First Day of the Week:",
-        "settings.sunday": "Sunday",
-        "settings.monday": "Monday",
         "settings.saveDateTime": "Save Date & Time Settings",
         "settings.hideName": "Hide name on dashboard",
         "settings.hideGifts": "Hide gifts from dashboard",
         "settings.savePrivacy": "Save Privacy Settings",
         "settings.budgetPeriod": "Default Budget Period:",
-        "settings.weekly": "Weekly",
-        "settings.monthly": "Monthly",
         "settings.budgetWarning": "Budget Warning Threshold:",
         "settings.saveBudget": "Save Budget Preferences",
+ 
+//days of week
+        "day.sunday.": "Sunday",
+        "day.monday.": "Monday",
+        // "day.tuesday.": "Tuesday",
+        // "day.wendsday.": "Wendsday",
+        // "day.thursday.": "Thursday",
+        // "day.friday.": "Friday",
+        // "day.saturday.": "Saturday",
  
 //Account page 
         "account.title": "Account",
@@ -125,7 +130,36 @@ const translation = {
          "summary.expenseCategories": "Expense Categories",
          "summary.noData": "No data available",
          "summary.financialOverview": "Financial Overview",
-         "summary.currentFinancialSituation": "Current financial situation"
+         "summary.currentFinancialSituation": "Current financial situation",
+
+ //Income
+          "income.title": "Income",
+          "income.addIncome": "Add Income",
+          "income.title": "Income",
+          "income.addIncome": "Add Income",
+          "income.incomeSource": "Income Source",
+          "income.incomeAmount": "Amount:",
+          "income.addIncome": "Add Income",
+          "income.moneyGifts": "Money Gifts",
+          "income.giftFrom": "Gift From",
+          "income.addMoneyGift": "Add Money Gift",
+          "income.giftPrepaidCard": "ift And Prepaid Cards",
+          "income.cardName": "Card Name:",
+          "income.expirationDate": "Expiration Date",
+          "income.addCard": "Add Card",
+
+//Frequency
+          "frequency.amountFrequency": "Frequency:",
+          "frequency.oneTime": "One Time",
+          "frequency.weekly": "Weekly",
+          "frequency.biweekly": "Biweekly",
+          "frequency.monthly": "Monthly",
+          "frequency.yearly": "Yearly",
+
+//common
+          "Common.date": "Date:",
+          "common.balance": "Balance:",
+          "common.notes": "Notes:",
     },
 
    ja: {
