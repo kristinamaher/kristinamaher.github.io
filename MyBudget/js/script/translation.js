@@ -114,10 +114,22 @@ const translation = {
          "summary.title": "Summary",
          "summary.incomeSummary": "Income Summary",
          "summary.totalIncome": "Total Income",
-         "summary.incomeSummary": "Income Summary",
+         "summary.expenseSummary": "Expense Summary",
+         "summary.totalExpense": "Total Expenses",
+         "summary.budgetBalance": "Budget Balance",
+         "summary.remainingBalance": "Remaining Balance",
+         "summary.goalSummary": "Goal Summary",
+         "summary.totalGoals": "Total Goals",
+         "summary.completeGoals": "Completed Goals",
+         "summary.upcomingBills": "Upcoming Bills",
+         "summary.expenseCategories": "Expense Categories",
+         "summary.noData": "No data available",
+         "summary.financialOverview": "Financial Overview",
+         "summary.currentFinancialSituation": "Current financial situation"
     },
 
    ja: {
+    //nav
     "nav.home": "ホーム",
     "nav.account": "アカウント",
     "nav.goals": "目標",
@@ -128,6 +140,7 @@ const translation = {
     "nav.about": "このサイトについて",
     "nav.brand": "マイバジェット",
 
+     //settings
     "settings.title": "設定",
     "settings.notifications": "通知設定",
     "settings.language": "言語設定",
@@ -136,19 +149,15 @@ const translation = {
     "settings.datetime": "日時設定",
     "settings.privacy": "プライバシー",
     "settings.budget": "予算設定",
-
     "language.website": "ウェブサイトの言語：",
     "language.save": "言語設定を保存",
-
     "settings.budgetAlerts": "予算アラート",
     "settings.goalReminders": "目標リマインダー",
     "settings.monthlySummary": "月次財務サマリー",
     "settings.saveNotifications": "通知設定を保存",
-
     "settings.twoFactor": "二要素認証",
     "settings.loginAlerts": "ログイン通知",
     "settings.saveSecurity": "セキュリティ設定を保存",
-
     "settings.theme": "テーマ：",
     "settings.light": "ライト",
     "settings.dark": "ダーク",
@@ -157,7 +166,6 @@ const translation = {
     "settings.compact": "コンパクト",
     "settings.dashboardInfo": "ダッシュボードに財務情報を表示",
     "settings.saveDisplay": "表示設定を保存",
-
     "settings.dateFormat": "日付形式：",
     "settings.dateMMDD": "月-日-年",
     "settings.dateDDMM": "日-月-年",
@@ -171,16 +179,16 @@ const translation = {
     "settings.sunday": "日曜日",
     "settings.monday": "月曜日",
     "settings.saveDateTime": "日時設定を保存",
-
     "settings.hideName": "ダッシュボードで名前を非表示",
     "settings.hideGifts": "ダッシュボードでギフトを非表示",
     "settings.savePrivacy": "プライバシー設定を保存",
-
     "settings.budgetPeriod": "既定の予算期間：",
     "settings.weekly": "毎週",
     "settings.monthly": "毎月",
     "settings.budgetWarning": "予算警告しきい値：",
     "settings.saveBudget": "予算設定を保存",
+
+     //account
      "account.title": "アカウント",
     "account.createAccount": "アカウント作成",
     "account.username": "ユーザー名：",
@@ -188,8 +196,6 @@ const translation = {
     "account.password": "パスワード：",
     "account.confirmPassword": "パスワード確認：",
     "account.login": "ログイン",
-
-    "account.personalinformation": "個人情報",
     "account.firstName": "名：",
     "account.lastName": "姓：",
     "account.phoneNumber": "電話番号：",
@@ -202,7 +208,6 @@ const translation = {
     "account.unitedStates": "アメリカ合衆国",
     "account.other": "その他",
     "account.savepersonal": "個人情報を保存",
-
     "account.currencyPreference": "通貨設定",
     "account.preferredCurrency": "優先通貨：",
     "account.usdollar": "米ドル ($)",
@@ -217,17 +222,35 @@ const translation = {
     "account.mexicanPeso": "メキシコペソ ($)",
     "account.travelInternational": "海外旅行",
     "account.saveCurrencyPreferences": "通貨設定を保存",
-
     "account.profilePicture": "プロフィール画像",
     "account.displayDefaultPicture": "標準画像を表示",
     "account.useUploadedPicture": "アップロード画像を使用",
     "account.choosePicture": "プロフィール画像を選択：",
     "account.savePicture": "プロフィール画像を保存",
-
     "account.accountManagement": "アカウント管理",
     "account.logout": "ログアウト",
     "account.deactivateAccount": "アカウントを無効化",
     "account.deleteAccount": "アカウントを削除",
+     
+     //Summary
+     "summary.title": "概要",
+    "summary.incomeSummary": "収入概要",
+    "summary.totalIncome": "総収入",
+    "summary.expenseSummary": "支出概要",
+    "summary.totalExpense": "総支出",
+    "summary.budgetBalance": "予算残高",
+    "summary.remainingBalance": "残高",
+    "summary.goalSummary": "目標概要",
+    "summary.totalGoals": "目標数",
+    "summary.completeGoals": "達成済み目標",
+    "summary.upcomingBills": "今後の請求",
+    "summary.expenseCategories": "支出カテゴリ",
+    "summary.noData": "利用可能なデータがありません",
+    "summary.financialOverview": "財務概要",
+    "summary.currentFinancialSituation": "現在の財務状況",
+
+     //Income
+     
 }
 };
 
