@@ -61,14 +61,9 @@ const translation = {
         "settings.budgetWarning": "Budget Warning Threshold:",
         "settings.saveBudget": "Save Budget Preferences",
  
-//days of week
+//day of week
         "day.sunday.": "Sunday",
         "day.monday.": "Monday",
-        // "day.tuesday.": "Tuesday",
-        // "day.wendsday.": "Wendsday",
-        // "day.thursday.": "Thursday",
-        // "day.friday.": "Friday",
-        // "day.saturday.": "Saturday",
  
 //Account page 
         "account.title": "Account",
@@ -82,27 +77,7 @@ const translation = {
         "account.firstName": "First Name:",
         "account.lastName": "Last Name:",
         "account.phoneNumber": "Phone Number:",
-        "account.countryRegion": "Country/Region:",
-        "account.australia": "Australia",
-        "account.canada": "Canada",
-        "account.japan": "Japan",
-        "account.unitedArabEmirates": "United Arab Emirates",
-        "account.unitedKingdom": "United Kingdom",
-        "account.unitedStates": "United States",
-        "account.other": "Other",
         "account.savepersonal": "Save Personal Information",
-        "account.currencyPreference": "Currency Preference",
-        "account.preferredCurrency": "Preferred Currency:",
-        "account.usdollar": "US Dollar ($)",
-        "account.euro": "Euro (€)",
-        "account.birtishPound": "British Pound (£)",
-        "account.japaneseYen": "Japanese Yen (¥)",
-        "account.canadianDollar": "Canadian Dollar (C$)",
-        "account.australianDollar": "Australian Dollar (A$)",
-        "account.swissFranc": "Swiss Franc (CHF)",
-        "account.chineseYuan": "Chinese Yuan (¥)",
-        "account.indianRupee": "Indian Rupee (₹)",
-        "account.mexicanPeso": "Mexican Peso ($)",
         "account.travelInternational": "International Travel",
         "account.saveCurrencyPreferences": "Save Currency Preference",
         "account.profilePicture": "Profile Picture",
@@ -114,7 +89,30 @@ const translation = {
         "account.logout": "Log Out",
         "account.deactivateAccount": "Deactivate Account",
         "account.deleteAccount": "Delete Account",
+ 
+//currency
+        "currency.currencyPreference": "Currency Preference",
+        "currency.preferredCurrency": "Preferred Currency:",
+        "currency.usdollar": "US Dollar ($)",
+        "currency.euro": "Euro (€)",
+        "currency.birtishPound": "British Pound (£)",
+        "currency.japaneseYen": "Japanese Yen (¥)",
+        "currency.canadianDollar": "Canadian Dollar (C$)",
+        "currencyaustralianDollar": "Australian Dollar (A$)",
+        "currency.swissFranc": "Swiss Franc (CHF)",
+        "currency.chineseYuan": "Chinese Yuan (¥)",
+        "currency.indianRupee": "Indian Rupee (₹)",
+        "currency.mexicanPeso": "Mexican Peso ($)",
 
+ //Country
+        "country.countryRegion": "Country/Region:",
+        "country.australia": "Australia",
+        "countryt.canada": "Canada",
+        "country.japan": "Japan",
+        "country.unitedArabEmirates": "United Arab Emirates",
+        "country.unitedKingdom": "United Kingdom",
+        "country.unitedStates": "United States",
+ 
  //summary page
          "summary.title": "Summary",
          "summary.incomeSummary": "Income Summary",
@@ -126,19 +124,18 @@ const translation = {
          "summary.goalSummary": "Goal Summary",
          "summary.totalGoals": "Total Goals",
          "summary.completeGoals": "Completed Goals",
-         "summary.upcomingBills": "Upcoming Bills",
+     
          "summary.expenseCategories": "Expense Categories",
          "summary.noData": "No data available",
          "summary.financialOverview": "Financial Overview",
          "summary.currentFinancialSituation": "Current financial situation",
-
+ 
  //Income
           "income.title": "Income",
           "income.addIncome": "Add Income",
           "income.title": "Income",
           "income.addIncome": "Add Income",
           "income.incomeSource": "Income Source",
-          "income.amount": "Amount:",
           "income.addIncome": "Add Income",
           "income.moneyGifts": "Money Gifts",
           "income.giftFrom": "Gift From",
@@ -161,6 +158,38 @@ const translation = {
           "common.date": "Date:",
           "common.balance": "Balance:",
           "common.notes": "Notes:",
+          "common.other": "Other",
+          "common.amount": "Amount:",
+
+ //Expenses
+          "expenses.title": "Espenses",
+          "expenses.addExpense": "Add Espense",
+          "expenses.expenseName": "Save spense Name:",
+           "expenses.saveExpense": "Espense",
+ 
+ //expense and summary
+           "outgoing.upcomingBills": "Upcoming Bills",
+          
+  //payment
+          "payment.paymentMethod": "Payment Method:",
+           "payment.cash": "Cash",
+           "payment.card": "Card",
+           "payment.cash": "Check",
+  
+ //Catergories
+           "category.title": "Category",
+           "category.housing": "Housing",
+           "category.food": "Food",
+           "category.transportation": "Transportation",
+           "category.utilities": "Utilities",
+           "category.healthcare": "Healthcare",
+           "category.entertainment": "Entertainment",
+           "category.subscription": "Subscription",
+           "category.education": "Education",
+           "category.personal": "Personal",
+           "category.travel": "Travel",
+           "category.shopping": "Shopping",
+           "category.insurance": "Insurance",
     },
 
    ja: {
