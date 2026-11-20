@@ -16,7 +16,7 @@ const translation = {
         "nav.about": "About",
         "nav.brand": "My Budget",
      
-//Langguage
+//Language
         "language.website": "Website Language:",
         "language.save": "Save Language Preference",
      
@@ -138,15 +138,16 @@ const translation = {
           "income.title": "Income",
           "income.addIncome": "Add Income",
           "income.incomeSource": "Income Source",
-          "income.incomeAmount": "Amount:",
+          "income.amount": "Amount:",
           "income.addIncome": "Add Income",
           "income.moneyGifts": "Money Gifts",
           "income.giftFrom": "Gift From",
           "income.addMoneyGift": "Add Money Gift",
-          "income.giftPrepaidCard": "ift And Prepaid Cards",
+          "income.giftPrepaidCard": "Gift And Prepaid Cards",
           "income.cardName": "Card Name:",
           "income.expirationDate": "Expiration Date",
           "income.addCard": "Add Card",
+          "income.spendableFunds": "Spendable Funds:",
 
 //Frequency
           "frequency.amountFrequency": "Frequency:",
@@ -157,7 +158,7 @@ const translation = {
           "frequency.yearly": "Yearly",
 
 //common
-          "Common.date": "Date:",
+          "common.date": "Date:",
           "common.balance": "Balance:",
           "common.notes": "Notes:",
     },
