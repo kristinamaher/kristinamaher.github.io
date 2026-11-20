@@ -15,7 +15,7 @@
     <header>
        <nav>
         <div>
-            <a href="home.html"><img src="image/logo.png" alt="My Budget Finance Logo"></a>
+            <a href="home.html"><img src="image/logo.png" alt="My Budget Finance Logo"   data-translate-alt="nav.logoAlt"></a>
             <p data-translate="nav.brand">My Budget</p>
         </div>
 
@@ -28,9 +28,9 @@
 			<li><a href="summary.html" data-translate="nav.summary">Summary</a></li>
 			<li><a href="settings.html" data-translate="nav.settings">Settings</a></li>
 			<li><a href="about.html" data-translate="nav.about">About</a></li>
-			<li><a href="home.html"><img src="image/home.png" alt="Home shortcut"></a></li>
-            <li><a href="account.html"><img src="image/Account.png" alt="Account shortcut"></a></li>
-            <li><a href="settings.html"><img src="image/settings.png" alt="Settings shortcut"></a></li>
+			<li><a href="home.html"><img src="image/home.png" alt="Home shortcut" data-translate-alt="nav.homeAlt"></a></li>
+            <li><a href="account.html"><img src="image/Account.png" alt="Account shortcut" data-translate-alt="nav.accountAlt"></a></li>
+            <li><a href="settings.html"><img src="image/settings.png" alt="Settings shortcut" data-translate-alt="nav.settingsAlt"></a></li>
         </ul>
     </nav>
 </header>
@@ -39,32 +39,32 @@
 		<h1 data-translate="account.title">Account</h1>
     
 		<section>
-    <h2>Create Account</h2>
+   <h2 data-translate="account.createAccount">Create Account</h2>
 
     <form id="create-account-form">
 
-        <label for="create-username">Username:</label>
+        <label for="create-username" data-translate="account.username">Username:</label>
         <input
             type="text"
             id="create-username"
             name="create-username"
         >
 
-        <label for="create-email">Email Address:</label>
+        <label for="create-email" data-translate="account.email">Email Address:</label>
         <input
             type="email"
             id="create-email"
             name="create-email"
         >
 
-        <label for="create-password">Password:</label>
+        <label for="create-password" data-translate="account.password">Password:</label>
         <input
             type="password"
             id="create-password"
             name="create-password"
         >
 
-        <label for="create-confirm-password">
+        <label for="create-confirm-password" data-translate="account.confirmPassword">
             Confirm Password:
         </label>
 
@@ -74,7 +74,7 @@
             name="create-confirm-password"
         >
 
-        <button type="submit">
+        <button type="submit" data-translate="account.createAccount">
             Create Account
         </button>
 
@@ -82,81 +82,85 @@
 </section>
 
         <section>
-            <h2>Login</h2>
+            <h2 data-translate="account.login">Login</h2>
 
            <form id="login-information-form">
-                <label for="username">Username:</label>
+                <label for="username" data-translate="account.username">Username:</label>
                 <input type="text" id="username" name="username">
 
-                <label for="email">Email Address:</label>
+                <label for="email"  data-translate="account.email">Email Address:</label>
                 <input type="email" id="email" name="email">
 
-                <label for="password">Password:</label>
+                <label for="password"  data-translate="account.password">Password:</label>
                 <input type="password" id="password" name="password">
 
-                <label for="confirm-password">Confirm Password:</label>
+                <label for="confirm-password"  data-translate="account.confirmPassword">Confirm Password:</label>
                 <input type="password" id="confirm-password" name="confirm-password">
 
-                <button type="submit">Login</button>
+                <button type="submit"  data-translate="account.login">Login</button>
             </form>
         </section>
 
         <section>
-            <h2>Personal Information</h2>
+            <h2  data-translate="account.personalinformation">Personal Information</h2>
 
             <form id="personal-information-form">
-                <label for="first-name">First Name:</label>
+                <label for="first-name"  data-translate="account.firstName">First Name:</label>
                 <input type="text" id="first-name" name="first-name">
 
-                <label for="last-name">Last Name:</label>
+                <label for="last-name"  data-translate="account.lastName">Last Name:</label>
                 <input type="text" id="last-name" name="last-name">
 
-                <label for="phone">Phone Number:</label>
+                <label for="phone"  data-translate="account.phoneNumber">Phone Number:</label>
                 <input type="tel" id="phone" name="phone">
 
-                <label for="country">Country/Region:</label>
+                <label for="country"  data-translate="account.countryRegion">Country/Region:</label>
                 <select id="country" name="country">
-                    <option value="us">United States</option>
-                    <option value="ca">Canada</option>
-                    <option value="uk">United Kingdom</option>
-                    <option value="au">Australia</option>
-                    <option value="other">Other</option>
+					 <option value="au"  data-translate="account.australia">Australia</option>
+                   
+                    <option value="ca"  data-translate="account.canada">Canada</option>
+					<option value="jp"  data-translate="account.japan">Japan</option>
+					<option value="uae"  data-translate="account.unitedArabEmirates">United Arab Emirates</option>
+                    <option value="uk"  data-translate="account.unitedKingdom">United Kingdom</option>
+                    <option value="us"  data-translate="account.unitedStates">United States</option>
+					
+                    <option value="other" data-translate="account.other">Other</option>
                 </select>
 
-                <button type="submit">Save Personal Information</button>
+                <button type="submit" data-translate="account.savepersonal">Save Personal Information</button>
             </form>
         </section>
 
         <section>
-            <h2>Currency Preference</h2>
+            <h2 data-translate="account.currencyPreference">Currency Preference</h2>
 
             <form id="currency-form">
-                <label for="currency">Preferred Currency:</label>
+                <label for="currency" data-translate="account.preferredCurrency">Preferred Currency:</label>
 
                 <select id="currency" name="currency">
-                    <option value="usd">US Dollar ($)</option>
-                    <option value="eur">Euro (€)</option>
-                    <option value="gbp">British Pound (£)</option>
-                    <option value="jpy">Japanese Yen (¥)</option>
-                    <option value="cad">Canadian Dollar (C$)</option>
-                    <option value="aud">Australian Dollar (A$)</option>
-                    <option value="chf">Swiss Franc (CHF)</option>
-                    <option value="cny">Chinese Yuan (¥)</option>
-                    <option value="inr">Indian Rupee (₹)</option>
-                    <option value="mxn">Mexican Peso ($)</option>
+                    <option value="usd" data-translate="account.usdollar">US Dollar ($)</option>
+                    <option value="eur" data-translate="account.euro">Euro (€)</option>
+                    <option value="gbp" data-translate="account.birtishPound">British Pound (£)</option>
+                    <option value="jpy"data-translate="account.japaneseYen">Japanese Yen (¥)</option>
+                    <option value="cad" data-translate="account.canadianDollar">Canadian Dollar (C$)</option>
+                    <option value="aud" data-translate="account.australianDollar">Australian Dollar (A$)</option>
+                    <option value="chf" data-translate="account.swissFranc">Swiss Franc (CHF)</option>
+                    <option value="cny" data-translate="account.chineseYuan">Chinese Yuan (¥)</option>
+                    <option value="inr" data-translate="account.indianRupee">Indian Rupee (₹)</option>
+                    <option value="mxn" data-translate="account.mexicanPeso">Mexican Peso ($)</option>
                 </select>
 
                 <label for="travel-mode">
                     <input type="checkbox" id="travel-mode" name="travel-mode">
-                    Traveling abroad
+                   <span data-translate="account.travelInternational"> international Travel </span>
                 </label>
 
-                <button type="submit">Save Currency Preference</button>
+                <button type="submit" data-translate="account.saveCurrencyPreferences">Save Currency Preference</button>
             </form>
         </section>
 
         <section>
-    <h2>Profile Picture</h2>
+    <h2 data-translate="account.profilePicture">Profile Picture</h2>
 
     <form id="profile-picture-form">
 
@@ -167,7 +171,7 @@
                 value="default"
                 checked
             >
-            Display Default Picture
+            <span data-translate="account.displayDefaultPicture">Display Default Picture</span>
         </label>
 
         <label>
@@ -176,13 +180,13 @@
                 name="picture-option"
                 value="custom"
             >
-            Use Uploaded Picture
+            <span data-translate="account.useUploadedPicture">Use Uploaded Picture</span>
         </label>
 
         <br>
 
         <label for="profile-picture">
-            Choose a profile picture:
+            <span data-translate="account.choosePicture">Choose a profile picture:</span>
         </label>
 
         <input
@@ -192,7 +196,7 @@
             accept="image/*"
         >
 
-        <button type="submit">
+        <button type="submit" data-translate="account.savePicture">
             Save Profile Picture
         </button>
 
@@ -200,18 +204,18 @@
 </section>
 
         <section>
-            <h2>Account Management</h2>
+            <h2 data-translate="account.accountManagement">Account Management</h2>
 
             <form>
-                <button type="submit" id="logout-button">Log Out</button>
+                <button type="submit" id="logout-button" data-translate="account.logout">Log Out</button>
             </form>
 			
 			<form>
-           <button type="submit" id="deactivate-button">Deactivate Account</button>
+           <button type="submit" id="deactivate-button" data-translate="account.deactivateAccount">Deactivate Account</button>
 			</form>
 			
             <form>
-                <button type="submit" id="delete-account-button">Delete Account</button>
+                <button type="submit" id="delete-account-button"data-translate="account.deleteAccount">Delete Account</button>
             </form>
         </section>
 
