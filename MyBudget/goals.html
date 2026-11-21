@@ -16,7 +16,7 @@
     <header>
        <nav>
         <div>
-            <a href="home.html"><img src="image/logo.png" alt="My Budget Finance Logo"></a>
+            <a href="home.html"><img src="image/logo.png" alt="My Budget Finance Logo"   data-translate-alt="nav.logoAlt"></a>
             <p data-translate="nav.brand">My Budget</p>
         </div>
 
@@ -29,9 +29,9 @@
 			<li><a href="summary.html" data-translate="nav.summary">Summary</a></li>
 			<li><a href="settings.html" data-translate="nav.settings">Settings</a></li>
 			<li><a href="about.html" data-translate="nav.about">About</a></li>
-			<li><a href="home.html"><img src="image/home.png" alt="Home shortcut"></a></li>
-            <li><a href="account.html"><img src="image/Account.png" alt="Account shortcut"></a></li>
-            <li><a href="settings.html"><img src="image/settings.png" alt="Settings shortcut"></a></li>
+			<li><a href="home.html"><img src="image/home.png" alt="Home shortcut" data-translate-alt="nav.homeAlt"></a></li>
+            <li><a href="account.html"><img src="image/Account.png" alt="Account shortcut" data-translate-alt="nav.accountAlt"></a></li>
+            <li><a href="settings.html"><img src="image/settings.png" alt="Settings shortcut" data-translate-alt="nav.settingsAlt"></a></li>
         </ul>
     </nav>
 </header>
@@ -40,77 +40,77 @@
 		<h1 data-translate="goals.title">Goals</h1>
 
         <section>
-            <h2>Add a Goal</h2>
+            <h2 data-translate="goals.addGgoal">Add a Goal</h2>
 
             <form id="goal-form">
 
-                <label for="goal-name">Goal Name:</label>
+                <label for="goal-name" data-translate="goals.name">Goal Name:</label>
                 <input type="text" id="goal-name" name="goal-name">
 
-                <label for="goal-type">Goal Type:</label>
+                <label for="goal-type" data-translate="type.title">Goal Type:</label>
                 <select id="goal-type" name="goal-type">
-                    <option value="savings">Savings</option>
-                    <option value="spending">Spending</option>
-                    <option value="debt">Debt</option>
-                    <option value="investment">Investment</option>
-					<option value="other">Other</option>
+                    <option value="savings" data-translate="type.savings">Savings</option>
+                    <option value="spending" data-translate="type.spending">Spending</option>
+                    <option value="debt" data-translate="type.debt">Debt</option>
+                    <option value="investment" data-translate="type.investment">Investment</option>
+					<option value="other" data-translate="common.other">Other</option>
                 </select>
 
-                <label for="custom-type">Custom Goal Type:</label>
+                <label for="custom-type" data-translate="type.custom">Custom Goal Type:</label>
                 <input
                     type="text"
                     id="custom-type"
                     name="custom-type"
-                    placeholder="Enter your own type"
+                    placeholder="Enter your own type" data-translate="type.placeholder"
                 >
 
-                <label for="goal-category">Category:</label>
+                <label for="goal-category" data-translate="category.title">Category:</label>
                 <select id="goal-category" name="goal-category">
-                    <option value="emergency">Emergency Fund</option>
-                    <option value="housing">Housing</option>
-                    <option value="vehicle">Vehicle</option>
-                    <option value="education">Education</option>
-                    <option value="vacation">Vacation</option>
-                    <option value="retirement">Retirement</option>
-                    <option value="other">Other</option>
+                    <option value="emergency" data-translate="category.emergencyFund">Emergency Fund</option>
+                    <option value="housing" data-translate="category.housing">Housing</option>
+                    <option value="vehicle" data-translate="category.vehicle">Vehicle</option>
+                    <option value="education" data-translate="category.education">Education</option>
+                    <option value="travel" data-translate="category.travel">Travel</option>
+                    <option value="retirement" data-translate="category.retirement">Retirement</option>
+                    <option value="other" data-translate="common.other">Other</option>
                 </select>
 
-                <label for="custom-category">Custom Category:</label>
+                <label for="custom-category" data-translate="goals.customCategory">Custom Category:</label>
                 <input
                     type="text"
                     id="custom-category"
                     name="custom-category"
-                    placeholder="Enter your own category"
+                    placeholder="Enter your own category" data-translate="goals.categoryPlaceholder"
                 >
 
-                <label for="goal-priority">Priority:</label>
+                <label for="goal-priority" data-translate="priority.title">Priority:</label>
                 <select id="goal-priority" name="goal-priority">
-                    <option value="high">High</option>
-                    <option value="medium">Medium</option>
-                    <option value="low">Low</option>
-                    <option value="other">Other</option>
+                    <option value="high" data-translate="priority.high">High</option>
+                    <option value="medium" data-translate="priority.medium">Medium</option>
+                    <option value="low" data-translate="priority.low">Low</option>
+                    <option value="other" data-translate="common.other">Other</option>
                 </select>
 
-                <label for="frequency">How Often:</label>
+                <label for="frequency" data-translate="goal.frequency">How Often:</label>
                 <select id="frequency" name="frequency">
-                    <option value="">Select frequency</option>
-                    <option value="daily">Daily</option>
-                    <option value="weekly">Weekly</option>
-                    <option value="biweekly">Every Two Weeks</option>
-                    <option value="monthly">Monthly</option>
-                    <option value="yearly">Yearly</option>
-                    <option value="other">Other</option>
+                    <option value="" data-translate="goal.select">Select frequency</option>
+                    <option value="daily" data-translate="frequency.daily">Daily</option>
+                    <option value="weekly" data-translate="frequency.weekly">Weekly</option>
+                    <option value="biweekly" data-translate="frequency.biweekly">Biweekly</option>
+                    <option value="monthly" data-translate="frequency.monthly">Monthly</option>
+                    <option value="yearly" data-translate="frequency.yearly">Yearly</option>
+                    <option value="other" data-translate="common.other">Other</option>
                 </select>
 
-                <label for="custom-frequency">Custom Frequency Occurrence:</label>
+                <label for="custom-frequency" data-translate="goals.customFrequency">Custom Frequency Occurrence:</label>
                 <input
                     type="text"
                     id="custom-frequency"
                     name="custom-frequency"
-                    placeholder="Enter your own frequency"
+                    placeholder="Enter your own frequency" data-translate="goals.customPlaceholder"
                 >
 
-                <label for="goal-amount">Goal Amount:</label>
+                <label for="goal-amount" data-translate="goals.goalAmount">Goal Amount:</label>
                 <input
                     type="number"
                     id="goal-amount"
@@ -118,7 +118,7 @@
                     step="0.01"
                 >
 
-                <label for="goal-progress">Current Progress:</label>
+                <label for="goal-progress" data-translate="goals.currentProgress">Current Progress:</label>
                 <input
                     type="number"
                     id="goal-progress"
@@ -126,14 +126,14 @@
                     step="0.01"
                 >
 
-                <label for="goal-date">Target Date:</label>
+                <label for="goal-date" data-translate="goals.targetDate">Target Date:</label>
                 <input
                     type="date"
                     id="goal-date"
                     name="goal-date"
                 >
 
-                <label for="goal-notes">Notes:</label>
+                <label for="goal-notes" data-translate="common.notes">Notes:</label>
                 <textarea
                     id="goal-notes"
                     name="goal-notes"
