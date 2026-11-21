@@ -134,44 +134,48 @@
 </section>
 
 <section>
-    <h2 data-translate="settings.datetime">Date &amp; Time</h2>
+    <h2 data-translate="daytime.datetime">Date &amp; Time</h2>
 
     <form id="date-time-form">
         <label for="date-format">
-            <span data-translate="settings.dateFormat">Date Format:</span>
+            <span data-translate="daytime.dateFormat">Date Format:</span>
         </label>
         <select id="date-format" name="date-format">
-            <option value="mm-dd-yyyy" data-translate="settings.dateMMDD">MM-DD-YYYY</option>
-            <option value="dd-mm-yyyy" data-translate="settings.dateDDMM">DD-MM-YYYY</option>
-            <option value="yyyy-mm-dd" data-translate="settings.dateYYYYMM">YYYY-MM-DD</option>
+            <option value="mm-dd-yyyy" data-translate="daytime.dateMMDD">MM-DD-YYYY</option>
+            <option value="dd-mm-yyyy" data-translate="daytime.dateDDMM">DD-MM-YYYY</option>
+            <option value="yyyy-mm-dd" data-translate="daytime.dateYYYYMM">YYYY-MM-DD</option>
         </select>
 
         <label for="time-format">
-            <span data-translate="settings.timeFormat">Time Format:</span>
+            <span data-translate="daytime.timeFormat">Time Format:</span>
         </label>
         <select id="time-format" name="time-format">
-            <option value="24-hour" data-translate="settings.time24">24 Hour Time</option>
-            <option value="12-hour" data-translate="settings.time12">12 Hour Time</option>
+            <option value="24-hour" data-translate="daytime.time24">24 Hour Time</option>
+            <option value="12-hour" data-translate="daytime.time12">12 Hour Time</option>
         </select>
 
         <label for="timezone">
-            <span data-translate="settings.timezone">Time Zone:</span>
+            <span data-translate="daytime.timezone">Time Zone:</span>
         </label>
         <select id="timezone" name="timezone">
-            <option value="local" data-translate="settings.localTime">Use Local Time</option>
-            <option value="utc">UTC</option>
+            <option value="local" data-translate="daytime.localTime">Use Local Time</option>
+            <option value="jst" data-translate="daytime.jst">JST</option>
+			<option value="mst" data-translate="daytime.mst">MST</option>
+			<option value="mdt" data-translate="daytime.mdt">MDT</option>
+			<option value="utc" data-translate="daytime.utc">UTC</option>
+	
         </select>
 
         <label for="week-start">
-            <span data-translate="settings.weekStart">First Day of the Week:</span>
+            <span data-translate="week.weekStart">First Day of the Week:</span>
         </label>
         <select id="week-start" name="week-start">
-            <option value="sunday" data-translate="day.sunday">Sunday</option>
-            <option value="monday" data-translate="day.monday">Monday</option>
+            <option value="sunday" data-translate="week.sunday">Sunday</option>
+            <option value="monday" data-translate="week.monday">Monday</option>
         </select>
 
         <button type="submit">
-            <span data-translate="settings.saveDateTime">Save Date &amp; Time Settings</span>
+            <span data-translate="daytime.saveDateTime">Save Date and Time Settings</span>
         </button>
     </form>
 </section>
