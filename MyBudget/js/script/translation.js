@@ -32,7 +32,7 @@ const translation = {
         "settings.budgetAlerts": "Budget alerts",
         "settings.goalReminders": "Goal reminders",
         "settings.monthlySummary": "Monthly financial summary",
-        "settings.saveNotifications": "Save Notification Preferences"
+        "settings.saveNotifications": "Save Notification Preferences",
         "settings.twoFactor": "Two-factor authentication",
         "settings.loginAlerts": "Login alerts",
         "settings.saveSecurity": "Save Security Settings",
@@ -52,8 +52,8 @@ const translation = {
  
 //day of week
         "week.weekStart": "First Day of the Week:",
-        "week.sunday.": "Sunday",
-        "week.monday.": "Monday",
+        "week.sunday": "Sunday",
+        "week.monday": "Monday",
  
 //Account page 
         "account.title": "Account",
@@ -82,16 +82,18 @@ const translation = {
  
 //daytime
         "daytime.date": "Date:",
+        "daytime.daytime": "Date and Time",
         "daytime.saveDisplay": "Save Display Preferences",
         "daytime.dateFormat": "Date Format:",
         "daytime.dateDDMM": "DD-MM-YYYY",
+        "daytime.dateMMDD": "MM-DD-YYYY",
         "daytime.dateYYYYMM": "YYYY-MM-DD",
         "daytime.timeFormat": "Time Format:",
         "daytime.time24": "24 Hour Time",
         "daytime.time12": "12 Hour Time",
         "daytime.timezone": "Time Zone:",
         "daytime.localTime": "Use Local Time",
-        "daytime.saveDateTime": "Save Date & Time Settings",
+        "daytime.saveDateTime": "Save Date and Time Settings",
         "daytime.jst": "JST",
         "daytime.mst": "MST",
         "daytime.mdt": "MDT",
@@ -102,10 +104,10 @@ const translation = {
         "currency.preferredCurrency": "Preferred Currency:",
         "currency.usdollar": "US Dollar ($)",
         "currency.euro": "Euro (€)",
-        "currency.birtishPound": "British Pound (£)",
+        "currency.britishPound": "British Pound (£)",
         "currency.japaneseYen": "Japanese Yen (¥)",
         "currency.canadianDollar": "Canadian Dollar (C$)",
-        "currencyaustralianDollar": "Australian Dollar (A$)",
+        "currency.australianDollar": "Australian Dollar (A$)",
         "currency.swissFranc": "Swiss Franc (CHF)",
         "currency.chineseYuan": "Chinese Yuan (¥)",
         "currency.indianRupee": "Indian Rupee (₹)",
@@ -114,7 +116,7 @@ const translation = {
  //Country
         "country.countryRegion": "Country/Region:",
         "country.australia": "Australia",
-        "countryt.canada": "Canada",
+        "country.canada": "Canada",
         "country.japan": "Japan",
         "country.unitedArabEmirates": "United Arab Emirates",
         "country.unitedKingdom": "United Kingdom",
@@ -139,10 +141,8 @@ const translation = {
  //Income
           "income.title": "Income",
           "income.addIncome": "Add Income",
-          "income.title": "Income",
-          "income.addIncome": "Add Income",
           "income.incomeSource": "Income Source",
-          "income.addIncome": "Add Income",
+          "income.spendableFunds": "Spendable Funds Overview",
           "income.moneyGifts": "Money Gifts",
           "income.giftFrom": "Gift From",
           "income.addMoneyGift": "Add Money Gift",
@@ -150,7 +150,7 @@ const translation = {
           "income.cardName": "Card Name:",
           "income.expirationDate": "Expiration Date",
           "income.addCard": "Add Card",
-          "income.spendableFunds": "Spendable Funds:",
+          "income.spendableIncome": "Spendable Funds:",
 
 //Frequency
           "frequency.amountFrequency": "Frequency:",
@@ -170,8 +170,8 @@ const translation = {
  //Expenses
           "expenses.title": "Espenses",
           "expenses.addExpense": "Add Espense",
-          "expenses.expenseName": "Save spense Name:",
-           "expenses.saveExpense": "Espense",
+          "expenses.expenseName": "Expense Name:",
+           "expenses.saveExpense": "Save Espense",
  
  //expense and summary (in common)
            "outgoing.upcomingBills": "Upcoming Bills",
