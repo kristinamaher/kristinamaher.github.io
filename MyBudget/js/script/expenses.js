@@ -52,19 +52,19 @@ function saveCurrentAccount(account) {
 // ============================================================
 
 const expenseCategoryNames = {
-    housing: "Housing",
-    food: "Food",
-    transportation: "Transportation",
-    utilities: "Utilities",
-    healthcare: "Healthcare",
-    entertainment: "Entertainment",
-    subscription: "Subscription",
-    education: "Education",
-    personal: "Personal",
-    travel: "Travel",
-    shopping: "Shopping",
-    insurance: "Insurance",
-    other: "Other"
+    housing: "category.housing",
+    food: "category.food",
+    transportation: "category.transportation",
+    utilities: "category.utilities",
+    healthcare: "category.healthcare",
+    entertainment: "category.entertainment",
+    subscription: "category.subscription",
+    education: "category.education",
+    personal: "category.personal",
+    travel: "category.travel",
+    shopping: "category.shopping",
+    insurance: "category.insurance",
+    other: "common.other"
 };
 
 // ============================================================
