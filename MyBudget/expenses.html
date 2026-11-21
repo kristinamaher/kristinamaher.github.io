@@ -39,128 +39,133 @@
 		<h1 data-translate="expenses.title">Expenses</h1>
 		
       <section>
-    <h2>Add Expense</h2>
+    <h2 data-translate="expenses.addExpense">Add Expense</h2>
 
     <form id="expense-form">
 
-        <label for="expense-name">Expense Name:</label>
+        <label for="expense-name" data-translate="expenses.expenseName">Expense Name:</label>
         <input type="text" id="expense-name" name="expense-name" required>
 
-        <label for="expense-category">Category:</label>
+        <label for="expense-category" data-translate="category.title">Category:</label>
         <select id="expense-category" name="expense-category" required>
-            <option value="housing">Housing</option>
-            <option value="food">Food</option>
-            <option value="transportation">Transportation</option>
-            <option value="utilities">Utilities</option>
-            <option value="healthcare">Healthcare</option>
-            <option value="entertainment">Entertainment</option>
-            <option value="subscription">Subscription</option>
-			<option value="education">Education</option>
-			<option value="personal">Personal</option>
-			<option value="travel">Travel</option>
-			<option value="shopping">Shopping</option>
-			<option value="insurance">Insurance</option>
-            <option value="other">Other</option>
+            <option value="housing" data-translate="category.housing">Housing</option>
+            <option value="food" data-translate="category.food">Food</option>
+            <option value="transportation" data-translate="category.transportation">Transportation</option>
+            <option value="utilities" data-translate="category.utilities">Utilities</option>
+            <option value="healthcare" data-translate="category.healthcare">Healthcare</option>
+            <option value="entertainment" data-translate="category.entertainment">Entertainment</option>
+            <option value="subscription" data-translate="category.subscription">Subscription</option>
+			<option value="education" data-translate="category.education">Education</option>
+			<option value="personal" data-translate="category.personal">Personal</option>
+			<option value="travel" data-translate="category.travel">Travel</option>
+			<option value="shopping" data-translate="category.shopping">Shopping</option>
+			<option value="insurance" data-translate="category.insurance">Insurance</option>
+            <option value="other" data-translate="common.other">Other</option>
         </select>
 
-        <label for="expense-amount">Amount:</label>
+        <label for="expense-amount" data-translate="common.amount">Amount:</label>
         <input type="number" id="expense-amount" name="expense-amount" min="0.01" step="0.01" required>
 
-		<label for="expense-payment">Payment Method:</label>
+		<label for="expense-payment" data-translate="payment.paymentMethod">Payment Method:</label>
 		<select id="expense-payment" name="expense-payment" required>
-    		<option value="cash">Cash</option>
-   		 	<option value="card">Card</option>
-    		<option value="check">Check</option>
-			<option value="other">Other</option>
+    		<option value="cash" data-translate="payment.cash">Cash</option>
+   		 	<option value="card" data-translate="payment.card">Card</option>
+    		<option value="check" data-translate="payment.check">Check</option>
+			<option value="other" data-translate="common.other">Other</option>
 		</select>
 
-        <label for="expense-date">Date:</label>
+        <label for="expense-date" data-translate="daytime.date">Date:</label>
         <input type="date" id="expense-date" name="expense-date" required>
 
-        <label for="expense-notes">Notes:</label>
+        <label for="expense-notes" data-translate="common.notes">Notes:</label>
         <textarea id="expense-notes" name="expense-notes"></textarea>
 
-        <button type="submit">Save Expense</button>
+        <button type="submit" data-translate="expenses.saveExpense">Save Expense</button>
 
     </form>
 </section>
 
   <section>
-    <h2>Expense Categories</h2>
+    <h2 data-translate="category.expenseCategory">Expense Categories</h2>
 
     <div id="expense-categories">
 
-        <p>Housing: $0.00</p>
-        <p>Food: $0.00</p>
-        <p>Transportation: $0.00</p>
-        <p>Utilities: $0.00</p>
-        <p>Healthcare: $0.00</p>
-        <p>Entertainment: $0.00</p>
-        <p>Subscription: $0.00</p>
-		<p>Education: $0.00</p>
-		<p>Personal: $0.00</p>
-		<p>Travel: $0.00</p>
-		<p>Shopping: $0.00</p>
-		<p>Insurance: $0.00</p>
-        <p>Other: $0.00</p>
+        <p><span data-translate="category.housing">Housing</span>: $0.00</p>
+        <p><span data-translate="category.food">Food</span>: $0.00</p>
+        <p><span data-translate="category.transportation">Transportation</span>: $0.00</p>
+        <p><span data-translate="category.utilities">Utilities</span>: $0.00</p>
+        <p><span data-translate="category.healthcare">Healthcare</span>: $0.00</p>
+        <p><span data-translate="category.entertainment">Entertainment</span>: $0.00</p>
+        <p><span data-translate="category.subscription">Subscription</span>: $0.00</p>
+		<p><span data-translate="category.education">Education</span>: $0.00</p>
+		<p><span data-translate="category.personal">Personal</span>: $0.00</p>
+		<p><span data-translate="category.travel">Travel</span>: $0.00</p>
+		<p><span data-translate="category.shopping">Shopping</span>: $0.00</p>
+		<p><span data-translate="category.insurance">Insurance</span>: $0.00</p>
+        <p><span data-translate="common.other">Other</span>: $0.00</p>
 
     </div>
 </section>
 
 <section>
-    <h2>Upcoming Bills</h2>
+    <h2 data-translate="outgoing.upcomingBills">Upcoming Bills</h2>
 
     <form id="upcoming-bill-form">
 
-        <label for="bill-name">Bill Name:</label>
+        <label for="bill-name" data-translate="expenses.billName">Bill Name:</label>
         <input type="text" id="bill-name" name="bill-name" required>
 
-        <label for="bill-category">Category:</label>
+        <label for="bill-category" data-translate="category.title">Category:</label>
         <select id="bill-category" name="bill-category">
-            <option value="housing">Housing</option>
-            <option value="utilities">Utilities</option>
-            <option value="subscription">Subscription</option>
-            <option value="insurance">Insurance</option>
-            <option value="transportation">Transportation</option>
-            <option value="other">Other</option>
+            <option value="housing" data-translate="category.housing">Housing</option>
+			<option value="healthcare" data-translate="category.healthcare">Healthcare</option>
+			<option value="food" data-translate="category.food">Food</option>
+			<option value="education" data-translate="category.education">Education</option>
+			<option value="shopping" data-translate="category.shopping">Shopping</option>
+			<option value="travel" data-translate="category.travel">Travel</option>
+            <option value="utilities" data-translate="category.utilities">Utilities</option>
+            <option value="subscription" data-translate="category.subscription">Subscription</option>
+            <option value="insurance" data-translate="category.insurance">Insurance</option>
+            <option value="transportation" data-translate="category.transportation">Transportation</option>
+            <option value="other" data-translate="common.other">Other</option>
         </select>
 
-        <label for="bill-amount">Amount:</label>
+        <label for="bill-amount" data-translate="common.amount">Amount:</label>
         <input type="number" id="bill-amount" name="bill-amount" min="0.01" step="0.01" required>
 
-        <label for="bill-due-date">Due Date:</label>
+        <label for="bill-due-date"  data-translate="expenses.dueDate">Due Date:</label>
         <input type="date" id="bill-due-date" name="bill-due-date" required>
 
-        <label for="bill-frequency">Frequency:</label>
+        <label for="bill-frequency" data-translate="frequency.amountFrequency">Frequency:</label>
         <select id="bill-frequency" name="bill-frequency">
-            <option value="one-time">One Time</option>
-            <option value="weekly">Weekly</option>
-            <option value="monthly">Monthly</option>
-            <option value="yearly">Yearly</option>
+            <option value="one-time" data-translate="frequency.oneTime">One Time</option>
+            <option value="weekly" data-translate="frequency.weekly">Weekly</option>
+            <option value="monthly" data-translate="frequency.monthly">Monthly</option>
+            <option value="yearly" data-translate="frequency.yearly">Yearly</option>
         </select>
 
-        <button type="submit">Add Bill</button>
+        <button type="submit" data-translate="expenses.addBill">Add Bill</button>
 
     </form>
 
     <div id="upcoming-bills">
-        <p>No upcoming bills.</p>
+        <p data-translate="outgoing.noUpcomingBills">No upcoming bills.</p>
     </div>
 </section>
   
   <section>
-    <h2>Expense History</h2>
+    <h2 data-translate="expenses.history">Expense History</h2>
 
     <div id="expense-history">
-        <p>No expenses have been added.</p>
+        <p data-translate="expenses.noHistory">No expenses have been added.</p>
     </div>
 </section>
 
 <section>
-    <h2>Total Outgoing</h2>
+    <h2 data-translate="expenses.outgoing">Total Outgoing</h2>
 
     <div id="expense-summary">
-        <strong>Total Expenses:</strong>
+        <strong data-translate="outgoing.totalExpense">Total Expense</strong>:
         <span id="total-expenses">$0.00</span>
     </div>
 </section>
